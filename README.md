@@ -1,57 +1,63 @@
-# Dammaz Kron — Dawi Chronicle (Angular)
+# TTWHM3 Storybook — Dawi & Khorne (Angular)
 
-พอร์ตของเว็บอ่านแบบหนังสือ *Dammaz Kron* (พงศาวดารคนแคระใน Total War: WARHAMMER III)
-จากไฟล์ HTML/CSS/JS หน้าเดียว มาเป็น Angular 18 ตามแนวทางของ
-[angular-v18-ai-skill](https://github.com/flukekazo55/angular-v18-ai-skill).
+เว็บอ่านแบบหนังสือสำหรับทำความเข้าใจ factions ใน **Total War: WARHAMMER III** แบบ lore + gameplay guide ภาษาไทย
+โดยคง visual language แบบพงศาวดารแฟนตาซีเดียวกันทั้งชุด
+
+ตอนนี้มี 2 เล่ม:
+
+- **Dawi Chronicle** — route `/`
+- **Khorne Chronicle** — route `/khorne`
 
 ## รันโปรเจกต์
 
 ```bash
 npm install
 npm start          # ng serve → http://localhost:4200
-npm run build      # โปรดักชันบันด์เดิล → dist/
+npm run build      # production bundle → dist/
 npm test           # unit tests (Karma/Jasmine)
 ```
 
-## สถาปัตยกรรม (ตามสกิล)
+## สถาปัตยกรรม
 
-- **Module-based** ทุก component เป็น `standalone: false`
-- **Lazy loading** — `AppRoutingModule` โหลด `ChronicleModule` ผ่าน `loadChildren`
-- **NgRx** — feature slice `chronicle` (Store + Effects + DevTools) ผ่าน `forFeature`
-- **`inject()`** สำหรับ DI ใน component และ effect
-- **Observable view-model** — component เปิด `vm$` และ template แกะด้วย `*ngIf="vm$ | async as vm"`
+- Angular 18 แบบ **module-based** (`standalone: false`)
+- Lazy routes แยกตาม faction
+- Dawi Chronicle ใช้ NgRx feature slice เดิมสำหรับ reader state
+- Khorne Chronicle แยก reader state ใน component เพื่อไม่ชนกับ feature state ของ Dawi
+- Shared visual language โดย Khorne reuse SCSS ของ Dawi แล้ว override เฉพาะ theme/faction colors
+- รูปทั้งหมดอยู่ใน `public/assets/` และเสิร์ฟผ่าน `/assets/...`
 
-```
+```text
 src/app/
-├── app.module.ts                     # root: StoreModule.forRoot / EffectsModule.forRoot / DevTools
-├── app-routing.module.ts             # lazy loadChildren → ChronicleModule
-├── app.component.*                   # shell: <router-outlet> เท่านั้น
-│
-├── modules/chronicle/
-│   ├── chronicle.module.ts           # forFeature('chronicle') + forFeature([ChronicleEffects])
-│   ├── chronicle.component.*          # smart: vm$, scroll-spy, คีย์ลูกศร, ปุ่ม reader tools
-│   └── chronicle-cover/              # presentational cover + ปุ่ม "เปิดหนังสือ"
-│
-├── services/chronicle/
-│   ├── chronicle.service.ts          # getChapters(): Observable<Chapter[]>
-│   └── chronicle.data.ts             # สารบัญ (static)
-│
-└── shared/
-    ├── stores/chronicle/             # model / action / reducer / effect / selector
-    └── utils/get-error-message.ts
+├── app-routing.module.ts
+└── modules/
+    ├── chronicle/                 # Dawi
+    │   ├── chronicle.component.*
+    │   └── chronicle-cover/
+    └── khorne-chronicle/          # Khorne
+        ├── khorne-chronicle.component.*
+        ├── khorne-chronicle.module.ts
+        └── khorne-cover/
+
+public/assets/
+├── ... Dawi artwork
+├── khorne-cover.jpg
+├── khorne-overview-page.jpg
+├── khorne-lords-page.jpg
+└── khorne-battle-guide-page.jpg
 ```
 
-## State ของ reader (NgRx)
+## Reader UX
 
-`ChronicleState` เก็บ: `chapters`, `activeChapterId`, `fontSize`, `theme`, `loading`, `error`
-— ปุ่ม A− / A+ / ☾ และการไฮไลต์สารบัญตามการเลื่อน ล้วน dispatch action เข้าสโตร์
-(ค่า progress bar เก็บเป็น local field เพื่อไม่ให้ยิง action ทุกพิกเซลที่เลื่อน)
+ทั้งสองเล่มมี:
 
-## หมายเหตุการพอร์ต (จุดที่ปรับจากสกิล)
+- สารบัญ sticky + active chapter
+- reading progress bar
+- A− / A+ ปรับขนาดตัวอักษร
+- day/night reader mode
+- ปุ่มบทก่อนหน้า/ถัดไป
+- keyboard Arrow Left/Right
+- ปุ่มสลับไปอ่านอีก faction จากหน้าปก
 
-- เว็บนี้เป็น **content site** ไม่มี backend จริง — `ChronicleService` จึงคืนข้อมูลด้วย `of(...)`
-  โครง service/effect/error-handling ยังทำตามแพตเทิร์นของสกิล
-- ติดตั้งเฉพาะ **NgRx + Sarabun** ที่ใช้จริง ไม่ได้ดึง PrimeNG/Bootstrap/sweetalert2/dayjs ที่สกิลลิสต์ไว้แต่ไม่ได้ใช้
-- ใช้ **Sarabun** กับ UI chrome และคง **Noto Serif Thai** สำหรับตัวเนื้อหา เพื่อรักษาอารมณ์ "หนังสือ" ของต้นฉบับ
-- ขยาย budget `anyComponentStyle` ใน `angular.json` เพราะ SCSS ของหน้าหนังสือยาวกว่า 4kB
-- รูปภาพอยู่ใน `public/assets/` (เสิร์ฟที่ `/assets`)
+## หมายเหตุ
+
+เว็บนี้เป็น fan-made learning project. Total War, WARHAMMER และเครื่องหมายที่เกี่ยวข้องเป็นทรัพย์สินของเจ้าของลิขสิทธิ์ตามลำดับ

@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.khorne-chronicle {
+  --red: #8b241c;
+  --gold: #b98535;
+  --gold2: #e2bd73;
+  --leather: #1f0d0a;
+  --leather2: #37150f;
+}
+
+.khorne-chronicle .toc {
+  border-color: #73351f;
+}
+
+.khorne-chronicle .toc-link:hover,
+.khorne-chronicle .toc-link.active {
+  background: rgba(151, 48, 31, 0.18);
+}
+
+.khorne-chronicle .figure {
+  border-color: #623126;
+}
+
+.khorne-chronicle .page-nav {
+  background: #30110d;
+  border-color: #743a26;
+}
+
+.khorne-chronicle .blood-mark {
+  color: var(--red);
+  font-weight: 800;
+}
+
+.faction-jump {
+  display: inline-flex;
+  margin-top: 12px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  text-decoration: none;
+  color: #e0b76a;
+  border: 1px solid rgba(224, 183, 106, 0.42);
+  padding: 7px 10px;
+}
+
+.faction-jump:hover {
+  background: rgba(224, 183, 106, 0.08);
+}

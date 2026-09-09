@@ -3,6 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'khorne',
+    loadChildren: () =>
+      import('./modules/khorne-chronicle/khorne-chronicle.module').then(
+        (m) => m.KhorneChronicleModule,
+      ),
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./modules/chronicle/chronicle.module').then((m) => m.ChronicleModule),

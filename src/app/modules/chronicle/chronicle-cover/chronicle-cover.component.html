@@ -10,10 +10,12 @@
       ความหมายของ “ความแค้น”, Legendary Lords ไปจนถึงระบบในเกมอย่าง Great Book of
       Grudges และ The Deeps
     </p>
-    <button type="button" class="open-book" (click)="open.emit()">เปิดหนังสือ</button>
+    <div class="cover-actions">
+      <button type="button" class="open-book" (click)="open.emit()">เปิดหนังสือ</button>
+      <a class="faction-switch" routerLink="/khorne">อ่านพงศาวดาร Khorne →</a>
+    </div>
     <div class="cover-note">
-      ภาพประกอบในหน้าเว็บลิงก์จากสื่อทางการของ Total War / Creative Assembly •
-      เนื้อหาเรียบเรียงใหม่เพื่อการเรียนรู้
+      ภาพประกอบและเนื้อหาเรียบเรียงใหม่เพื่อการเรียนรู้ • ตอนนี้มี Dawi และ Khorne ในชุด TTWHM3 Storybook
     </div>
   </div>
 </section>

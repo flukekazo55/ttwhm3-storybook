@@ -2,59 +2,60 @@ import {
   Component,
   ElementRef,
   HostListener,
-  OnInit,
   QueryList,
   ViewChild,
   ViewChildren,
-  inject,
 } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 
-import { ChronicleState } from '../../shared/stores/chronicle/chronicle.model';
-import { selectChronicleVm } from '../../shared/stores/chronicle/chronicle.selector';
-import {
-  loadChapters,
-  setActiveChapter,
-  increaseFontSize,
-  decreaseFontSize,
-  toggleTheme,
-} from '../../shared/stores/chronicle/chronicle.action';
+interface TocChapter {
+  id: string;
+  numeral: string;
+  title: string;
+}
 
 @Component({
-  selector: 'app-chronicle',
-  templateUrl: './chronicle.component.html',
-  styleUrl: './chronicle.component.scss',
+  selector: 'app-khorne-chronicle',
+  templateUrl: './khorne-chronicle.component.html',
+  styleUrls: [
+    '../chronicle/chronicle.component.scss',
+    './khorne-chronicle.component.scss',
+  ],
 })
-export class ChronicleComponent implements OnInit {
-  private store = inject(Store);
+export class KhorneChronicleComponent {
+  readonly chapters: TocChapter[] = [
+    { id: 'ch1', numeral: 'I', title: 'Khorne คือใคร?' },
+    { id: 'ch2', numeral: 'II', title: 'Realm of Chaos และ Brass Citadel' },
+    { id: 'ch3', numeral: 'III', title: 'เลือด กะโหลก และวิถีของ Khorne' },
+    { id: 'ch4', numeral: 'IV', title: 'Bloodletting, Skulls และ Blood Hosts' },
+    { id: 'ch5', numeral: 'V', title: 'Legendary Lords' },
+    { id: 'ch6', numeral: 'VI', title: 'กองทัพของ Khorne' },
+    { id: 'ch7', numeral: 'VII', title: 'วิธีเล่นและการจัดทัพ' },
+    { id: 'ch8', numeral: 'VIII', title: 'ถ้าจะเริ่มเล่นใน WH3' },
+    { id: 'sources', numeral: 'IX', title: 'หมายเหตุและแหล่งอ่านต่อ' },
+  ];
 
-  vm$: Observable<ChronicleState> = this.store.select(selectChronicleVm);
   progress = 0;
-
-  private activeId: string | null = null;
+  fontSize = 17;
+  theme: 'day' | 'night' = 'day';
+  activeChapterId = 'ch1';
 
   @ViewChild('book') private book?: ElementRef<HTMLElement>;
   @ViewChildren('chapterEl') private chapterEls?: QueryList<ElementRef<HTMLElement>>;
-
-  ngOnInit(): void {
-    this.store.dispatch(loadChapters());
-  }
 
   onOpenBook(): void {
     this.book?.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
 
   onFontLarger(): void {
-    this.store.dispatch(increaseFontSize());
+    this.fontSize = Math.min(23, this.fontSize + 1);
   }
 
   onFontSmaller(): void {
-    this.store.dispatch(decreaseFontSize());
+    this.fontSize = Math.max(14, this.fontSize - 1);
   }
 
   onToggleTheme(): void {
-    this.store.dispatch(toggleTheme());
+    this.theme = this.theme === 'night' ? 'day' : 'night';
   }
 
   goToChapter(id: string): void {
@@ -74,12 +75,7 @@ export class ChronicleComponent implements OnInit {
     const doc = document.documentElement;
     const max = doc.scrollHeight - window.innerHeight;
     this.progress = max > 0 ? (window.scrollY / max) * 100 : 0;
-
-    const activeId = this.currentChapterId();
-    if (activeId && activeId !== this.activeId) {
-      this.activeId = activeId;
-      this.store.dispatch(setActiveChapter({ id: activeId }));
-    }
+    this.activeChapterId = this.currentChapterId() ?? this.activeChapterId;
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -96,19 +92,20 @@ export class ChronicleComponent implements OnInit {
     }
   }
 
-  private chapters(): HTMLElement[] {
+  private chaptersElements(): HTMLElement[] {
     return (this.chapterEls?.toArray() ?? []).map((ref) => ref.nativeElement);
   }
 
   private chapterById(id: string): HTMLElement | undefined {
-    return this.chapters().find((el) => el.id === id);
+    return this.chaptersElements().find((el) => el.id === id);
   }
 
   private currentChapterId(): string | null {
-    const chapters = this.chapters();
+    const chapters = this.chaptersElements();
     if (!chapters.length) {
       return null;
     }
+
     const threshold = window.scrollY + window.innerHeight * 0.35;
     let active = chapters[0];
     for (const el of chapters) {
@@ -120,12 +117,13 @@ export class ChronicleComponent implements OnInit {
   }
 
   private stepChapter(delta: number): void {
-    const chapters = this.chapters();
+    const chapters = this.chaptersElements();
     if (!chapters.length) {
       return;
     }
+
     const currentId = this.currentChapterId();
-    const index = chapters.findIndex((el) => el.id === currentId);
+    const index = Math.max(0, chapters.findIndex((el) => el.id === currentId));
     const next = Math.min(chapters.length - 1, Math.max(0, index + delta));
     chapters[next].scrollIntoView({ behavior: 'smooth' });
   }

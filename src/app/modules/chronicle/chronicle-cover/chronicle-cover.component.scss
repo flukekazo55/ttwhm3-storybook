@@ -43,13 +43,8 @@
   top: 18px;
 }
 
-.cover-inner::before {
-  left: 22px;
-}
-
-.cover-inner::after {
-  right: 22px;
-}
+.cover-inner::before { left: 22px; }
+.cover-inner::after { right: 22px; }
 
 .rune-strip {
   letter-spacing: 0.42em;
@@ -115,8 +110,27 @@ h1 span {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-.open-book:hover {
-  filter: brightness(1.08);
+.open-book:hover { filter: brightness(1.08); }
+
+.cover-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.faction-switch {
+  border: 1px solid rgba(232, 198, 117, 0.55);
+  color: #f2d9a5;
+  padding: 12px 18px;
+  text-decoration: none;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.faction-switch:hover {
+  background: rgba(232, 198, 117, 0.08);
 }
 
 .cover-note {
@@ -126,7 +140,5 @@ h1 span {
 }
 
 @media (max-width: 650px) {
-  .cover-inner {
-    padding: 46px 20px;
-  }
+  .cover-inner { padding: 46px 20px; }
 }
