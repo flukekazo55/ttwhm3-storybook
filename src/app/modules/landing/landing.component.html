@@ -1,0 +1,38 @@
+<section class="landing">
+  <div class="landing-inner">
+    <header class="masthead">
+      <div class="rune-strip">ᛏ ᛏ ᚹ ᚺ ᛗ · ᛊ ᛏ ᛟ ᚱ ᚤ ᛒ ᛟ ᛟ ᚲ</div>
+      <h1>TTWHM3 STORYBOOK<span>Chronicles of the Old World</span></h1>
+      <p class="lede">
+        เว็บอ่านแบบหนังสือสำหรับทำความเข้าใจ factions ใน
+        <b>Total War: WARHAMMER III</b> แบบ lore + gameplay guide ภาษาไทย
+        เลือกพงศาวดารที่อยากเปิดอ่านได้เลย
+      </p>
+    </header>
+
+    <div class="shelf">
+      <a class="faction-card" *ngFor="let f of factions" [ngClass]="f.id" [routerLink]="f.route">
+        <div class="card-art" [style.background-image]="'url(' + f.cover + ')'">
+          <div class="seal">{{ f.sigil }}</div>
+        </div>
+        <div class="card-body">
+          <div class="card-kicker">{{ f.bookSubtitle }}</div>
+          <h2>{{ f.bookTitle }}</h2>
+          <div class="card-thai">{{ f.thaiTitle }}</div>
+          <p class="card-tagline">{{ f.tagline }}</p>
+          <ul class="card-tags">
+            <li *ngFor="let tag of f.highlights">{{ tag }}</li>
+          </ul>
+          <div class="card-foot">
+            <span class="card-meta">{{ f.chapters }} บท</span>
+            <span class="card-cta">เปิดอ่าน →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <footer class="landing-note">
+      Fan-made learning project • Total War, WARHAMMER และเครื่องหมายที่เกี่ยวข้องเป็นทรัพย์สินของเจ้าของลิขสิทธิ์ตามลำดับ
+    </footer>
+  </div>
+</section>

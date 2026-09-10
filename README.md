@@ -3,9 +3,10 @@
 เว็บอ่านแบบหนังสือสำหรับทำความเข้าใจ factions ใน **Total War: WARHAMMER III** แบบ lore + gameplay guide ภาษาไทย
 โดยคง visual language แบบพงศาวดารแฟนตาซีเดียวกันทั้งชุด
 
-ตอนนี้มี 2 เล่ม:
+ตอนนี้มี 2 เล่ม เข้าถึงผ่านหน้า landing:
 
-- **Dawi Chronicle** — route `/`
+- **Landing (เลือก faction)** — route `/`
+- **Dawi Chronicle** — route `/dawi`
 - **Khorne Chronicle** — route `/khorne`
 
 ## รันโปรเจกต์
@@ -30,6 +31,7 @@ npm test           # unit tests (Karma/Jasmine)
 src/app/
 ├── app-routing.module.ts
 └── modules/
+    ├── landing/                   # หน้าเลือก faction
     ├── chronicle/                 # Dawi
     │   ├── chronicle.component.*
     │   └── chronicle-cover/
@@ -56,7 +58,7 @@ public/assets/
 - day/night reader mode
 - ปุ่มบทก่อนหน้า/ถัดไป
 - keyboard Arrow Left/Right
-- ปุ่มสลับไปอ่านอีก faction จากหน้าปก
+- ปุ่มสลับไปอ่านอีก faction และกลับหน้าเลือก faction จากหน้าปก
 
 ## หมายเหตุ
 

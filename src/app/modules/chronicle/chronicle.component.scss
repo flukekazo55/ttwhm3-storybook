@@ -99,18 +99,6 @@
   min-height: 92vh;
 }
 
-.reader::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(transparent, rgba(86, 53, 27, 0.28) 6%, rgba(86, 53, 27, 0.28) 94%, transparent);
-  box-shadow: 0 0 18px rgba(64, 36, 18, 0.25);
-  pointer-events: none;
-}
-
 .progress {
   height: 4px;
   background: #7f6545;
@@ -565,10 +553,6 @@
   .toc-nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .reader::before {
-    display: none;
   }
 
   .chapter {
