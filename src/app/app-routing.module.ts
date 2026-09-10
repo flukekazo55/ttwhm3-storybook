@@ -8,6 +8,13 @@ const routes: Routes = [
       import('./modules/chronicle/chronicle.module').then((m) => m.ChronicleModule),
   },
   {
+    path: 'empire',
+    loadChildren: () =>
+      import('./modules/empire-chronicle/empire-chronicle.module').then(
+        (m) => m.EmpireChronicleModule,
+      ),
+  },
+  {
     path: 'khorne',
     loadChildren: () =>
       import('./modules/khorne-chronicle/khorne-chronicle.module').then(

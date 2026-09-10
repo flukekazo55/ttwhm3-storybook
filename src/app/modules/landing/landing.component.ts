@@ -34,6 +34,19 @@ export class LandingComponent {
       highlights: ['Karaz Ankor', 'Book of Grudges', 'The Deeps'],
     },
     {
+      id: 'empire',
+      route: '/empire',
+      sigil: '☄',
+      bookTitle: 'THE EMPIRE',
+      bookSubtitle: 'The Imperial Chronicle',
+      thaiTitle: 'พงศาวดารจักรวรรดิมนุษย์',
+      tagline:
+        'Sigmar ผู้รวบรวมเผ่ามนุษย์, Elector Counts และจังหวัด, Karl Franz, Colleges of Magic ไปจนถึงดินปืน ปืนใหญ่ และ Steam Tank',
+      cover: '/assets/empire-cover.svg',
+      chapters: 10,
+      highlights: ['Sigmar', 'Elector Counts', 'Steam Tank'],
+    },
+    {
       id: 'khorne',
       route: '/khorne',
       sigil: '☠',

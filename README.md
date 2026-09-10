@@ -1,12 +1,13 @@
-# TTWHM3 Storybook — Dawi & Khorne (Angular)
+# TTWHM3 Storybook — Dawi, Empire & Khorne (Angular)
 
 เว็บอ่านแบบหนังสือสำหรับทำความเข้าใจ factions ใน **Total War: WARHAMMER III** แบบ lore + gameplay guide ภาษาไทย
 โดยคง visual language แบบพงศาวดารแฟนตาซีเดียวกันทั้งชุด
 
-ตอนนี้มี 2 เล่ม เข้าถึงผ่านหน้า landing:
+ตอนนี้มี 3 เล่ม เข้าถึงผ่านหน้า landing:
 
 - **Landing (เลือก faction)** — route `/`
 - **Dawi Chronicle** — route `/dawi`
+- **Empire Chronicle** — route `/empire`
 - **Khorne Chronicle** — route `/khorne`
 
 ## รันโปรเจกต์
@@ -23,8 +24,8 @@ npm test           # unit tests (Karma/Jasmine)
 - Angular 18 แบบ **module-based** (`standalone: false`)
 - Lazy routes แยกตาม faction
 - Dawi Chronicle ใช้ NgRx feature slice เดิมสำหรับ reader state
-- Khorne Chronicle แยก reader state ใน component เพื่อไม่ชนกับ feature state ของ Dawi
-- Shared visual language โดย Khorne reuse SCSS ของ Dawi แล้ว override เฉพาะ theme/faction colors
+- Khorne และ Empire Chronicle แยก reader state ใน component เพื่อไม่ชนกับ feature state ของ Dawi
+- Shared visual language โดย Khorne และ Empire reuse SCSS ของ Dawi แล้ว override เฉพาะ theme/faction colors
 - รูปทั้งหมดอยู่ใน `public/assets/` และเสิร์ฟผ่าน `/assets/...`
 
 ```text
@@ -35,6 +36,9 @@ src/app/
     ├── chronicle/                 # Dawi
     │   ├── chronicle.component.*
     │   └── chronicle-cover/
+    ├── empire-chronicle/          # The Empire (ปกอยู่ใน component เดียว)
+    │   ├── empire-chronicle.component.*
+    │   └── empire-chronicle.module.ts
     └── khorne-chronicle/          # Khorne
         ├── khorne-chronicle.component.*
         ├── khorne-chronicle.module.ts
@@ -45,12 +49,13 @@ public/assets/
 ├── khorne-cover.jpg
 ├── khorne-overview-page.jpg
 ├── khorne-lords-page.jpg
-└── khorne-battle-guide-page.jpg
+├── khorne-battle-guide-page.jpg
+└── empire-*.svg                # ภาพชุด Empire เป็นเวกเตอร์
 ```
 
 ## Reader UX
 
-ทั้งสองเล่มมี:
+ทุกเล่มมี:
 
 - สารบัญ sticky + active chapter
 - reading progress bar
