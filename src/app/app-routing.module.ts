@@ -28,12 +28,18 @@ const routes: Routes = [
         (m) => m.HighElvesModule,
       ),
   },
-
   {
     path: 'skaven',
     loadChildren: () =>
       import('./modules/skaven/skaven.module').then(
         (m) => m.SkavenModule,
+      ),
+  },
+  {
+    path: 'grand-cathay',
+    loadChildren: () =>
+      import('./modules/grand-cathay/grand-cathay.module').then(
+        (m) => m.GrandCathayModule,
       ),
   },
   {

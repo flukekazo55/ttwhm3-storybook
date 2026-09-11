@@ -74,5 +74,16 @@ export class LandingComponent {
       chapters: 10,
       highlights: ['Under-Empire', 'Warpstone', 'Warlock Engineers'],
     },
+    {
+      id: 'grand-cathay',
+      route: '/grand-cathay',
+      sigil: '龍',
+      bookTitle: 'THE GRAND CATHAY CHRONICLE',
+      bookSubtitle: 'A Grand Cathay Chronicle',
+      thaiTitle: 'พงศาวดารแห่งจักรวรรดิมังกรสวรรค์',
+      cover: '/assets/grand-cathay/grand-cathay_cover.png',
+      chapters: 10,
+      highlights: ['Great Bastion', 'Harmony', 'Dragon Siblings'],
+    },
   ];
 }

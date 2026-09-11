@@ -98,6 +98,12 @@ h1 span {
   background: linear-gradient(145deg, rgba(54, 17, 12, 0.94), rgba(18, 8, 7, 0.96));
 }
 
+.faction-card.grand-cathay {
+  --accent: #4e9d83;
+  --accent2: #e6c46b;
+  background: linear-gradient(145deg, rgba(21, 72, 61, 0.95), rgba(18, 29, 25, 0.97));
+}
+
 .faction-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 32px 74px rgba(0, 0, 0, 0.7), inset 0 0 60px rgba(232, 198, 117, 0.12);

@@ -1,0 +1,326 @@
+<div class="chronicle grand-cathay-chronicle" [class.night]="theme === 'night'" [style.--reader-size]="fontSize + 'px'">
+  <section class="cover" id="grand-cathay-cover">
+    <div class="cover-inner">
+      <div class="cover-kicker">Celestial Empire • Imperial Archive</div>
+      <div class="seal">龍</div>
+      <h1>GRAND CATHAY<span>The Chronicle of the Celestial Empire</span></h1>
+      <div class="thai-title">พงศาวดารแห่งจักรวรรดิมังกรสวรรค์</div>
+      <p class="subtitle">
+        เว็บอ่านแบบหนังสือสำหรับทำความเข้าใจ <b>Grand Cathay</b> ในจักรวาล Warhammer และ
+        <b>Total War: WARHAMMER III</b> ตั้งแต่ Celestial Dragon Emperor, Great Bastion,
+        ระบบ Harmony และ Ivory Road ไปจนถึงเหล่า Dragon Siblings และ Tiger Warriors รุ่นล่าสุดปี 2026
+      </p>
+      <div class="cover-actions">
+        <button type="button" class="open-book" (click)="onOpenBook()">เปิดหนังสือ</button>
+        <a class="faction-switch" routerLink="/dawi">อ่าน Dawi</a>
+        <a class="faction-switch" routerLink="/empire">อ่าน Empire</a>
+        <a class="faction-switch" routerLink="/high-elves">อ่าน High Elves</a>
+        <a class="faction-switch" routerLink="/skaven">อ่าน Skaven</a>
+        <a class="faction-switch" routerLink="/">เลือก faction อื่น</a>
+      </div>
+      <div class="cover-note">
+        รูปใน assets เป็น placeholder ชั่วคราว ตั้งชื่อแยกไว้ให้เอาภาพจริงมาแทนภายหลังได้ง่าย
+      </div>
+    </div>
+  </section>
+
+  <main class="book-shell" #book>
+    <aside class="toc">
+      <h2 class="toc-title">สารบัญ</h2>
+      <div class="toc-sub">THE CHRONICLE OF GRAND CATHAY • ฉบับอ่านง่าย</div>
+      <nav class="toc-nav">
+        <a
+          *ngFor="let ch of chapters"
+          class="toc-link"
+          [class.active]="ch.id === activeChapterId"
+          (click)="goToChapter(ch.id)"
+        >
+          <span class="num">{{ ch.numeral }}</span> {{ ch.title }}
+        </a>
+      </nav>
+      <div class="reader-tools">
+        <button type="button" title="ลดขนาดตัวอักษร" (click)="onFontSmaller()">A−</button>
+        <button type="button" title="เพิ่มขนาดตัวอักษร" (click)="onFontLarger()">A+</button>
+        <button type="button" title="สลับโหมดกลางคืน" (click)="onToggleTheme()">
+          {{ theme === 'night' ? '☀' : '☾' }}
+        </button>
+      </div>
+      <div class="version">
+        <b>Era focus:</b> Immortal Empires / Total War: WARHAMMER III<br />
+        อัปเดตเนื้อหา Grand Cathay ถึง Patch 8.1 และ Bhashiva Character Pack ปี 2026
+      </div>
+    </aside>
+
+    <article class="reader">
+      <div class="progress"><span [style.width.%]="progress"></span></div>
+
+      <section class="chapter" id="ch1" #chapterEl>
+        <div class="chapter-kicker">Chapter I • The Celestial Empire</div>
+        <h2>Grand Cathay คือใคร?<small>จักรวรรดิมนุษย์ขนาดมหึมาทางตะวันออกที่ปกครองโดยตระกูลมังกรอมตะ</small></h2>
+        <div class="spread">
+          <div>
+            <p class="lead dropcap">
+              <b>Grand Cathay</b> คือหนึ่งในอารยธรรมมนุษย์เก่าแก่และทรงอำนาจที่สุดของโลก Warhammer
+              ตั้งอยู่ทางตะวันออกไกล มีเมืองใหญ่ ระบบราชการ กองทัพประจำการ เทคโนโลยีดินปืน
+              เวทมนตร์ และสิ่งประดิษฐ์ที่ผสมผสานกันอย่างเป็นระเบียบ
+            </p>
+            <p>
+              จักรวรรดิถูกชี้นำโดย <b>Celestial Dragon Emperor</b> และ <b>Moon Empress</b>
+              ขณะที่ลูก ๆ ของทั้งสองหรือเหล่า Dragon Siblings รับหน้าที่ดูแลภูมิภาคต่าง ๆ
+              ตั้งแต่กำแพง Great Bastion ทางเหนือ ไปจนถึงศูนย์กลางการค้าและเส้นทาง Ivory Road ทางตะวันตก
+            </p>
+            <div class="callout">
+              <strong>จำง่าย:</strong> Grand Cathay = “แนวรบเป็นระเบียบ + ยิงไกล/ปืนใหญ่ + Harmony +
+              มังกร + เครื่องจักรและสิ่งสร้างยักษ์” เล่นเด่นเมื่อวางตำแหน่งกองทัพดีและคุมจังหวะสนามรบ
+            </div>
+          </div>
+          <figure class="figure">
+            <img src="/assets/grand-cathay/grand-cathay_overview.png" alt="Grand Cathay overview placeholder" />
+            <figcaption>ภาพรวม Grand Cathay — เปลี่ยนไฟล์นี้ด้วยภาพรวม faction ที่คุณต้องการได้ภายหลัง</figcaption>
+          </figure>
+        </div>
+        <div class="mechanics">
+          <div class="mechanic"><div class="icon">☯</div><h3>Harmony</h3><p>ยูนิต Yin และ Yang ที่อยู่สนับสนุนกันจะทำงานมีประสิทธิภาพขึ้น</p></div>
+          <div class="mechanic"><div class="icon">龍</div><h3>Dragon Blood</h3><p>ราชวงศ์มังกรและผู้สืบสายเลือดเป็นแกนหลักทั้งด้านการเมืองและเวทมนตร์</p></div>
+          <div class="mechanic"><div class="icon">砲</div><h3>Gunpowder</h3><p>Crossbows, Crane Gunners, Grand Cannons และ Fire Rain Rockets ทำให้แนวยิงของ Cathay อันตรายมาก</p></div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch2" #chapterEl>
+        <div class="chapter-kicker">Chapter II • Dragon Throne & Great Bastion</div>
+        <h2>จักรวรรดิมังกรสวรรค์และ Great Bastion</h2>
+        <div class="spread">
+          <figure class="figure">
+            <img src="/assets/grand-cathay/grand-cathay_bastion.png" alt="Great Bastion placeholder" />
+            <figcaption>Great Bastion — กำแพงโบราณที่ปกป้องเขตเหนือของ Cathay จากกองทัพ Chaos และชนเผ่านอกกำแพง</figcaption>
+          </figure>
+          <div>
+            <p class="lead">
+              <b>Great Bastion</b> คือหนึ่งในสัญลักษณ์สำคัญที่สุดของ Grand Cathay กำแพงขนาดมหึมานี้ตั้งอยู่ตามแนวชายแดนเหนือ
+              และรับการโจมตีจาก Marauders, Chaos และภัยจาก Chaos Wastes มานานนับพันปี
+            </p>
+            <p>
+              ผู้ที่มีบทบาทโดยตรงต่อแนวป้องกันนี้คือ <b>Miao Ying, the Storm Dragon</b> ผู้ปกครอง Northern Provinces
+              และนครอุตสาหกรรม Nan-Gau. ภายใต้เธอ Jade Warriors, Gate Masters และเครื่องจักรสงครามถูกใช้เป็นกำลังหลักในการตรึงแนวกำแพง
+            </p>
+            <div class="quote">
+              Cathay ไม่ได้มอง Great Bastion เป็นเพียงกำแพงเมือง แต่เป็นแนวป้องกันของทั้งจักรวรรดิและเส้นแบ่งระหว่างระเบียบกับความวุ่นวาย
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch3" #chapterEl>
+        <div class="chapter-kicker">Chapter III • Provinces of the Dragon Empire</div>
+        <h2>เมืองและมณฑลสำคัญ<small>Grand Cathay มีศูนย์กลางการเมือง การทหาร และการค้าหลายแห่ง ไม่ได้ผูกอยู่กับเมืองเดียว</small></h2>
+        <p class="lead">
+          ดินแดนของ Cathay แบ่งออกเป็นมณฑลและเมืองสำคัญที่มีหน้าที่ต่างกัน บางแห่งเป็นป้อมชายแดน บางแห่งเป็นศูนย์กลางราชสำนัก
+          ขณะที่เมืองตะวันตกเชื่อมต่อเส้นทางค้ากับ Mountains of Mourn และโลกภายนอก
+        </p>
+        <div class="province-grid">
+          <div class="province"><strong>Wei-Jin</strong><span>เมืองหลวงและศูนย์กลางราชสำนักของ Grand Cathay เชื่อมโยงกับอำนาจของ Dragon Emperor และ Jade Court</span></div>
+          <div class="province"><strong>Nan-Gau</strong><span>ฐานสำคัญของ Miao Ying และ Northern Provinces เมืองอุตสาหกรรมที่คอยสนับสนุน Great Bastion</span></div>
+          <div class="province"><strong>Shang-Yang</strong><span>เมืองการค้าตะวันตกที่เชื่อมโลก Cathay กับเส้นทาง Ivory Road และภูมิภาค Mountains of Mourn</span></div>
+          <div class="province"><strong>Western Provinces</strong><span>อาณาเขตของ Zhao Ming เน้นการค้า การเล่นแร่แปรธาตุ และการรับมือภัยทางชายแดนตะวันตก</span></div>
+          <div class="province"><strong>Central Provinces</strong><span>พื้นที่ที่สัมพันธ์กับ Yuan Bo และ Jade Court ซึ่งมีบทบาทด้านราชการ ข่าวกรอง และการควบคุมรัฐ</span></div>
+          <div class="province"><strong>Great Bastion Gates</strong><span>ประตูและป้อมปราการเหนือเป็นจุดยุทธศาสตร์ที่ต้องรักษาไว้เพื่อกันการรุกรานจาก Chaos Wastes</span></div>
+        </div>
+        <figure class="figure">
+          <img src="/assets/grand-cathay/grand-cathay_dragon-court.png" alt="Cathayan dragon court placeholder" />
+          <figcaption>Dragon Court และเมืองสำคัญ — ไฟล์สำหรับแทนด้วยภาพ Wei-Jin, Nan-Gau หรือแผนที่ Grand Cathay</figcaption>
+        </figure>
+      </section>
+
+      <section class="chapter" id="ch4" #chapterEl>
+        <div class="chapter-kicker">Chapter IV • Harmony of Heaven and Earth</div>
+        <h2>Harmony, Yin–Yang และเวทมนตร์</h2>
+        <div class="spread">
+          <div>
+            <p class="lead">
+              แนวคิด <b>Harmony</b> เป็นหัวใจของ Cathay ทั้งในเนื้อเรื่องและเกม ยูนิตสาย <b>Yin</b> มักเป็นกำลังยิงหรือสนับสนุน
+              ส่วน <b>Yang</b> มักเป็นหน่วยแนวหน้าและประชิด การวางทั้งสองฝ่ายให้อยู่ใกล้กันทำให้ได้รับ Battle Harmony และสร้างแนวรบที่แข็งแรงขึ้น
+            </p>
+            <p>
+              ฝั่งเวทมนตร์ Cathay มี Lore of Yin, Lore of Yang และผู้ใช้เวทอย่าง Dragon-Blooded Shugengan,
+              Astromancer และ Alchemist. ราชวงศ์มังกรยังเชื่อมโยงกับพลังธาตุและ Winds of Magic ในระดับที่มนุษย์ทั่วไปเทียบได้ยาก
+            </p>
+            <div class="army-flow">
+              <div class="army-step"><strong>Yang Frontline</strong><span>Jade Warriors / Guards</span></div>
+              <div class="arrow">+</div>
+              <div class="army-step"><strong>Yin Missile</strong><span>Crossbows / Gunners</span></div>
+              <div class="arrow">→</div>
+              <div class="army-step"><strong>Harmony</strong><span>Formation buffs</span></div>
+            </div>
+          </div>
+          <figure class="figure">
+            <img src="/assets/grand-cathay/grand-cathay_harmony.png" alt="Grand Cathay harmony placeholder" />
+            <figcaption>Harmony — แนะนำให้ใช้ภาพ formation ที่เห็นแนว Jade Warriors และหน่วยยิงอยู่สนับสนุนกัน</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch5" #chapterEl>
+        <div class="chapter-kicker">Chapter V • Lords of Grand Cathay</div>
+        <h2>Legendary Lords<small>รายชื่อปัจจุบันในปี 2026 มี 4 ตัวที่เล่นได้</small></h2>
+        <figure class="figure">
+          <img src="/assets/grand-cathay/grand-cathay_lords.png" alt="Grand Cathay legendary lords placeholder" />
+          <figcaption>Legendary Lords — Miao Ying, Zhao Ming, Yuan Bo และ Bhashiva</figcaption>
+        </figure>
+        <div class="lord-grid">
+          <div class="lord">
+            <h3>Miao Ying</h3>
+            <div class="title">The Storm Dragon • Northern Provinces</div>
+            <p>ผู้พิทักษ์ Great Bastion เด่นกับกองทัพสายยิง การตั้งแนวรับ และแปลงร่างเป็นมังกรได้</p>
+            <span class="tag">Dragon</span><span class="tag">Ranged</span>
+          </div>
+          <div class="lord">
+            <h3>Zhao Ming</h3>
+            <div class="title">The Iron Dragon • Western Provinces</div>
+            <p>ผู้ปกครองเขตตะวันตก เชื่อมโยงกับ Alchemy และการค้า เล่นยืดหยุ่นทั้งสายประชิดและเวทมนตร์</p>
+            <span class="tag">Dragon</span><span class="tag">Alchemy</span>
+          </div>
+          <div class="lord">
+            <h3>Yuan Bo</h3>
+            <div class="title">The Jade Dragon • Jade Court</div>
+            <p>ผู้ดูแลราชการและสายลับของ Cathay เน้นการควบคุมแคมเปญ พลังเวท และอำนาจของ Jade Court</p>
+            <span class="tag">Dragon</span><span class="tag">Administration</span>
+          </div>
+          <div class="lord">
+            <h3>Bhashiva</h3>
+            <div class="title">The White Tiger • Claws of the White Tiger</div>
+            <p>เพิ่มเข้ามาในปี 2026 พร้อม Tiger Warriors เล่นแตกต่างจากกองทัพ Cathay ปกติด้วยความเร็ว การซุ่มโจมตี และการตี flank</p>
+            <span class="tag">Tiger Warriors</span><span class="tag">Ambush</span>
+          </div>
+        </div>
+        <div class="callout">
+          <strong>อัปเดต 2026:</strong> Bhashiva Character Pack วางจำหน่ายเดือนพฤษภาคม 2026 และทำให้ Grand Cathay มี Legendary Lord ที่เล่นได้ 4 ตัว
+        </div>
+      </section>
+
+      <section class="chapter" id="ch6" #chapterEl>
+        <div class="chapter-kicker">Chapter VI • The Ivory Road</div>
+        <h2>Ivory Road และกองคาราวาน</h2>
+        <div class="spread">
+          <figure class="figure">
+            <img src="/assets/grand-cathay/grand-cathay_caravan.png" alt="Ivory Road caravan placeholder" />
+            <figcaption>Ivory Road — ระบบส่งคาราวานออกเดินทางเพื่อแลกผลตอบแทนกับความเสี่ยงระหว่างทาง</figcaption>
+          </figure>
+          <div>
+            <p class="lead">
+              <b>Ivory Road</b> คือเส้นทางการค้าสำคัญที่เชื่อม Cathay กับโลกตะวันตก ผู้เล่นสามารถส่งกองคาราวานออกเดินทาง
+              ผ่านดินแดนอันตราย เจอเหตุการณ์สุ่ม การโจมตี และโอกาสได้รับเงิน ไอเท็ม หรือกำลังเสริม
+            </p>
+            <p>
+              ระบบนี้สะท้อนว่าความมั่งคั่งของ Grand Cathay ไม่ได้มาจากภายในประเทศเท่านั้น แต่ยังมาจากการค้ากับเผ่าอื่น
+              และการคุมเส้นทางผ่าน Mountains of Mourn อีกด้วย
+            </p>
+            <div class="quote">
+              ใน Patch 8.0 ปี 2026 Creative Assembly เพิ่มความหลากหลายของ encounter บน Ivory Road และ Bhashiva ก็มีรูปแบบคาราวานของตนเอง
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch7" #chapterEl>
+        <div class="chapter-kicker">Chapter VII • The Hosts of Cathay</div>
+        <h2>กองทัพ Grand Cathay<small>ตั้งแนวรับให้แน่น ใช้ Harmony แล้วปล่อยอาวุธยิงและปืนใหญ่ทำงาน</small></h2>
+        <figure class="figure">
+          <img src="/assets/grand-cathay/grand-cathay_army.png" alt="Grand Cathay army placeholder" />
+          <figcaption>กองทัพ Grand Cathay — เหมาะกับภาพ battle line ที่เห็น infantry, crossbows, artillery และ flying units</figcaption>
+        </figure>
+        <table class="unit-table">
+          <thead><tr><th>หน้าที่</th><th>ตัวอย่างยูนิต</th><th>บทบาท</th></tr></thead>
+          <tbody>
+            <tr><td>Frontline</td><td>Peasant Long Spearmen / Jade Warriors / Celestial Dragon Guard</td><td>ยืนแนว ป้องกันหน่วยยิง และสร้างฝั่ง Yang ของ Harmony</td></tr>
+            <tr><td>Missile</td><td>Jade Warrior Crossbows / Celestial Dragon Crossbows / Crane Gunners</td><td>ทำ damage จากแนวหลังและสร้างฝั่ง Yin ของ Harmony</td></tr>
+            <tr><td>Artillery</td><td>Grand Cannon / Fire Rain Rocket Battery</td><td>บังคับให้ศัตรูเดินเข้าหาและทำลาย formation จากระยะไกล</td></tr>
+            <tr><td>Cavalry & Flying</td><td>Jade Lancers / Great Longma Riders</td><td>เก็บ flank, missile, artillery และเสริม mobility</td></tr>
+            <tr><td>Monsters & Constructs</td><td>Terracotta Sentinel / Lions / Great Moon Bird</td><td>เพิ่ม mass, terror และพลังโจมตีในช่วงกลางถึงท้ายเกม</td></tr>
+          </tbody>
+        </table>
+        <div class="callout">
+          <strong>แนวคิดจัดทัพง่าย ๆ:</strong> Jade Warriors ถือแนว → Crossbows/Crane Gunners ยิง →
+          Artillery บังคับศัตรูเดินเข้า → Longma/Constructs ตี flank หรือช่วยจุดที่แนวเริ่มแตก
+        </div>
+      </section>
+
+      <section class="chapter" id="ch8" #chapterEl>
+        <div class="chapter-kicker">Chapter VIII • Wonders of the East</div>
+        <h2>เครื่องจักร สัตว์ศักดิ์สิทธิ์ และ Tiger Warriors</h2>
+        <div class="spread">
+          <div>
+            <p class="lead">
+              Cathay ไม่ได้มีแค่กองทหารมนุษย์ แต่ยังใช้ <b>Sky Lanterns, Sky-junks, Wu Xing War Compasses</b>,
+              Terracotta Sentinels และสัตว์ศักดิ์สิทธิ์หลายชนิดเพื่อเสริมบทบาทที่กองทัพแนวตรงขาดอยู่
+            </p>
+            <p>
+              DLC และอัปเดตช่วงหลังยังเพิ่มสายยูนิตอย่าง Celestial Lion, Jade Lion, Jet Lion, Great Moon Bird และล่าสุดปี 2026
+              <b>Tiger Warriors</b> ที่เน้นการเคลื่อนที่เร็ว การซุ่มโจมตี และการเข้าตีด้านข้างมากกว่าการยืน formation แบบ Cathay ดั้งเดิม
+            </p>
+            <div class="mechanics">
+              <div class="mechanic"><div class="icon">☁</div><h3>Sky Fleet</h3><p>Sky Lanterns และ Sky-junks ยิงสนับสนุนจากอากาศและทำให้ศัตรูต้องแบ่งกำลังรับมือ</p></div>
+              <div class="mechanic"><div class="icon">石</div><h3>Terracotta</h3><p>Sentinels เป็น construct ขนาดใหญ่ ใช้รับ monster และกดดันแนว infantry</p></div>
+              <div class="mechanic"><div class="icon">虎</div><h3>Tiger Warriors</h3><p>ยูนิตปี 2026 เพิ่มความเร็ว flank และ ambush ให้ roster ของ Grand Cathay</p></div>
+            </div>
+          </div>
+          <figure class="figure">
+            <img src="/assets/grand-cathay/grand-cathay_war-machines.png" alt="Cathay war machines placeholder" />
+            <figcaption>เครื่องจักรและ Tiger Warriors — เปลี่ยนด้วยภาพ Sky-junk, Terracotta Sentinel หรือ Tiger Warriors ได้ตามต้องการ</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch9" #chapterEl>
+        <div class="chapter-kicker">Chapter IX • Total War: WARHAMMER III • 2026</div>
+        <h2>Grand Cathay ใน WARHAMMER III ปี 2026</h2>
+        <figure class="figure">
+          <img src="/assets/grand-cathay/grand-cathay_enemies.png" alt="Grand Cathay battlefield placeholder" />
+          <figcaption>Grand Cathay ใน Immortal Empires — รับมือศัตรูจาก Great Bastion, Mountains of Mourn และเส้นทางการค้ารอบจักรวรรดิ</figcaption>
+        </figure>
+        <p class="lead">
+          ภายในปี 2026 Grand Cathay มี roster และระบบที่กว้างกว่าตอนเกมเปิดตัวมาก ทั้ง Shadows of Change,
+          Bhashiva Character Pack และการปรับ race-wide ใน Update 8.0/8.1. เทคโนโลยีถูกจัดใหม่เป็นสาย <b>Military</b> และ <b>Provinces</b>,
+          Ivory Road มี encounter หลากหลายขึ้น และ Tiger Warriors เพิ่มสไตล์กองทัพที่เคลื่อนที่เร็วให้กับเผ่า
+        </p>
+        <div class="mechanics">
+          <div class="mechanic"><div class="icon">☯</div><h3>Formation Play</h3><p>Core Cathay ยังเด่นที่สุดเมื่อรักษาแนวและวาง Yin/Yang ให้สนับสนุนกัน</p></div>
+          <div class="mechanic"><div class="icon">卷</div><h3>New Tech Trees</h3><p>Update 8.0 แยกเทคโนโลยีเป็น Military และ Provinces เพื่อเลือกทางพัฒนาได้ชัดขึ้น</p></div>
+          <div class="mechanic"><div class="icon">虎</div><h3>2026 Expansion</h3><p>Bhashiva และ Tiger Warriors เติมเกมเพลย์แบบ ambush, mobility และ flank ให้ Cathay</p></div>
+        </div>
+        <div class="callout">
+          <strong>สำหรับมือใหม่:</strong> ถ้าอยากเรียนรู้แกนหลักของ Grand Cathay ให้เริ่ม Miao Ying หรือ Zhao Ming ก่อน —
+          เน้นวาง Jade Warriors + Crossbows เป็นแกน แล้วค่อยเพิ่ม artillery, magic และ mobile units ทีละส่วน
+        </div>
+      </section>
+
+      <section class="chapter" id="sources" #chapterEl>
+        <div class="chapter-kicker">Chapter X • Summary</div>
+        <h2>สรุปและแหล่งอ่านต่อ</h2>
+        <p class="lead">
+          Grand Cathay คือ faction ที่ผสม “กองทัพ formation” กับโลกแฟนตาซีฝั่งตะวันออกได้ชัดเจนมาก:
+          แนว infantry เป็นระเบียบ ยิงไกลและปืนใหญ่แข็งแรง มีเวทมนตร์ มังกร เครื่องจักรบิน construct และระบบการค้าเฉพาะตัว
+          ขณะที่เนื้อหาใหม่ปี 2026 เพิ่ม Tiger Warriors เข้ามาเพื่อแก้จุดอ่อนเรื่อง mobility และการตี flank
+        </p>
+        <div class="source-box">
+          <h3>แหล่งข้อมูลที่ใช้จัดโครงเรื่อง</h3>
+          <ul>
+            <li>Total War: WARHAMMER III — Grand Cathay race / unit information</li>
+            <li>Creative Assembly — Update 8.0 Patch Notes (Cathay technology overhaul & Ivory Road additions)</li>
+            <li>Creative Assembly — Update 8.1 Patch Notes (Cathay/Tiger Warrior updates)</li>
+            <li>Creative Assembly — Bhashiva Character Pack: What's Included</li>
+            <li>Warhammer Community — Grand Cathay / Miao Ying lore articles</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="page-nav">
+        <button type="button" (click)="onPrevChapter()">← บทก่อนหน้า</button>
+        <button type="button" (click)="onNextChapter()">บทถัดไป →</button>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="footer">
+    TTWHM3 Storybook • Grand Cathay Chronicle • Fan-made reading companion
+  </footer>
+</div>
