@@ -42,7 +42,7 @@ export class LandingComponent {
       thaiTitle: 'พงศาวดารจักรวรรดิมนุษย์',
       tagline:
         'Sigmar ผู้รวบรวมเผ่ามนุษย์, Elector Counts และจังหวัด, Karl Franz, Colleges of Magic ไปจนถึงดินปืน ปืนใหญ่ และ Steam Tank',
-      cover: '/assets/empire-cover.svg',
+      cover: '/assets/empire-karl-franz.png',
       chapters: 10,
       highlights: ['Sigmar', 'Elector Counts', 'Steam Tank'],
     },
