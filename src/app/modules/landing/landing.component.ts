@@ -7,7 +7,6 @@ interface Faction {
   bookTitle: string;
   bookSubtitle: string;
   thaiTitle: string;
-  tagline: string;
   cover: string;
   chapters: number;
   highlights: string[];
@@ -27,8 +26,6 @@ export class LandingComponent {
       bookTitle: 'DAMMAZ KRON',
       bookSubtitle: 'A Dawi Chronicle',
       thaiTitle: 'พงศาวดารคนแคระ',
-      tagline:
-        'รากเหง้าของ Karaz Ankor, ความหมายของ “ความแค้น”, Legendary Lords และระบบ Great Book of Grudges กับ The Deeps',
       cover: '/assets/chronicle-cover.png',
       chapters: 9,
       highlights: ['Karaz Ankor', 'Book of Grudges', 'The Deeps'],
@@ -40,8 +37,6 @@ export class LandingComponent {
       bookTitle: 'THE EMPIRE',
       bookSubtitle: 'The Imperial Chronicle',
       thaiTitle: 'พงศาวดารจักรวรรดิมนุษย์',
-      tagline:
-        'Sigmar ผู้รวบรวมเผ่ามนุษย์, Elector Counts และจังหวัด, Karl Franz, Colleges of Magic ไปจนถึงดินปืน ปืนใหญ่ และ Steam Tank',
       cover: '/assets/empire-karl-franz.png',
       chapters: 10,
       highlights: ['Sigmar', 'Elector Counts', 'Steam Tank'],
@@ -53,11 +48,31 @@ export class LandingComponent {
       bookTitle: 'THE BLOOD CHRONICLE',
       bookSubtitle: 'A Khorne Chronicle',
       thaiTitle: 'พงศาวดารเทพแห่งสงคราม',
-      tagline:
-        'ตัวตนของ Khorne, Realm of Chaos และ Brass Citadel, Legendary Lords ไปจนถึง Bloodletting, Skulls และการจัดทัพบุกประชิด',
       cover: '/assets/khorne-cover.png',
       chapters: 9,
       highlights: ['Brass Citadel', 'Bloodletting', 'Blood Host'],
+    },
+    {
+      id: 'high-elves',
+      route: '/high-elves',
+      sigil: '🏹',
+      bookTitle: 'THE HIGH ELVES CHRONICLE',
+      bookSubtitle: 'A High Elves Chronicle',
+      thaiTitle: 'พงศาวดารแห่งอุลธูอัน',
+      cover: '/assets/high-elves-cover.png',
+      chapters: 10,
+      highlights: ['Ulthuan', 'Tyrion & Teclis', 'Magic & Dragons'],
+    },
+    {
+      id: 'skaven',
+      route: '/skaven',
+      sigil: '🐀',
+      bookTitle: 'THE SKAVEN CHRONICLE',
+      bookSubtitle: 'A Skaven Chronicle',
+      thaiTitle: 'พงศาวดารหนู Skaven',
+      cover: '/assets/skaven-cover.png',
+      chapters: 10,
+      highlights: ['Under-Empire', 'Warpstone', 'Warlock Engineers'],
     },
   ];
 }

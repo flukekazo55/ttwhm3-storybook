@@ -1,0 +1,475 @@
+<div
+  class="chronicle skaven-chronicle"
+  [class.night]="theme === 'night'"
+  [style.--reader-size]="fontSize + 'px'"
+>
+  <section class="cover" id="skaven-cover">
+    <div class="cover-inner">
+      <div class="cover-kicker">The Under-Empire • Forbidden Chronicle</div>
+      <div class="seal">☣</div>
+      <h1>SKAVEN<span>Chronicle of the Under-Empire</span></h1>
+      <div class="thai-title">พงศาวดารจักรวรรดิใต้พิภพ</div>
+
+      <p class="subtitle">
+        เว็บอ่านแบบหนังสือสำหรับทำความเข้าใจ <b>Skaven</b> ในจักรวาล Warhammer และ
+        <b>Total War: WARHAMMER III</b> ตั้งแต่ Skavenblight, Horned Rat, Council of Thirteen,
+        Four Great Clans และ Warpstone ไปจนถึง Food, Under-Cities, Weapons Teams และสงครามแบบหนู
+      </p>
+
+      <div class="cover-actions">
+        <button type="button" class="open-book" (click)="onOpenBook()">เปิดหนังสือ</button>
+        <a class="faction-switch" routerLink="/dawi">อ่าน Dawi</a>
+        <a class="faction-switch" routerLink="/empire">อ่าน Empire</a>
+        <a class="faction-switch" routerLink="/khorne">อ่าน Khorne</a>
+        <a class="faction-switch" routerLink="/high-elves">อ่าน High Elves</a>
+        <a class="faction-switch" routerLink="/">เลือก faction อื่น</a>
+      </div>
+
+      <div class="cover-note">
+        ภาพใน assets เป็น placeholder ชั่วคราวและมีไฟล์รวม internet reference แยกไว้ให้เปลี่ยนภาพจริงทีหลัง
+      </div>
+    </div>
+  </section>
+
+  <main class="book-shell" #book>
+    <aside class="toc">
+      <h2 class="toc-title">สารบัญ</h2>
+      <div class="toc-sub">CHRONICLE OF THE UNDER-EMPIRE • ฉบับอ่านง่าย</div>
+
+      <nav class="toc-nav">
+        <a
+          *ngFor="let ch of chapters"
+          class="toc-link"
+          [class.active]="ch.id === activeChapterId"
+          (click)="goToChapter(ch.id)"
+        >
+          <span class="num">{{ ch.numeral }}</span> {{ ch.title }}
+        </a>
+      </nav>
+
+      <div class="reader-tools">
+        <button type="button" title="ลดขนาดตัวอักษร" (click)="onFontSmaller()">A−</button>
+        <button type="button" title="เพิ่มขนาดตัวอักษร" (click)="onFontLarger()">A+</button>
+        <button type="button" title="สลับโหมดกลางคืน" (click)="onToggleTheme()">
+          {{ theme === 'night' ? '☀' : '☾' }}
+        </button>
+      </div>
+
+      <div class="version">
+        <b>Game focus:</b> Immortal Empires / WARHAMMER III<br />
+        เนื้อหาหลักอิงสถานะเกมช่วง Patch 8.1; Thanquol แยกเป็นเนื้อหา upcoming
+      </div>
+    </aside>
+
+    <article class="reader">
+      <div class="progress"><span [style.width.%]="progress"></span></div>
+
+      <section class="chapter" id="ch1" #chapterEl>
+        <div class="chapter-kicker">Chapter I • Children of the Horned Rat</div>
+        <h2>
+          Skaven คือใคร?
+          <small>อารยธรรมหนูใต้พิภพที่สร้างอาณาจักรด้วยจำนวน ความกลัว การทรยศ และ Warpstone</small>
+        </h2>
+
+        <div class="spread">
+          <div>
+            <p class="lead dropcap">
+              Skaven คือเผ่ามนุษย์หนูที่อาศัยอยู่ในเครือข่ายเมืองใต้ดินขนาดมหึมาที่เรียกว่า
+              <b>Under-Empire</b>. สิ่งที่ทำให้พวกมันน่ากลัวไม่ใช่ความกล้าหาญ แต่คือจำนวนประชากร,
+              ความเร็วในการขยายพันธุ์, เทคโนโลยีต้องห้าม, โรคระบาด และความสามารถในการปรากฏตัวจากใต้พื้นดิน
+            </p>
+
+            <p>
+              สังคม Skaven เต็มไปด้วยการแข่งขัน ทุกตัวอยากไต่ลำดับด้วยการหักหลังตัวอื่น
+              แต่เมื่อถูกบังคับโดย Grey Seers, Warlords หรือ Council of Thirteen
+              พวกมันสามารถรวมกองทัพขนาดมหาศาลและทำลายเมืองทั้งเมืองได้
+            </p>
+
+            <div class="callout">
+              <strong>จำง่าย:</strong>
+              Skaven = “เอาหน่วยราคาถูกไปถ่วงเวลา แล้วให้ของอันตรายจริง ๆ ยิง ฆ่า ระเบิด หรือโผล่ขึ้นมาจากด้านหลัง”
+            </div>
+          </div>
+
+          <figure class="figure">
+            <img src="/assets/skaven-overview.png" alt="Skaven overview placeholder" />
+            <figcaption>ภาพรวม Skaven — swarm infantry, Warpstone technology และโลกใต้พิภพ</figcaption>
+          </figure>
+        </div>
+
+        <div class="mechanics">
+          <div class="mechanic">
+            <div class="icon">🐀</div>
+            <h3>Expendable Swarms</h3>
+            <p>Skavenslaves และ Clanrats เป็นทรัพยากรที่ใช้ถ่วงเวลา ไม่ใช่หัวใจของ damage</p>
+          </div>
+          <div class="mechanic">
+            <div class="icon">☢</div>
+            <h3>Warpstone</h3>
+            <p>แร่เวทมนตร์สีเขียวที่เป็นทั้งเชื้อเพลิง อาวุธ และวัตถุดิบทดลอง</p>
+          </div>
+          <div class="mechanic">
+            <div class="icon">⚙</div>
+            <h3>Forbidden Tech</h3>
+            <p>ตั้งแต่ Ratling Guns และ Doomwheels ไปจนถึงการกลายพันธุ์และเชื้อโรค</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch2" #chapterEl>
+        <div class="chapter-kicker">Chapter II • Beneath the World</div>
+        <h2>Skavenblight และ Under-Empire</h2>
+
+        <div class="spread">
+          <figure class="figure">
+            <img src="/assets/skaven-skavenblight.png" alt="Skavenblight placeholder" />
+            <figcaption>Skavenblight — ศูนย์กลางอำนาจและเมืองที่สำคัญที่สุดของ Skavendom</figcaption>
+          </figure>
+
+          <div>
+            <p class="lead">
+              <b>Skavenblight</b> คือหัวใจของโลก Skaven และที่ตั้งของ Council of Thirteen.
+              เมืองนี้ซ่อนตัวอยู่ท่ามกลางหนองน้ำและเชื่อมเข้าสู่เครือข่ายอุโมงค์ที่แผ่ไปทั่วโลก
+            </p>
+
+            <p>
+              สิ่งสำคัญคือ Skaven ไม่ได้ต้องครองพื้นผิวทุกแห่งเพื่อมีอำนาจ.
+              เมืองของเผ่าอื่นสามารถมี <b>Under-City</b> อยู่ข้างใต้ได้โดยที่เจ้าของเมืองยังไม่รู้ตัว
+              ทำให้เผ่านี้สามารถสร้างรายได้ หา Food แพร่ corruption หรือเตรียมทำลายเมืองจากด้านล่าง
+            </p>
+
+            <div class="quote">
+              สำหรับ Skaven “อาณาจักร” ไม่จำเป็นต้องมองเห็นบนแผนที่ — มันอาจซ่อนอยู่ใต้เมืองของศัตรูแล้วก็ได้
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch3" #chapterEl>
+        <div class="chapter-kicker">Chapter III • Rule by Fear</div>
+        <h2>Horned Rat และ Council of Thirteen</h2>
+
+        <p class="lead">
+          Skaven บูชา <b>Great Horned Rat</b> เทพแห่งความเสื่อมโทรม โรคระบาด ความเจ้าเล่ห์ และการครอบงำ.
+          ตัวแทนทางศาสนาที่มีอำนาจมากที่สุดคือเหล่า Grey Seers ส่วนการเมืองระดับสูงถูกควบคุมโดย
+          <b>Council of Thirteen</b>
+        </p>
+
+        <div class="spread">
+          <div>
+            <p>
+              แม้ชื่อจะฟังเหมือนรัฐบาลที่เป็นระบบ แต่การเมืองของ Skaven คือเกมเอาตัวรอด:
+              การซื้อเสียง, ลอบสังหาร, ใส่ร้าย, ทำข้อตกลงลับ และโยนความผิดให้คนอื่นถือเป็นเรื่องปกติ
+            </p>
+
+            <div class="warp-note">
+              <b>หลักสำคัญของสังคม Skaven:</b>
+              ไม่มีคำว่า “พวกเรา” ที่ถาวร มีแต่พันธมิตรที่ยังมีประโยชน์อยู่ในตอนนี้
+            </div>
+          </div>
+
+          <figure class="figure">
+            <img src="/assets/skaven-council.png" alt="Council of Thirteen placeholder" />
+            <figcaption>Council of Thirteen — ศูนย์กลางอำนาจของเหล่าขุนศึกและ Great Clans</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch4" #chapterEl>
+        <div class="chapter-kicker">Chapter IV • The Great Clans</div>
+        <h2>Four Great Clans<small>แต่ละ Clan สร้างความน่ากลัวของ Skaven คนละแบบ</small></h2>
+
+        <div class="clan-grid">
+          <div class="clan">
+            <strong>Clan Skryre</strong>
+            <span>วิศวกรและอาวุธ Warpstone — Ratling Guns, Jezzails, Warpfire, Doomwheels และการทดลองที่พร้อมระเบิดใส่ทั้งศัตรูและพวกเดียวกัน</span>
+          </div>
+          <div class="clan">
+            <strong>Clan Moulder</strong>
+            <span>ผู้เชี่ยวชาญการดัดแปลงสิ่งมีชีวิต — Rat Ogres, Brood Horrors และสัตว์กลายพันธุ์ที่สร้างจากการทดลองอันโหดร้าย</span>
+          </div>
+          <div class="clan">
+            <strong>Clan Pestilens</strong>
+            <span>นักบวชแห่งโรคระบาด ใช้ Plague Monks, Plagueclaw Catapults และเชื้อโรคเป็นอาวุธ</span>
+          </div>
+          <div class="clan">
+            <strong>Clan Eshin</strong>
+            <span>มือสังหาร สายลับ และผู้เชี่ยวชาญการแทรกซึม — Night Runners, Gutter Runners และ Assassins</span>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Clan Mors</strong> และ <strong>Clan Rictus</strong> ไม่ใช่ Four Great Clans
+          แต่เป็น Warlord Clans ขนาดใหญ่ที่มีอำนาจทางทหารสูง และเป็นบ้านของ Queek กับ Tretch ตามลำดับ
+        </div>
+      </section>
+
+      <section class="chapter" id="ch5" #chapterEl>
+        <div class="chapter-kicker">Chapter V • Lords of Skavendom</div>
+        <h2>Legendary Lords</h2>
+
+        <figure class="figure">
+          <img src="/assets/skaven-lords.png" alt="Skaven legendary lords placeholder" />
+          <figcaption>Legendary Lords ปัจจุบันของ Skaven และ Thanquol ที่กำลังจะเข้ามาใน Lords of the End Times</figcaption>
+        </figure>
+
+        <div class="lord-grid">
+          <div class="lord">
+            <h3>Queek Headtaker</h3>
+            <div class="title">Clan Mors</div>
+            <p>Warlord สายประชิดที่ตรงไปตรงมาที่สุด เหมาะกับ Stormvermin และการทำสงครามแบบกองทัพใหญ่</p>
+          </div>
+          <div class="lord">
+            <h3>Lord Skrolk</h3>
+            <div class="title">Clan Pestilens</div>
+            <p>เน้น Plague, Plague Monks และการทำให้สนามรบกลายเป็นแหล่งโรคระบาด</p>
+          </div>
+          <div class="lord">
+            <h3>Tretch Craventail</h3>
+            <div class="title">Clan Rictus</div>
+            <p>เล่นกับการซุ่มโจมตี การเอาตัวรอด และการใช้ Stormvermin ของ Rictus</p>
+          </div>
+          <div class="lord">
+            <h3>Ikit Claw</h3>
+            <div class="title">Clan Skryre</div>
+            <p>หนึ่งในแคมเปญที่มีชื่อเสียงที่สุดของ Skaven — Weapons Teams, Forbidden Workshop และอาวุธ Warpstone</p>
+          </div>
+          <div class="lord">
+            <h3>Deathmaster Snikch</h3>
+            <div class="title">Clan Eshin</div>
+            <p>กองทัพสายลอบสังหาร เคลื่อนที่เร็ว และมี mechanics ที่เน้นภารกิจลับของ Clan Eshin</p>
+          </div>
+          <div class="lord">
+            <h3>Throt the Unclean</h3>
+            <div class="title">Clan Moulder</div>
+            <p>ใช้ Flesh Laboratory ดัดแปลงยูนิตและสร้างกองทัพสัตว์กลายพันธุ์ที่ดุดันมาก</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Upcoming — Thanquol:</strong>
+          Grey Seer แห่ง Clan Scruten ถูกประกาศแล้วสำหรับ Lords of the End Times
+          พร้อม Boneripper, Verminlords และ Stormfiends โดยมีกำหนดออก 24 กันยายน 2026
+        </div>
+      </section>
+
+      <section class="chapter" id="ch6" #chapterEl>
+        <div class="chapter-kicker">Chapter VI • Warpstone Science</div>
+        <h2>Warpstone, อาวุธ และการทดลอง</h2>
+
+        <div class="spread">
+          <div>
+            <p class="lead">
+              Warpstone คือศูนย์กลางของเทคโนโลยี Skaven.
+              มันถูกบดเป็นเชื้อเพลิง ใส่ในอาวุธ ใช้เสริมเวทมนตร์ และนำไปทดลองกับร่างกายสิ่งมีชีวิต
+              โดยไม่มีคำว่า “มาตรฐานความปลอดภัย”
+            </p>
+
+            <div class="mechanics">
+              <div class="mechanic">
+                <div class="icon">⚡</div>
+                <h3>Skryre</h3>
+                <p>ปืนกล, sniper, flame weapon, artillery และเครื่องจักรที่ใช้ Warp-energy</p>
+              </div>
+              <div class="mechanic">
+                <div class="icon">🧪</div>
+                <h3>Moulder</h3>
+                <p>ดัดแปลงเนื้อหนัง เพิ่มแขน ขยายกล้ามเนื้อ และสร้างสัตว์สงคราม</p>
+              </div>
+              <div class="mechanic">
+                <div class="icon">☣</div>
+                <h3>Pestilens</h3>
+                <p>โรคระบาด พิษ และอาวุธที่ทำให้ทั้งกองทัพศัตรูเสื่อมสภาพ</p>
+              </div>
+            </div>
+          </div>
+
+          <figure class="figure">
+            <img src="/assets/skaven-warpstone-tech.png" alt="Warpstone technology placeholder" />
+            <figcaption>Warpstone technology — จุดที่ “เวทมนตร์” กับ “วิศวกรรม” ของ Skaven กลายเป็นเรื่องเดียวกัน</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch7" #chapterEl>
+        <div class="chapter-kicker">Chapter VII • Campaign Mechanics</div>
+        <h2>Food, Under-Cities และ Menace Below</h2>
+
+        <p class="lead">
+          Skaven ต้องจัดการ <b>Food</b> ควบคู่กับเงิน.
+          Food ส่งผลต่อการขยายเมืองและประสิทธิภาพของอาณาจักร ขณะที่ Under-Cities
+          ทำให้ผู้เล่นสร้างเครือข่ายลับใต้ settlement ของคนอื่นได้
+        </p>
+
+        <div class="mechanics">
+          <div class="mechanic">
+            <div class="icon">🍖</div>
+            <h3>Food</h3>
+            <p>ทรัพยากรหลักของ faction — ต้องรักษาสมดุลระหว่างกองทัพ เมือง และการขยายตัว</p>
+          </div>
+          <div class="mechanic">
+            <div class="icon">⬇</div>
+            <h3>Under-Cities</h3>
+            <p>สร้าง income, Food, corruption หรือสิ่งก่อสร้างลับโดยไม่ต้องยึดเมืองบนพื้นผิว</p>
+          </div>
+          <div class="mechanic">
+            <div class="icon">🐀</div>
+            <h3>Menace Below</h3>
+            <p>เรียก Clanrats โผล่ขึ้นมาในสนามรบเพื่อกวน artillery, missile หรือบังคับศัตรูหันหลัง</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>แนวคิด:</strong>
+          Skaven ไม่ได้เล่นเหมือน empire-builder ปกติ — คุณสามารถมีเมืองหลักไม่เยอะ แต่แผ่เครือข่ายใต้ดินไปไกลมาก
+        </div>
+      </section>
+
+      <section class="chapter" id="ch8" #chapterEl>
+        <div class="chapter-kicker">Chapter VIII • Vermintide</div>
+        <h2>กองทัพ Skaven<small>อย่าให้ infantry ราคาถูกทำหน้าที่ที่ Weapons Teams ควรทำ</small></h2>
+
+        <figure class="figure">
+          <img src="/assets/skaven-army.png" alt="Skaven army placeholder" />
+          <figcaption>แนวคิดกองทัพ Skaven — cheap frontline + ranged kill zone + summons + monsters</figcaption>
+        </figure>
+
+        <table class="unit-table">
+          <thead>
+            <tr>
+              <th>หน้าที่</th>
+              <th>ตัวอย่างยูนิต</th>
+              <th>สิ่งที่ควรจำ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Expendable Frontline</td>
+              <td>Skavenslaves / Clanrats</td>
+              <td>มีไว้ซื้อเวลาและล็อกศัตรู ไม่ต้องกลัวเสีย</td>
+            </tr>
+            <tr>
+              <td>Elite Infantry</td>
+              <td>Stormvermin / Plague Monks</td>
+              <td>ใช้เมื่ออยากให้แนวหน้ายืนได้นานขึ้นหรือเพิ่ม melee pressure</td>
+            </tr>
+            <tr>
+              <td>Weapons Teams</td>
+              <td>Ratling Guns / Warplock Jezzails / Warpfire Throwers</td>
+              <td>เป็นแหล่ง damage หลัก ต้องมีมุมยิงสะอาด</td>
+            </tr>
+            <tr>
+              <td>Artillery</td>
+              <td>Plagueclaw Catapults / Warp Lightning Cannons</td>
+              <td>บังคับศัตรูเดินเข้าหา kill zone ของคุณ</td>
+            </tr>
+            <tr>
+              <td>Monsters & Machines</td>
+              <td>Rat Ogres / Hell Pit Abomination / Doomwheel</td>
+              <td>ใช้เจาะ flank, ไล่ missile หรือสร้าง terror</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="army-flow">
+          <div class="army-step"><strong>Slaves / Clanrats</strong><span>ถ่วงเวลา</span></div>
+          <div class="arrow">→</div>
+          <div class="army-step"><strong>Weapons Teams</strong><span>ยิง kill zone</span></div>
+          <div class="arrow">→</div>
+          <div class="army-step"><strong>Summons / Monsters</strong><span>ปิดงานด้านหลัง</span></div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch9" #chapterEl>
+        <div class="chapter-kicker">Chapter IX • Immortal Empires</div>
+        <h2>เล่น Skaven ใน WARHAMMER III</h2>
+
+        <p class="lead">
+          ถ้าเพิ่งเริ่ม แนะนำให้เข้าใจก่อนว่าแต่ละ Legendary Lord เปลี่ยน “ตัวทำ damage หลัก” ของกองทัพ:
+          Ikit = guns, Throt = monsters, Snikch = stealth, Skrolk = plague,
+          ส่วน Queek/Tretch จะใกล้กับ Skaven army แบบดั้งเดิมมากกว่า
+        </p>
+
+        <div class="clan-grid">
+          <div class="clan">
+            <strong>Ikit Claw</strong>
+            <span>เหมาะกับคนที่อยากเล่น gunline ชัดที่สุด — สร้าง firing lane แล้วอย่าให้ Clanrats บัง Ratling Guns</span>
+          </div>
+          <div class="clan">
+            <strong>Throt</strong>
+            <span>เหมาะกับกองทัพ monster rush และการทดลองกับยูนิตผ่าน Flesh Laboratory</span>
+          </div>
+          <div class="clan">
+            <strong>Snikch</strong>
+            <span>ใช้ความเร็ว การซ่อนตัว การโจมตีด้านหลัง และภารกิจเฉพาะ Clan Eshin</span>
+          </div>
+          <div class="clan">
+            <strong>Queek / Tretch / Skrolk</strong>
+            <span>ช่วยให้เข้าใจ core roster ของ Skaven ก่อนพึ่ง mechanics พิเศษของ DLC lord มากเกินไป</span>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>สูตรจำสำหรับ battle:</strong>
+          “อย่าถามว่า Clanrats ฆ่าได้กี่ตัว — ถามว่าพวกมันถ่วงเวลาให้ Ratling Guns ยิงได้นานกี่วินาที”
+        </div>
+      </section>
+
+      <section class="chapter" id="sources" #chapterEl>
+        <div class="chapter-kicker">Chapter X • The End Times</div>
+        <h2>Thanquol, End Times และแหล่งอ่านต่อ</h2>
+
+        <div class="spread">
+          <div>
+            <p class="lead">
+              ณ วันที่จัดทำหน้านี้ <b>Thanquol</b> ถูกประกาศแล้ว แต่ยังเป็นเนื้อหา upcoming
+              ของ <b>Lords of the End Times</b>. Campaign ของเขาจะเน้น <b>Masterplans</b>:
+              แผนการลับที่มีทั้งกองกำลังซ่อนตัว พิธีกรรม การโจรกรรม และ “complications”
+              ที่อาจทำให้แผนของเขาพังตามสไตล์ Thanquol
+            </p>
+
+            <p>
+              เขายังมาพร้อม Boneripper, Skreech Verminking, Verminlords,
+              Stormfiends และยูนิตใหม่อีกหลายชนิด ซึ่งจะขยาย late-game roster ของ Skaven อย่างมาก
+            </p>
+
+            <div class="source-box">
+              <h3>แหล่งอ่านต่อ</h3>
+              <ul>
+                <li>
+                  <a href="https://academy.totalwar.com/skaven-campaign-tactics/" target="_blank" rel="noopener">
+                    Total War Academy — Skaven: Campaign Tactics
+                  </a>
+                </li>
+                <li>
+                  <a href="https://community.creative-assembly.com/total-war/total-war-warhammer/blogs/106-total-war-warhammer-iii-lords-of-the-end-times-meet-thanquol" target="_blank" rel="noopener">
+                    Creative Assembly — Meet Thanquol
+                  </a>
+                </li>
+                <li>
+                  <a href="https://community.creative-assembly.com/total-war/total-war-warhammer/blogs/102%20style%3Dbutton" target="_blank" rel="noopener">
+                    Creative Assembly — Lords of the End Times DLC Overview
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <figure class="figure portrait">
+            <img src="/assets/skaven-thanquol.png" alt="Thanquol placeholder" />
+            <figcaption>Thanquol & Boneripper — upcoming Legendary Lord ของ Skaven</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <nav class="page-nav">
+        <button type="button" (click)="onPrevChapter()">← บทก่อนหน้า</button>
+        <button type="button" (click)="onNextChapter()">บทถัดไป →</button>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="footer">
+    TTWHM3 Storybook • Skaven Chronicle • Fan-made reading companion
+  </footer>
+</div>

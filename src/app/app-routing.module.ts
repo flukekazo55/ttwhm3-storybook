@@ -22,6 +22,21 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'high-elves',
+    loadChildren: () =>
+      import('./modules/high-elves-chronicle/high-elves-chronicle.module').then(
+        (m) => m.HighElvesChronicleModule,
+      ),
+  },
+
+  {
+    path: 'skaven',
+    loadChildren: () =>
+      import('./modules/skaven-chronicle/skaven-chronicle.module').then(
+        (m) => m.SkavenChronicleModule,
+      ),
+  },
+  {
     path: '',
     loadChildren: () => import('./modules/landing/landing.module').then((m) => m.LandingModule),
   },
