@@ -46,9 +46,9 @@ src/app/
 
 public/assets/
 ├── ... Dawi artwork
-├── khorne-cover.jpg
-├── khorne-overview-page.jpg
-├── khorne-lords-page.jpg
+├── khorne-cover.png
+├── khorne-overview-page.png
+├── khorne-lords-page.png
 ├── khorne-battle-guide-page.png
 └── empire-*.svg                # ภาพชุด Empire เป็นเวกเตอร์
 ```

@@ -55,7 +55,7 @@ export class LandingComponent {
       thaiTitle: 'พงศาวดารเทพแห่งสงคราม',
       tagline:
         'ตัวตนของ Khorne, Realm of Chaos และ Brass Citadel, Legendary Lords ไปจนถึง Bloodletting, Skulls และการจัดทัพบุกประชิด',
-      cover: '/assets/khorne-cover.jpg',
+      cover: '/assets/khorne-cover.png',
       chapters: 9,
       highlights: ['Brass Citadel', 'Bloodletting', 'Blood Host'],
     },
