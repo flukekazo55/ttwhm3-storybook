@@ -49,7 +49,7 @@ public/assets/
 ├── khorne-cover.jpg
 ├── khorne-overview-page.jpg
 ├── khorne-lords-page.jpg
-├── khorne-battle-guide-page.jpg
+├── khorne-battle-guide-page.png
 └── empire-*.svg                # ภาพชุด Empire เป็นเวกเตอร์
 ```
 
