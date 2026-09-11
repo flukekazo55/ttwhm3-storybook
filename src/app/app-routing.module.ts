@@ -5,35 +5,35 @@ const routes: Routes = [
   {
     path: 'dawi',
     loadChildren: () =>
-      import('./modules/chronicle/chronicle.module').then((m) => m.ChronicleModule),
+      import('./modules/dawi/dawi.module').then((m) => m.DawiModule),
   },
   {
     path: 'empire',
     loadChildren: () =>
-      import('./modules/empire-chronicle/empire-chronicle.module').then(
-        (m) => m.EmpireChronicleModule,
+      import('./modules/empire/empire.module').then(
+        (m) => m.EmpireModule,
       ),
   },
   {
     path: 'khorne',
     loadChildren: () =>
-      import('./modules/khorne-chronicle/khorne-chronicle.module').then(
-        (m) => m.KhorneChronicleModule,
+      import('./modules/khorne/khorne.module').then(
+        (m) => m.KhorneModule,
       ),
   },
   {
     path: 'high-elves',
     loadChildren: () =>
-      import('./modules/high-elves-chronicle/high-elves-chronicle.module').then(
-        (m) => m.HighElvesChronicleModule,
+      import('./modules/high-elves/high-elves.module').then(
+        (m) => m.HighElvesModule,
       ),
   },
 
   {
     path: 'skaven',
     loadChildren: () =>
-      import('./modules/skaven-chronicle/skaven-chronicle.module').then(
-        (m) => m.SkavenChronicleModule,
+      import('./modules/skaven/skaven.module').then(
+        (m) => m.SkavenModule,
       ),
   },
   {

@@ -1,14 +1,16 @@
-# TTWHM3 Storybook — Dawi, Empire & Khorne (Angular)
+# TTWHM3 Storybook (Angular)
 
 เว็บอ่านแบบหนังสือสำหรับทำความเข้าใจ factions ใน **Total War: WARHAMMER III** แบบ lore + gameplay guide ภาษาไทย
 โดยคง visual language แบบพงศาวดารแฟนตาซีเดียวกันทั้งชุด
 
-ตอนนี้มี 3 เล่ม เข้าถึงผ่านหน้า landing:
+ตอนนี้มี 5 เล่ม เข้าถึงผ่านหน้า landing:
 
 - **Landing (เลือก faction)** — route `/`
-- **Dawi Chronicle** — route `/dawi`
-- **Empire Chronicle** — route `/empire`
-- **Khorne Chronicle** — route `/khorne`
+- **Dawi** — route `/dawi`
+- **Empire** — route `/empire`
+- **Khorne** — route `/khorne`
+- **High Elves** — route `/high-elves`
+- **Skaven** — route `/skaven`
 
 ## รันโปรเจกต์
 
@@ -22,35 +24,43 @@ npm test           # unit tests (Karma/Jasmine)
 ## สถาปัตยกรรม
 
 - Angular 18 แบบ **module-based** (`standalone: false`)
-- Lazy routes แยกตาม faction
-- Dawi Chronicle ใช้ NgRx feature slice เดิมสำหรับ reader state
-- Khorne และ Empire Chronicle แยก reader state ใน component เพื่อไม่ชนกับ feature state ของ Dawi
-- Shared visual language โดย Khorne และ Empire reuse SCSS ของ Dawi แล้ว override เฉพาะ theme/faction colors
-- รูปทั้งหมดอยู่ใน `public/assets/` และเสิร์ฟผ่าน `/assets/...`
+- Lazy routes แยกตาม faction — 1 faction = 1 folder = 1 module (`DawiModule`, `EmpireModule`, ...)
+- Dawi ใช้ NgRx feature slice สำหรับ reader state
+- faction อื่นเก็บ reader state ใน component เพื่อไม่ชนกับ feature state ของ Dawi
+- SCSS ฐานของเล่มหนังสืออยู่ที่ `src/app/shared/styles/` ทุก faction reuse แล้ว override เฉพาะ theme/faction colors
+- รูปแยก folder ตาม faction ใน `public/assets/<faction>/` ตั้งชื่อแบบ `<faction>_<หัวข้อ>.png`
 
 ```text
 src/app/
 ├── app-routing.module.ts
+├── shared/
+│   ├── styles/                    # SCSS ฐานที่ทุก faction ใช้ร่วมกัน
+│   │   ├── chronicle-book.scss
+│   │   └── chronicle-cover.scss
+│   └── stores/chronicle/          # reader state (ตอนนี้ใช้เฉพาะ Dawi)
 └── modules/
     ├── landing/                   # หน้าเลือก faction
-    ├── chronicle/                 # Dawi
-    │   ├── chronicle.component.*
-    │   └── chronicle-cover/
-    ├── empire-chronicle/          # The Empire (ปกอยู่ใน component เดียว)
-    │   ├── empire-chronicle.component.*
-    │   └── empire-chronicle.module.ts
-    └── khorne-chronicle/          # Khorne
-        ├── khorne-chronicle.component.*
-        ├── khorne-chronicle.module.ts
-        └── khorne-cover/
+    ├── dawi/
+    │   ├── dawi.component.*
+    │   ├── dawi.module.ts
+    │   └── dawi-cover/
+    ├── empire/
+    │   ├── empire.component.*
+    │   └── empire.module.ts
+    ├── khorne/
+    │   ├── khorne.component.*
+    │   ├── khorne.module.ts
+    │   └── khorne-cover/
+    ├── high-elves/
+    └── skaven/
 
 public/assets/
-├── ... Dawi artwork
-├── khorne-cover.png
-├── khorne-overview-page.png
-├── khorne-lords-page.png
-├── khorne-battle-guide-page.png
-└── empire-*.svg                # ภาพชุด Empire เป็นเวกเตอร์
+├── shared/shared_cover-background.png
+├── dawi/dawi_*.png
+├── empire/empire_*.png
+├── khorne/khorne_*.png
+├── high-elves/high-elves_*.png
+└── skaven/skaven_*.png
 ```
 
 ## Reader UX

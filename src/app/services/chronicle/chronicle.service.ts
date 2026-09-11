@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { Chapter } from '../../shared/stores/chronicle/chronicle.model';
-import { CHRONICLE_CHAPTERS } from './chronicle.data';
+import { DAWI_CHAPTERS } from './dawi.data';
 
 @Injectable({ providedIn: 'root' })
 export class ChronicleService {
@@ -12,6 +12,6 @@ export class ChronicleService {
   // Static fan-made content — the chapter list is bundled, so it is served
   // as an observable rather than fetched over HTTP.
   getChapters(): Observable<Chapter[]> {
-    return of(CHRONICLE_CHAPTERS);
+    return of(DAWI_CHAPTERS);
   }
 }
