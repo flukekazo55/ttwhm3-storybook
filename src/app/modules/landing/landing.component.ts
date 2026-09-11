@@ -29,7 +29,7 @@ export class LandingComponent {
       thaiTitle: 'พงศาวดารคนแคระ',
       tagline:
         'รากเหง้าของ Karaz Ankor, ความหมายของ “ความแค้น”, Legendary Lords และระบบ Great Book of Grudges กับ The Deeps',
-      cover: '/assets/chronicle-cover.jpg',
+      cover: '/assets/chronicle-cover.png',
       chapters: 9,
       highlights: ['Karaz Ankor', 'Book of Grudges', 'The Deeps'],
     },
