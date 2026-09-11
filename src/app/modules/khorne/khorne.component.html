@@ -22,10 +22,10 @@
           {{ theme === 'night' ? '☀' : '☾' }}
         </button>
       </div>
-      <a class="faction-jump" routerLink="/">← กลับไป Dawi Chronicle</a>
+      <a class="faction-jump" routerLink="/">← กลับหน้ารวม Factions</a>
       <div class="version">
-        Khorne ฉบับอ่านง่ายสำหรับผู้เริ่มต้น<br />
-        เน้นภาพรวม lore + วิธีคิดเวลาเล่นใน WARHAMMER III
+        <b>Game focus:</b> Khorne race ใน Immortal Empires<br />
+        แยก Khorne-aligned Warriors of Chaos เช่น Valkia ออกจาก playable Khorne campaign lords
       </div>
     </aside>
 
@@ -34,84 +34,56 @@
 
       <section class="chapter" id="ch1" #chapterEl>
         <div class="chapter-kicker">Chapter I • The Blood God</div>
-        <h2>Khorne คือใคร?<small>เทพแห่งสงคราม ความโกรธ และการสังหาร</small></h2>
+        <h2>Khorne คือใคร?<small>Chaos God แห่งเลือด สงคราม ความโกรธ และการสังหาร</small></h2>
         <div class="spread">
           <div>
             <p class="lead dropcap">
               ถ้าจะเข้าใจ Khorne ให้จำไว้ก่อน 4 คำ:
-              <b>สงคราม • ความโกรธ • เลือด • กะโหลก</b>
-              Khorne คือหนึ่งใน Chaos Gods และเป็นตัวแทนของการต่อสู้แบบตรงไปตรงมาที่สุด —
-              ไม่มีแผนซับซ้อน ไม่มีเกมการเมือง มีแต่การพิสูจน์ด้วยกำลังในสนามรบ
+              <b>สงคราม • ความโกรธ • เลือด • กะโหลก</b>.
+              Khorne คือหนึ่งใน Chaos Gods และยกย่องพลัง การต่อสู้ และการหลั่งเลือดเหนือสิ่งอื่นใด
             </p>
             <p>
-              ผู้รับใช้ของเขามีทั้งเดมอนอย่าง <b>Bloodletters</b> และ <b>Bloodthirsters</b>
-              ไปจนถึงนักรบมรรตัยที่ถวายชีวิตให้การศึก จุดร่วมของทุกคนคือเชื่อว่าความแข็งแกร่ง
-              ต้องถูกพิสูจน์ด้วยการลงมือ ไม่ใช่คำพูด
+              ผู้รับใช้ของเขามีทั้ง Daemons อย่าง <b>Bloodletters</b> และ <b>Bloodthirsters</b>
+              ไปจนถึงนักรบมรรตัยที่ถวายชัยชนะและกะโหลกให้ Blood God. เขารังเกียจ sorcery และการพึ่งเวทมนตร์
+              แต่สิ่งนี้ไม่ได้หมายความว่าแม่ทัพ Khorne ห้ามใช้ยุทธศาสตร์ — สิ่งที่เขาเทิดทูนคือชัยชนะและการสังหารในสนามรบ
             </p>
             <div class="callout">
-              <strong>จำง่าย:</strong> Tzeentch = แผนการ, Nurgle = ความอดทน,
-              Slaanesh = ความล่อลวง, Khorne = “วิ่งเข้าไปฟันให้จบเรื่อง”
+              <strong>จำง่าย:</strong> Khorne ไม่ใช่ “เทพแห่งการต่อสู้อย่างยุติธรรม” แต่เป็นเทพแห่งสงครามและการหลั่งเลือด —
+              <b>Khorne cares not from whence the blood flows.</b>
             </div>
             <div class="quote">
-              Blood for the Blood God, Skulls for the Skull Throne — ประโยคเดียวที่สรุป faction นี้ได้แทบทั้งหมด
+              Blood for the Blood God, Skulls for the Skull Throne — คำประกาศศรัทธาที่สรุปแก่นของลัทธิ Khorne ได้ชัดที่สุด
             </div>
           </div>
           <figure class="figure portrait">
             <img src="assets/khorne/khorne_overview.png" alt="ภาพสรุป Khorne แบบหนังสือพงศาวดาร" />
-            <figcaption>
-              ภาพประกอบใหม่: Khorne, Realm of Chaos, ค่านิยม และกองทัพ — จัดเป็นหน้าหนังสือแบบเดียวกับ Dawi Chronicle
-            </figcaption>
+            <figcaption>ภาพประกอบ Khorne, Realm of Chaos, ค่านิยม และกองทัพในสไตล์ TTWHM3 Storybook</figcaption>
           </figure>
         </div>
         <div class="divider"><span>☠</span></div>
         <div class="mechanics">
-          <div class="mechanic">
-            <div class="icon">⚔</div>
-            <h3>War</h3>
-            <p>สงครามไม่ใช่เพียงเครื่องมือ แต่เป็นการนมัสการ Khorne โดยตรง</p>
-          </div>
-          <div class="mechanic">
-            <div class="icon">🩸</div>
-            <h3>Blood</h3>
-            <p>เลือดคือหลักฐานว่าการต่อสู้เกิดขึ้นจริง และชัยชนะต้องมีราคาที่จ่าย</p>
-          </div>
-          <div class="mechanic">
-            <div class="icon">☠</div>
-            <h3>Skulls</h3>
-            <p>กะโหลกคือถ้วยรางวัลของนักรบและเครื่องบูชาที่เหมาะสมกับ Skull Throne</p>
-          </div>
+          <div class="mechanic"><div class="icon">⚔</div><h3>War</h3><p>สงครามและการฆ่าคือรูปแบบการบูชาที่ตรงที่สุด</p></div>
+          <div class="mechanic"><div class="icon">🩸</div><h3>Blood</h3><p>เลือดของทั้งศัตรูและผู้ศรัทธาล้วนหล่อเลี้ยงอำนาจของ Blood God</p></div>
+          <div class="mechanic"><div class="icon">☠</div><h3>Skulls</h3><p>กะโหลกถูกถวายให้ Skull Throne เป็นสัญลักษณ์ของการสังหารและชัยชนะ</p></div>
         </div>
       </section>
 
       <section class="chapter" id="ch2" #chapterEl>
         <div class="chapter-kicker">Chapter II • The Brass Realm</div>
-        <h2>Realm of Chaos และ Brass Citadel</h2>
+        <h2>Realm of Khorne และ Brass Citadel</h2>
         <p class="lead">
-          ดินแดนของ Khorne ถูกวาดภาพเป็นโลกของเหล็ก ทองเหลือง ไฟ และสงครามไม่สิ้นสุด
-          จุดสำคัญที่สุดที่ควรรู้คือ <b>The Brass Citadel</b>, <b>The Skull Throne</b>
-          และ <b>The Plain of Skulls</b> — ทุกแห่งสะท้อนความเชื่อว่าอำนาจของ Khorne ถูกสร้างจากชัยชนะที่ทับถมกันเป็นชั่วกาล
+          ดินแดนของ Khorne ใน Realm of Chaos ถูกวาดภาพเป็นโลกของทองเหลือง ไฟ เลือด และสงครามไม่สิ้นสุด.
+          สถานที่สำคัญที่มักกล่าวถึงได้แก่ <b>Brass Citadel</b>, <b>Skull Throne</b> และ <b>Plain of Skulls</b>
         </p>
         <div class="timeline">
-          <div class="event">
-            <h3>The Brass Citadel</h3>
-            <p>นครป้อมทองเหลืองมหึมา เปรียบเสมือนศูนย์กลางของอำนาจและสงครามในดินแดนของ Khorne</p>
-          </div>
-          <div class="event">
-            <h3>The Skull Throne</h3>
-            <p>บัลลังก์แห่งกะโหลกคือภาพจำสำคัญที่สุด — ทุกกะโหลกคือชัยชนะที่ถูกถวายแด่ Blood God</p>
-          </div>
-          <div class="event">
-            <h3>The Plain of Skulls</h3>
-            <p>สมรภูมิและกองกะโหลกที่ทอดยาวจนดูเหมือนไม่มีวันสิ้นสุด สื่อถึงสงครามที่ไม่เคยหยุดพัก</p>
-          </div>
-          <div class="event">
-            <h3>สิ่งที่มันบอกเรา</h3>
-            <p>Khorne ไม่ได้สร้างอาณาจักรเพื่อความสงบ แต่สร้างโลกที่ “การรบ” เป็นสถานะปกติของทุกชีวิต</p>
-          </div>
+          <div class="event"><h3>The Brass Citadel</h3><p>ป้อมมหึมาในอาณาจักรของ Khorne และศูนย์รวมอำนาจของ Blood God.</p></div>
+          <div class="event"><h3>The Skull Throne</h3><p>บัลลังก์ที่สร้างจากกะโหลกของผู้ถูกสังหารและผู้พ่ายแพ้ที่ถูกถวายแก่ Khorne.</p></div>
+          <div class="event"><h3>The Plain of Skulls</h3><p>ภาพของสมรภูมิและกองกะโหลกที่ไม่สิ้นสุด สื่อถึงสงครามที่ไม่มีวันสงบ.</p></div>
+          <div class="event"><h3>Realm of Battle</h3><p>อาณาจักรนี้สะท้อนว่า “การรบ” ไม่ใช่เหตุการณ์ชั่วคราว แต่เป็นสภาพปกติของโลกที่อยู่ใต้อำนาจ Khorne.</p></div>
         </div>
         <figure class="figure portrait">
-          <img src="assets/khorne/khorne_lords.png" alt="ภาพผู้นำ Khorne และสถานที่สำคัญ" />
-          <figcaption>ด้านขวาของหน้าภาพช่วยให้เห็น Brass Citadel, Skull Throne และ Plain of Skulls ในสไตล์เดียวกับเล่ม Dawi</figcaption>
+          <img src="assets/khorne/khorne_lords.png" alt="ภาพ Realm of Khorne และสถานที่สำคัญ" />
+          <figcaption>Brass Citadel, Skull Throne และ Plain of Skulls ในสไตล์หนังสือภาพ</figcaption>
         </figure>
       </section>
 
@@ -121,101 +93,83 @@
         <div class="spread">
           <div>
             <p class="dropcap">
-              สิ่งที่ทำให้ Khorne แตกต่างจาก Chaos Gods อื่นคือความชัดเจนของอุดมคติ:
-              <b>ชนะด้วยกำลัง พิสูจน์ด้วยการต่อสู้ และไม่ซ่อนตัวหลังกลอุบาย</b>
-              นั่นจึงเป็นเหตุผลว่าทำไมผู้ติดตามของเขาจึงมักดูตรงไปตรงมา โกรธง่าย และหมกมุ่นกับการรบ
+              Khorne ให้คุณค่ากับพลัง ความดุดัน การพิสูจน์ตนในสงคราม และการสังหาร.
+              ผู้ศรัทธาหลายกลุ่มจึงดูตรงไปตรงมาเมื่อเทียบกับสาวก Tzeentch แต่ไม่ได้หมายความว่าพวกเขาไร้ยุทธศาสตร์หรือห้ามใช้การวางแผน
             </p>
             <p>
-              Khorne รังเกียจเวทมนตร์และเล่ห์เหลี่ยม เพราะมองว่าสิ่งเหล่านี้ทำให้การพิสูจน์ความแข็งแกร่ง “ไม่บริสุทธิ์”
-              ดังนั้น faction นี้จึงมีตัวตนที่หนักไปทางประชิด ความเร็วของการบุก และพลังการชน มากกว่าการคุมเกมระยะไกล
+              สิ่งที่ Khorne รังเกียจอย่างเด่นชัดคือ <b>sorcery</b> และการพึ่งเวทมนตร์ในฐานะหนทางสู่พลัง
+              จึงทำให้ทั้ง lore และ gameplay ของ Khorne เน้นการบุกประชิด ความเร็ว ความกดดัน และ martial prowess มากกว่าการยิงหรือ spellcasting
             </p>
             <div class="callout">
-              <strong>มุมที่น่าสนใจ:</strong> Khorne ไม่ได้ยกย่องเฉพาะความบ้าคลั่ง แต่ยกย่อง “นักรบที่คู่ควร” —
-              ยิ่งศัตรูแข็งแกร่ง กะโหลกของเขายิ่งมีคุณค่า
+              <strong>อย่าตีความเกิน lore:</strong> คำว่า “honour” ที่บางแหล่งใช้กับ Khorne ไม่ควรแปลว่าเมตตาหรือยุติธรรม —
+              เขายังคงยินดีกับการหลั่งเลือดและการสังหารอย่างมหาศาล
             </div>
           </div>
           <div>
-            <h3>4 ค่านิยมที่จำง่าย</h3>
+            <h3>4 ภาพจำที่ควรจำ</h3>
             <div class="mechanics">
-              <div class="mechanic"><div class="icon">⚔</div><h3>War</h3><p>สู้ตรง ๆ และสู้ต่อเนื่อง</p></div>
-              <div class="mechanic"><div class="icon">🔥</div><h3>Rage</h3><p>ความโกรธคือเชื้อเพลิงของการรบ</p></div>
-              <div class="mechanic"><div class="icon">✊</div><h3>Strength</h3><p>ผู้แข็งแกร่งต้องพิสูจน์ตนด้วยกำลัง</p></div>
+              <div class="mechanic"><div class="icon">⚔</div><h3>War</h3><p>สงครามคือสภาวะที่ผู้ศรัทธาแสวงหา</p></div>
+              <div class="mechanic"><div class="icon">🔥</div><h3>Rage</h3><p>ความโกรธและ battle-fury เป็นพลังขับเคลื่อน</p></div>
+              <div class="mechanic"><div class="icon">✊</div><h3>Strength</h3><p>นักรบพิสูจน์คุณค่าด้วยการเอาชนะและสังหาร</p></div>
             </div>
-            <div class="quote">ไม่มีใครถูกลืมในสนามรบ — เพราะทุกคนจบลงเป็นผู้ชนะหรือกะโหลกของผู้แพ้</div>
+            <div class="quote">ไม่มีความสงบถาวรในวิถี Khorne — มีแต่สงครามครั้งถัดไปและกะโหลกกองใหม่</div>
           </div>
         </div>
       </section>
 
       <section class="chapter" id="ch4" #chapterEl>
         <div class="chapter-kicker">Chapter IV • Campaign Momentum</div>
-        <h2>Bloodletting, Skulls และ Blood Hosts<small>กลไกที่ทำให้ Khorne “ยิ่งฆ่า ยิ่งไหล”</small></h2>
+        <h2>Bloodletting, Skulls และ Blood Hosts<small>กลไกที่ผลักให้ Khorne รบต่อเนื่อง</small></h2>
         <p class="lead">
-          แคมเปญ Khorne ถูกออกแบบให้คุณรู้สึกว่าการหยุดนิ่งคือการเสียจังหวะ กลไกหลัก ๆ
-          จึงผลักให้ชนะต่อเนื่อง เก็บกะโหลก และสร้างกองกำลังชั่วคราวเพื่อเดินหน้าสงครามต่อทันที
+          แคมเปญ Khorne ถูกออกแบบให้การหยุดนิ่งมีต้นทุน กลไกหลักจึงสนับสนุนการชนะศึกต่อเนื่อง
+          เก็บ Skulls และใช้ Blood Hosts เพื่อขยายแรงกดดันโดยไม่ต้องสร้างกองทัพปกติทุกครั้ง
         </p>
         <div class="mechanics">
-          <div class="mechanic">
-            <div class="icon">🔥</div>
-            <h3>Bloodletting</h3>
-            <p>ยิ่งกองทัพชนะและสู้ต่อเนื่อง ยิ่งรักษาแรงส่งของ faction ได้ดี เหมือนเครื่องยนต์สงครามที่ห้ามดับ</p>
-          </div>
-          <div class="mechanic">
-            <div class="icon">☠</div>
-            <h3>Skulls</h3>
-            <p>กะโหลกเป็นทรัพยากรแห่งชัยชนะ ใช้กับระบบเฉพาะของ faction และรางวัลที่ช่วยให้สงครามเดินต่อ</p>
-          </div>
-          <div class="mechanic">
-            <div class="icon">🏴</div>
-            <h3>Blood Hosts</h3>
-            <p>กองทัพชั่วคราวที่เกิดจากการทำลาย settlement ช่วยสร้างแรงกดดันหลายทิศและรักษา momentum โดยไม่ต้องตั้งกองทัพใหม่แบบปกติ</p>
-          </div>
+          <div class="mechanic"><div class="icon">🔥</div><h3>Bloodletting</h3><p>กองทัพที่รบและชนะต่อเนื่องรักษา momentum และโบนัสได้ดีกว่า.</p></div>
+          <div class="mechanic"><div class="icon">☠</div><h3>Skulls</h3><p>ทรัพยากรเฉพาะที่สะท้อนการถวายกะโหลกและใช้กับระบบของ race.</p></div>
+          <div class="mechanic"><div class="icon">🏴</div><h3>Blood Hosts</h3><p>กองทัพชั่วคราวจากการทำลาย settlement ช่วยให้สงครามลุกลามไปหลายทิศ.</p></div>
         </div>
         <div class="army-flow">
           <div class="army-step"><strong>ชนะศึก</strong>รักษา Bloodletting</div>
           <div class="arrow">→</div>
-          <div class="army-step"><strong>ทำลายเมือง</strong>สร้าง Blood Host</div>
+          <div class="army-step"><strong>Raze / Blood for the Blood God</strong>สร้างแรงส่งและ Blood Host</div>
           <div class="arrow">→</div>
-          <div class="army-step"><strong>บุกต่อ</strong>เปิดสงครามรอบใหม่ทันที</div>
-        </div>
-        <div class="callout">
-          <strong>วิธีคิดแบบง่าย:</strong> ก่อนจบเทิร์นถามตัวเองว่า “กองหลักจะฆ่าใครต่อ และ Blood Host จะไปกดเมืองไหน?”
-          ถ้าตอบสองคำถามนี้ได้ แคมเปญ Khorne จะลื่นขึ้นมาก
+          <div class="army-step"><strong>บุกต่อ</strong>หาเป้าหมายใหม่ทันที</div>
         </div>
       </section>
 
       <section class="chapter" id="ch5" #chapterEl>
         <div class="chapter-kicker">Chapter V • Champions of Khorne</div>
-        <h2>Legendary Lords<small>คนละบุคลิก แต่ทุกคนเดินสู่ชัยชนะด้วยเลือด</small></h2>
+        <h2>Legendary Lords<small>แยก “Khorne race” ออกจาก Khorne-aligned Warriors of Chaos</small></h2>
         <div class="lord-grid">
           <div class="lord">
             <h3>Skarbrand</h3>
-            <div class="title">Exiled Bloodthirster</div>
-            <p>ตัวแทน Khorne ที่เข้าใจง่ายที่สุด: ใหญ่ เร็ว รุนแรง และเกิดมาเพื่อพังแนวศัตรูด้วยตัวเอง</p>
-            <span class="tag">Monster Lord</span><span class="tag">Pure Aggression</span>
-          </div>
-          <div class="lord">
-            <h3>Valkia the Bloody</h3>
-            <div class="title">Queen of Gore</div>
-            <p>ผู้นำสายล่าเป้าหมายที่คล่องตัวกว่า สื่อภาพ “นักรบผู้ถวายชัยชนะ” ให้ Khorne มากกว่ามอนสเตอร์ยักษ์</p>
-            <span class="tag">Fast Hunter</span><span class="tag">Mortal Champion</span>
+            <div class="title">Exiles of Khorne • Exiled Bloodthirster</div>
+            <p>ตัวแทน Khorne ที่เข้าใจง่ายที่สุด: ใหญ่ เร็ว รุนแรง และสร้างแรงกระแทกมหาศาลด้วยตัวเอง</p>
+            <span class="tag">Khorne Race</span><span class="tag">Monster Lord</span>
           </div>
           <div class="lord">
             <h3>Skulltaker</h3>
-            <div class="title">Taker of Heads</div>
-            <p>ภาพจำคือการตามล่าศัตรูที่คู่ควรแล้วเก็บหัวเป็นถ้วยรางวัล เหมาะกับธีม duelist และ trophy hunter</p>
-            <span class="tag">Duelist</span><span class="tag">Head Hunter</span>
+            <div class="title">Blood God's Champion</div>
+            <p>นักล่ากะโหลกของศัตรูที่คู่ควร เด่นด้าน duel, trophy hunting และการไล่ล่าตัวละครสำคัญ</p>
+            <span class="tag">Khorne Race</span><span class="tag">Duelist</span>
           </div>
           <div class="lord">
-            <h3>Arbaal</h3>
+            <h3>Arbaal the Undefeated</h3>
             <div class="title">The Undefeated</div>
-            <p>แม่ทัพนักรบที่แสดงด้าน “วินัยของสงคราม” — ไม่ใช่แค่คลั่ง แต่คือการไม่ยอมพ่ายและบุกต่อจนศัตรูแตก</p>
-            <span class="tag">Warlord</span><span class="tag">Momentum</span>
+            <p>Champion มรรตัยของ Khorne ที่ผูกตัวตนกับการไม่ยอมพ่ายและการแสวงหาคู่ต่อสู้ที่คู่ควร</p>
+            <span class="tag">Khorne Race</span><span class="tag">Warlord</span>
           </div>
         </div>
         <figure class="figure portrait" style="margin-top: 28px">
           <img src="assets/khorne/khorne_legendary-lords.png" alt="Legendary Lords ของ Khorne แบบหน้าหนังสือ" />
-          <figcaption>ภาพรวม Legendary Lords และสถานที่สำคัญ — จัดเลย์เอาต์ให้เป็นคู่กับหน้า Legendary Lords ของ Dawi</figcaption>
+          <figcaption>ถ้าภาพเดิมมี Valkia อยู่ด้วย สามารถคงไว้ได้ในฐานะ Khorne-aligned champion แต่ข้อความต้องแยก campaign race ให้ชัด</figcaption>
         </figure>
+        <div class="callout">
+          <strong>Valkia the Bloody:</strong> เป็น Champion of Khorne และใช้ Khorne-themed roster จำนวนมากจริง
+          แต่ใน Immortal Empires แคมเปญของเธออยู่ภายใต้ <b>Warriors of Chaos — Legion of the Gorequeen</b>.
+          ดังนั้นไม่ควรนับเธอเป็นหนึ่งใน playable Legendary Lords ของ “Khorne race” ในหน้า race overview นี้
+        </div>
       </section>
 
       <section class="chapter" id="ch6" #chapterEl>
@@ -223,21 +177,19 @@
         <h2>กองทัพของ Khorne ทำงานอย่างไร?</h2>
         <p class="lead">
           ภาพจำที่ถูกต้องคือ <b>แนวหน้าชน + ตัวแรงปิดงาน + ลอร์ดสร้างแรงกระแทก</b>.
-          Khorne ไม่ต้องการยิงแข่งกับศัตรูนาน ๆ แต่ต้องการปิดระยะให้เร็ว แล้วทำให้แนวรบกลายเป็นการประชิดที่ตัวเองได้เปรียบ
+          Khorne ไม่ต้องการยิงแข่งนาน ๆ แต่ต้องการปิดระยะและเปลี่ยนสนามรบให้เป็น melee ที่ตัวเองได้เปรียบ
         </p>
         <table class="unit-table">
-          <thead>
-            <tr><th>บทบาท</th><th>หน่วยเด่น</th><th>เข้าใจแบบง่าย</th></tr>
-          </thead>
+          <thead><tr><th>บทบาท</th><th>หน่วยเด่น</th><th>เข้าใจแบบง่าย</th></tr></thead>
           <tbody>
-            <tr><td>Frontline</td><td>Chaos Warriors, Bloodletters, Exalted Bloodletters</td><td>รับแรงกระแทกแรกและเปิดช่องให้ตัวแรงเข้าทำงาน</td></tr>
-            <tr><td>Heavy hitters</td><td>Skullcrushers, Bloodcrushers, Minotaurs</td><td>วิ่งอ้อมหรือชาร์จจุดที่กำลังแตก แล้วไล่เก็บหน่วยสำคัญ</td></tr>
-            <tr><td>Monsters / Lords</td><td>Bloodthirster-style units, Skarbrand</td><td>ดึงความสนใจ สร้าง terror และพังแนวในจุดที่ infantry ทำได้ช้า</td></tr>
-            <tr><td>Pressure</td><td>Flesh Hounds / fast units</td><td>ตามล่า ranged, artillery และศัตรูที่หนี ไม่ให้ฝ่ายตรงข้ามได้ตั้งเกม</td></tr>
+            <tr><td>Frontline</td><td>Chaos Warriors / Bloodletters / Exalted Bloodletters</td><td>รับแรงกระแทกแรกและเปิดช่องให้ตัวแรงเข้าทำงาน</td></tr>
+            <tr><td>Heavy hitters</td><td>Skullcrushers / Bloodcrushers / Minotaurs</td><td>ชาร์จจุดสำคัญและทำลาย formation</td></tr>
+            <tr><td>Monsters / Lords</td><td>Bloodthirsters / Skarbrand</td><td>สร้าง terror, mass และแรงกดดันในจุดที่ infantry ทำได้ช้า</td></tr>
+            <tr><td>Fast pressure</td><td>Flesh Hounds และหน่วยเร็ว</td><td>ตามล่า ranged, artillery และศัตรูที่หนี</td></tr>
           </tbody>
         </table>
         <div class="callout">
-          <strong>ต่างจาก Dawi ชัด ๆ:</strong> Dawi ชนะเพราะ formation ไม่แตกและยิงฟรีได้นาน ส่วน Khorne ชนะเพราะทำให้ formation ของศัตรู “ไม่มีเวลาทำงาน” ตั้งแต่แรก
+          <strong>ต่างจาก Dawi ชัด ๆ:</strong> Dawi ชนะเพราะ formation ไม่แตกและยิงได้นาน ส่วน Khorne ชนะเพราะบังคับให้ formation ของศัตรูไม่มีเวลาทำงาน
         </div>
       </section>
 
@@ -245,22 +197,19 @@
         <div class="chapter-kicker">Chapter VII • Attack Without Pause</div>
         <h2>วิธีเล่นและการจัดทัพ Khorne</h2>
         <p class="lead">
-          ใช้แนวหน้าเป็น “กำแพงที่เดินเข้าใส่” แล้วให้ตัวแรงเป็นค้อนจากด้านข้าง อย่าส่งทุกอย่างวิ่งกองเดียวกันตรงกลาง
-          เพราะคุณจะเสียข้อดีของ cavalry/monster และเปิดโอกาสให้ ranged ฝั่งตรงข้ามยิงฟรี
+          ใช้แนวหน้าเป็นกำแพงที่เดินเข้าใส่ แล้วให้ตัวเร็ว ตัวหนัก และลอร์ดเข้ากดด้านข้างหรือจุดที่สำคัญ
+          อย่าส่งทุกอย่างกองเดียวตรงกลาง เพราะจะเสียข้อดีของ mobility และเปิดโอกาสให้ ranged ฝ่ายตรงข้ามทำงานง่าย
         </p>
         <figure class="figure portrait">
           <img src="assets/khorne/khorne_battle-guide.png" alt="คู่มือจัดทัพ Khorne แบบหนังสือ" />
           <figcaption>ตัวอย่างการจัดทัพ: แนวหน้าชนตรงกลาง ตัวแรงเข้าฟลังก์ และลอร์ดกดดันจุดที่กำลังแตก</figcaption>
         </figure>
         <div class="army-flow">
-          <div class="army-step"><strong>1. ปิดระยะ</strong>อย่าเสียเวลายืนรับยิง</div>
+          <div class="army-step"><strong>1. ปิดระยะ</strong>ลดเวลาที่โดนยิงฟรี</div>
           <div class="arrow">→</div>
           <div class="army-step"><strong>2. ล็อกแนวหน้า</strong>ให้ infantry ผูกศัตรูไว้</div>
           <div class="arrow">→</div>
           <div class="army-step"><strong>3. ปิดงานด้านข้าง</strong>ส่งตัวเร็วและตัวหนักเข้า flank</div>
-        </div>
-        <div class="callout">
-          <strong>ข้อควรระวัง:</strong> Khorne เก่งประชิดมาก แต่ถ้าถูก kite หรือโดนยิงฟรีนานเกินไปจะเสียเปรียบอย่างเห็นได้ชัด — การตัดสินใจ “จะชนตรงไหนก่อน” สำคัญกว่าการจัดแถวสวย
         </div>
       </section>
 
@@ -268,24 +217,12 @@
         <div class="chapter-kicker">Chapter VIII • Your First Bloodletting</div>
         <h2>ถ้าจะเริ่มเล่น Khorne ใน WARHAMMER III</h2>
         <div class="mechanics">
-          <div class="mechanic">
-            <div class="icon">🪓</div>
-            <h3>อยากเข้าใจ Khorne แบบตรงที่สุด</h3>
-            <p><b>Skarbrand</b> เหมาะมาก เพราะ playstyle ของตัวละครตรงกับแก่น faction แทบทุกอย่าง</p>
-          </div>
-          <div class="mechanic">
-            <div class="icon">🪽</div>
-            <h3>อยากได้ Lord คล่องตัว</h3>
-            <p><b>Valkia</b> ให้ความรู้สึกเป็นนักล่ามากกว่าเครื่องจักรทำลายล้างยักษ์</p>
-          </div>
-          <div class="mechanic">
-            <div class="icon">☠</div>
-            <h3>อยากเล่นธีมล่าหัว</h3>
-            <p><b>Skulltaker / Arbaal</b> เหมาะกับคนที่ชอบบุคลิกนักรบเฉพาะทางมากขึ้น</p>
-          </div>
+          <div class="mechanic"><div class="icon">🪓</div><h3>อยากเข้าใจแกน faction</h3><p><b>Skarbrand</b> เหมาะที่สุด เพราะ playstyle ของเขาตรงกับ Bloodletting, aggression และ melee pressure.</p></div>
+          <div class="mechanic"><div class="icon">☠</div><h3>อยากเล่นสายล่าตัวสำคัญ</h3><p><b>Skulltaker</b> เน้น duel, skull-taking และการตามล่าเป้าหมายคุณภาพสูง.</p></div>
+          <div class="mechanic"><div class="icon">⚔</div><h3>อยากเล่น Mortal Champion</h3><p><b>Arbaal</b> ให้ fantasy ของขุนศึกผู้ไม่ยอมแพ้และการออกตามหาคู่ต่อสู้.</p></div>
         </div>
         <div class="callout">
-          <strong>ลำดับอ่านก่อนเริ่มแคมเปญ:</strong> บท I → IV → VI → VII จะทำให้เข้าใจทั้งตัวตน faction, momentum ของแคมเปญ และวิธีใช้กองทัพโดยไม่ต้องจำทุกหน่วยก่อน
+          <strong>ถ้าอยากเล่น Valkia:</strong> เลือกเธอจาก Warriors of Chaos ไม่ใช่หน้ารายชื่อ Khorne race campaign.
         </div>
       </section>
 
@@ -294,30 +231,27 @@
         <h2>หมายเหตุและแหล่งอ่านต่อ</h2>
         <p class="lead">
           หน้านี้เป็น fan-made reading guide สำหรับช่วยให้ผู้เริ่มต้นเข้าใจ Khorne ได้เร็วขึ้น
-          เนื้อหาเรียบเรียงใหม่เป็นภาษาไทย และภาพประกอบทั้งชุดถูกสร้างขึ้นใหม่ให้มีภาษาภาพเดียวกับ Dawi Chronicle
+          และแยก “lore allegiance” ออกจาก “campaign race classification” ของ Total War: WARHAMMER III ให้ชัด
         </p>
         <div class="source-box">
-          <h3>หัวข้อที่ควรอ่านต่อถ้าอยากลงลึก</h3>
+          <h3>หัวข้อที่ควรอ่านต่อ</h3>
           <ul>
-            <li>Khorne / Realm of Khorne / Brass Citadel ใน Warhammer lore</li>
-            <li>Skarbrand, Valkia, Skulltaker และ Arbaal ในแหล่ง lore ทางการและ Total War</li>
-            <li>Bloodletting, Skulls, Blood Hosts และ roster ของ Khorne ใน Total War: WARHAMMER III</li>
+            <li>Total War: WARHAMMER Wiki / Khorne — ใช้เทียบ race overview และ playable factions</li>
+            <li><a href="https://community.creative-assembly.com/total-war/total-war-warhammer/blogs/37-omens-of-destruction-skulltaker" target="_blank" rel="noopener">Creative Assembly — Omens of Destruction: Introducing Skulltaker</a></li>
+            <li>Creative Assembly — Champions of Chaos / Valkia campaign information (Warriors of Chaos)</li>
+            <li>Realm of Khorne, Skarbrand, Skulltaker และ Arbaal ในแหล่ง lore ของ Warhammer</li>
           </ul>
-        </div>
-        <div class="callout">
-          <strong>ภาพประกอบ:</strong> เก็บอยู่ใน <b>public/assets/khorne/</b> ภายใน repo และใช้งานผ่าน route `/assets/khorne/...` เหมือนกับรูปของคนแคระ
         </div>
       </section>
 
-      <div class="page-nav">
+      <nav class="page-nav">
         <button type="button" (click)="onPrevChapter()">← บทก่อนหน้า</button>
         <button type="button" (click)="onNextChapter()">บทถัดไป →</button>
-      </div>
+      </nav>
     </article>
   </main>
 
-  <div class="footer">
-    Fan-made learning page • Total War, WARHAMMER and associated marks/art are property of their respective owners.
-    This page is not affiliated with Creative Assembly, SEGA or Games Workshop.
-  </div>
+  <footer class="footer">
+    TTWHM3 Storybook • Khorne Chronicle • Fan-made reading companion
+  </footer>
 </div>
