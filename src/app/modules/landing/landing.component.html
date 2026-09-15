@@ -1,37 +1,101 @@
 <section class="landing">
-  <div class="landing-inner">
-    <header class="masthead">
-      <div class="rune-strip">ᛏ ᛏ ᚹ ᚺ ᛗ · ᛊ ᛏ ᛟ ᚱ ᚤ ᛒ ᛟ ᛟ ᚲ</div>
-      <h1>TTWHM3 STORYBOOK<span>Chronicles of the Old World</span></h1>
-      <p class="lede">
-        เว็บอ่านแบบหนังสือสำหรับทำความเข้าใจ factions ใน
-        <b>Total War: WARHAMMER III</b> แบบ lore + gameplay guide ภาษาไทย
-        เลือกพงศาวดารที่อยากเปิดอ่านได้เลย
-      </p>
-    </header>
+  <nav class="landing-nav" aria-label="Storybook navigation">
+    <a class="brand-mark" href="#top">TTWHM3</a>
+    <div class="nav-links">
+      <a href="#showcase">แนะนำ</a>
+      <a href="#library">ทุกเผ่า</a>
+    </div>
+  </nav>
 
-    <div class="shelf">
-      <a class="faction-card" *ngFor="let f of factions" [ngClass]="f.id" [routerLink]="f.route">
-        <div class="card-art" [style.background-image]="'url(' + f.cover + ')'">
-          <div class="seal">{{ f.sigil }}</div>
-        </div>
-        <div class="card-body">
-          <div class="card-kicker">{{ f.bookSubtitle }}</div>
-          <h2>{{ f.bookTitle }}</h2>
-          <div class="card-thai">{{ f.thaiTitle }}</div>
-          <ul class="card-tags">
-            <li *ngFor="let tag of f.highlights">{{ tag }}</li>
-          </ul>
-          <div class="card-foot">
-            <span class="card-meta">{{ f.chapters }} บท</span>
-            <span class="card-cta">เปิดอ่าน →</span>
-          </div>
-        </div>
-      </a>
+  <header class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">24 playable chronicles</p>
+      <h1>TTWHM3 STORYBOOK</h1>
+      <p class="lede">
+        ห้องสมุดแฟนตาซีสำหรับอ่าน lore และ gameplay guide ภาษาไทยของ
+        <b>Total War: WARHAMMER III</b> รวมพงศาวดารครบทุกเผ่าที่มีอยู่ในโปรเจกต์นี้
+      </p>
+      <div class="hero-actions">
+        <a class="primary-link" href="#library">ดูทุกเผ่า</a>
+        <a class="secondary-link" [routerLink]="featuredFactions[0].route">เริ่มจาก {{ featuredFactions[0].bookTitle }}</a>
+      </div>
     </div>
 
-    <footer class="landing-note">
-      Fan-made learning project • Total War, WARHAMMER และเครื่องหมายที่เกี่ยวข้องเป็นทรัพย์สินของเจ้าของลิขสิทธิ์ตามลำดับ
-    </footer>
-  </div>
+    <div class="hero-stage" aria-hidden="true">
+      <div
+        class="hero-cover"
+        *ngFor="let f of featuredFactions"
+        [ngClass]="f.id"
+      >
+        <img [src]="f.cover" [alt]="f.bookTitle" />
+        <span>{{ f.sigil }}</span>
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#showcase" aria-label="Scroll to featured factions">
+      <span></span>
+    </a>
+  </header>
+
+  <main>
+    <section class="showcase" id="showcase" aria-labelledby="showcase-title">
+      <div class="showcase-copy">
+        <p class="eyebrow">featured shelf</p>
+        <h2 id="showcase-title">พงศาวดารเด่นประจำชั้น</h2>
+      </div>
+
+      <div class="showcase-track">
+        <a
+          class="showcase-card"
+          *ngFor="let f of featuredFactions"
+          [ngClass]="f.id"
+          [routerLink]="f.route"
+        >
+          <img [src]="f.cover" [alt]="f.bookTitle" />
+          <div class="showcase-caption">
+            <span>{{ f.sigil }}</span>
+            <p>{{ f.bookSubtitle }}</p>
+            <h3>{{ f.bookTitle }}</h3>
+            <small>{{ f.thaiTitle }}</small>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="library" id="library" aria-labelledby="library-title">
+      <div class="library-head">
+        <p class="eyebrow">complete library</p>
+        <h2 id="library-title">เลือกพงศาวดารทั้ง 24 เผ่า</h2>
+      </div>
+
+      <div class="group-strip" *ngFor="let group of factionGroups">
+        <div class="group-title">{{ group.title }}</div>
+
+        <div class="shelf">
+          <a class="faction-card" *ngFor="let f of group.factions" [ngClass]="f.id" [routerLink]="f.route">
+            <div class="card-art">
+              <img [src]="f.cover" [alt]="f.bookTitle" />
+              <div class="seal">{{ f.sigil }}</div>
+            </div>
+            <div class="card-body">
+              <div class="card-kicker">{{ f.bookSubtitle }}</div>
+              <h3>{{ f.bookTitle }}</h3>
+              <div class="card-thai">{{ f.thaiTitle }}</div>
+              <ul class="card-tags">
+                <li *ngFor="let tag of f.highlights">{{ tag }}</li>
+              </ul>
+              <div class="card-foot">
+                <span class="card-meta">{{ f.chapters }} บท</span>
+                <span class="card-cta">เปิดอ่าน</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="landing-note">
+    Fan-made learning project • Total War, WARHAMMER และเครื่องหมายที่เกี่ยวข้องเป็นทรัพย์สินของเจ้าของลิขสิทธิ์ตามลำดับ
+  </footer>
 </section>

@@ -284,4 +284,45 @@ export class LandingComponent {
       highlights: ['Athel Loren', 'Forest Spirits', 'Waywatchers'],
     },
   ];
+
+  readonly featuredFactions = this.factions.slice(0, 6);
+
+  readonly factionGroups = [
+    {
+      title: 'Core Chronicles',
+      ids: ['dawi', 'empire', 'khorne', 'high-elves', 'skaven', 'grand-cathay', 'kislev'],
+    },
+    {
+      title: 'Chaos & Dark Powers',
+      ids: [
+        'beastmen',
+        'chaos-dwarfs',
+        'daemons-of-chaos',
+        'norsca',
+        'nurgle',
+        'slaanesh',
+        'tzeentch',
+        'warriors-of-chaos',
+      ],
+    },
+    {
+      title: 'Immortal Empires',
+      ids: [
+        'bretonnia',
+        'dark-elves',
+        'greenskins',
+        'lizardmen',
+        'ogre-kingdoms',
+        'tomb-kings',
+        'vampire-coast',
+        'vampire-counts',
+        'wood-elves',
+      ],
+    },
+  ].map((group) => ({
+    title: group.title,
+    factions: group.ids
+      .map((id) => this.factions.find((faction) => faction.id === id))
+      .filter((faction): faction is Faction => Boolean(faction)),
+  }));
 }

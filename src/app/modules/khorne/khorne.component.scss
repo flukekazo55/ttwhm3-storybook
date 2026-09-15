@@ -3,6 +3,9 @@
 }
 
 .khorne-chronicle {
+  --accent: #b03426;
+  --accent-strong: #8b241c;
+  --accent-soft: #e8b98f;
   --red: #8b241c;
   --gold: #b98535;
   --gold2: #e2bd73;
@@ -10,22 +13,8 @@
   --leather2: #37150f;
 }
 
-.khorne-chronicle .toc {
-  border-color: #73351f;
-}
-
-.khorne-chronicle .toc-link:hover,
-.khorne-chronicle .toc-link.active {
-  background: rgba(151, 48, 31, 0.18);
-}
-
 .khorne-chronicle .figure {
   border-color: #623126;
-}
-
-.khorne-chronicle .page-nav {
-  background: #30110d;
-  border-color: #743a26;
 }
 
 .khorne-chronicle .blood-mark {
