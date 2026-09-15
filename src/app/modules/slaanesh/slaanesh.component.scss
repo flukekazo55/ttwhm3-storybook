@@ -1,0 +1,55 @@
+.slaanesh-chronicle {
+  --accent: #b468b8;
+  --accent-strong: #7a3a7d;
+  --accent-soft: #f0e2ef;
+  --ink: #263846;
+  --cover-1: #f0e2ef;
+  --cover-2: #f7f4ef;
+}
+
+.slaanesh-chronicle .cover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.25), rgba(20,30,40,.42)),
+    url('/assets/slaanesh/slaanesh_cover.png') center/cover no-repeat;
+}
+
+.slaanesh-chronicle .seal {
+  background: rgba(255,255,255,.88);
+  color: #7a3a7d;
+  border-color: rgba(0, 0, 0, .08);
+}
+
+.slaanesh-chronicle .theme-grid,
+.slaanesh-chronicle .feature-grid,
+.slaanesh-chronicle .unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.slaanesh-chronicle .theme-card,
+.slaanesh-chronicle .feature-card,
+.slaanesh-chronicle .unit-card {
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,.45);
+}
+
+.slaanesh-chronicle .tag {
+  display: inline-block;
+  margin: .2rem .35rem 0 0;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.6);
+  font-size: .8em;
+}
+
+@media (max-width: 760px) {
+  .slaanesh-chronicle .theme-grid,
+  .slaanesh-chronicle .feature-grid,
+  .slaanesh-chronicle .unit-grid {
+    grid-template-columns: 1fr;
+  }
+}

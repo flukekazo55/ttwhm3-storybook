@@ -1,0 +1,55 @@
+.vampire-counts-chronicle {
+  --accent: #9c5a8b;
+  --accent-strong: #5f3151;
+  --accent-soft: #ede2ea;
+  --ink: #263846;
+  --cover-1: #ede2ea;
+  --cover-2: #f7f4ef;
+}
+
+.vampire-counts-chronicle .cover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.25), rgba(20,30,40,.42)),
+    url('/assets/vampire-counts/vampire-counts_cover.png') center/cover no-repeat;
+}
+
+.vampire-counts-chronicle .seal {
+  background: rgba(255,255,255,.88);
+  color: #5f3151;
+  border-color: rgba(0, 0, 0, .08);
+}
+
+.vampire-counts-chronicle .theme-grid,
+.vampire-counts-chronicle .feature-grid,
+.vampire-counts-chronicle .unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.vampire-counts-chronicle .theme-card,
+.vampire-counts-chronicle .feature-card,
+.vampire-counts-chronicle .unit-card {
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,.45);
+}
+
+.vampire-counts-chronicle .tag {
+  display: inline-block;
+  margin: .2rem .35rem 0 0;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.6);
+  font-size: .8em;
+}
+
+@media (max-width: 760px) {
+  .vampire-counts-chronicle .theme-grid,
+  .vampire-counts-chronicle .feature-grid,
+  .vampire-counts-chronicle .unit-grid {
+    grid-template-columns: 1fr;
+  }
+}

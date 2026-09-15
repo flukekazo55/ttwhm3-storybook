@@ -1,0 +1,55 @@
+.dark-elves-chronicle {
+  --accent: #8d5d94;
+  --accent-strong: #5b3561;
+  --accent-soft: #ece3ef;
+  --ink: #263846;
+  --cover-1: #ece3ef;
+  --cover-2: #f7f4ef;
+}
+
+.dark-elves-chronicle .cover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.25), rgba(20,30,40,.42)),
+    url('/assets/dark-elves/dark-elves_cover.png') center/cover no-repeat;
+}
+
+.dark-elves-chronicle .seal {
+  background: rgba(255,255,255,.88);
+  color: #5b3561;
+  border-color: rgba(0, 0, 0, .08);
+}
+
+.dark-elves-chronicle .theme-grid,
+.dark-elves-chronicle .feature-grid,
+.dark-elves-chronicle .unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.dark-elves-chronicle .theme-card,
+.dark-elves-chronicle .feature-card,
+.dark-elves-chronicle .unit-card {
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,.45);
+}
+
+.dark-elves-chronicle .tag {
+  display: inline-block;
+  margin: .2rem .35rem 0 0;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.6);
+  font-size: .8em;
+}
+
+@media (max-width: 760px) {
+  .dark-elves-chronicle .theme-grid,
+  .dark-elves-chronicle .feature-grid,
+  .dark-elves-chronicle .unit-grid {
+    grid-template-columns: 1fr;
+  }
+}

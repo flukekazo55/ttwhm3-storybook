@@ -1,0 +1,55 @@
+.wood-elves-chronicle {
+  --accent: #63a36d;
+  --accent-strong: #356840;
+  --accent-soft: #e0efe1;
+  --ink: #263846;
+  --cover-1: #e0efe1;
+  --cover-2: #f7f4ef;
+}
+
+.wood-elves-chronicle .cover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.25), rgba(20,30,40,.42)),
+    url('/assets/wood-elves/wood-elves_cover.png') center/cover no-repeat;
+}
+
+.wood-elves-chronicle .seal {
+  background: rgba(255,255,255,.88);
+  color: #356840;
+  border-color: rgba(0, 0, 0, .08);
+}
+
+.wood-elves-chronicle .theme-grid,
+.wood-elves-chronicle .feature-grid,
+.wood-elves-chronicle .unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.wood-elves-chronicle .theme-card,
+.wood-elves-chronicle .feature-card,
+.wood-elves-chronicle .unit-card {
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,.45);
+}
+
+.wood-elves-chronicle .tag {
+  display: inline-block;
+  margin: .2rem .35rem 0 0;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.6);
+  font-size: .8em;
+}
+
+@media (max-width: 760px) {
+  .wood-elves-chronicle .theme-grid,
+  .wood-elves-chronicle .feature-grid,
+  .wood-elves-chronicle .unit-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,55 @@
+.warriors-of-chaos-chronicle {
+  --accent: #9b6257;
+  --accent-strong: #60352f;
+  --accent-soft: #ece3df;
+  --ink: #263846;
+  --cover-1: #ece3df;
+  --cover-2: #f7f4ef;
+}
+
+.warriors-of-chaos-chronicle .cover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.25), rgba(20,30,40,.42)),
+    url('/assets/warriors-of-chaos/warriors-of-chaos_cover.png') center/cover no-repeat;
+}
+
+.warriors-of-chaos-chronicle .seal {
+  background: rgba(255,255,255,.88);
+  color: #60352f;
+  border-color: rgba(0, 0, 0, .08);
+}
+
+.warriors-of-chaos-chronicle .theme-grid,
+.warriors-of-chaos-chronicle .feature-grid,
+.warriors-of-chaos-chronicle .unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.warriors-of-chaos-chronicle .theme-card,
+.warriors-of-chaos-chronicle .feature-card,
+.warriors-of-chaos-chronicle .unit-card {
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,.45);
+}
+
+.warriors-of-chaos-chronicle .tag {
+  display: inline-block;
+  margin: .2rem .35rem 0 0;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.6);
+  font-size: .8em;
+}
+
+@media (max-width: 760px) {
+  .warriors-of-chaos-chronicle .theme-grid,
+  .warriors-of-chaos-chronicle .feature-grid,
+  .warriors-of-chaos-chronicle .unit-grid {
+    grid-template-columns: 1fr;
+  }
+}

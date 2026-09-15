@@ -1,0 +1,156 @@
+<div class="chronicle beastmen-chronicle" [class.night]="theme === 'night'" [style.--reader-size]="fontSize + 'px'">
+  <section class="cover" id="beastmen-cover">
+    <div class="cover-inner">
+      <div class="cover-kicker">The Wild Herds • Chaos-Tainted Forest Archive</div>
+      <div class="seal">🦌</div>
+      <h1>BEASTMEN<span>The Chronicle of the Wild Herd</span></h1>
+      <div class="thai-title">พงศาวดารเผ่าสัตว์แห่งป่าเถื่อน</div>
+      <p class="subtitle">Beastmen คือเผ่าลูกหลานแห่ง Chaos ที่ปฏิเสธอารยธรรมและบุกทำลายโลกมนุษย์ด้วยฝูงอสูรจากป่าและภูเขา.</p>
+      <div class="cover-actions">
+        <button type="button" class="open-book" (click)="onOpenBook()">เปิดหนังสือ</button>
+        <a class="faction-switch" routerLink="/">เลือก faction อื่น</a>
+        <a class="faction-switch" routerLink="/kislev">อ่าน Kislev</a>
+        <a class="faction-switch" routerLink="/grand-cathay">อ่าน Grand Cathay</a>
+      </div>
+      <div class="cover-note">ไฟล์ภาพใน /assets/beastmen/ เป็น placeholder สำหรับนำรูปจริงมาแทนภายหลังได้ทันที</div>
+    </div>
+  </section>
+
+  <main class="book-shell" #book>
+    <aside class="toc">
+      <h2 class="toc-title">สารบัญ</h2>
+      <div class="toc-sub">BEASTMEN • ฉบับอ่านง่าย</div>
+      <nav class="toc-nav">
+        <a *ngFor="let ch of chapters" class="toc-link" [class.active]="ch.id === activeChapterId" (click)="goToChapter(ch.id)">
+          <span class="num">{{ ch.numeral }}</span> {{ ch.title }}
+        </a>
+      </nav>
+      <div class="reader-tools">
+        <button type="button" title="ลดขนาดตัวอักษร" (click)="onFontSmaller()">A−</button>
+        <button type="button" title="เพิ่มขนาดตัวอักษร" (click)="onFontLarger()">A+</button>
+        <button type="button" title="สลับโหมดกลางคืน" (click)="onToggleTheme()">{{ theme === 'night' ? '☀' : '☾' }}</button>
+      </div>
+      <div class="version"><b>Source focus:</b> Immortal Empires / Race listed on Total War: WARHAMMER III wiki page<br />ยึด race roster จากหน้า Total War: WARHAMMER III ที่ผู้ใช้ส่งมา</div>
+    </aside>
+
+    <article class="reader">
+      <div class="progress"><span [style.width.%]="progress"></span></div>
+
+      <section class="chapter" id="ch1" #chapterEl>
+        <div class="chapter-kicker">Chapter I • Overview</div>
+        <h2>Beastmen คือใคร?<small>ภาพรวมแบบอ่านง่าย</small></h2>
+        <div class="spread">
+          <div>
+            <p class="lead dropcap">Beastmen คือเผ่าลูกหลานแห่ง Chaos ที่ปฏิเสธอารยธรรมและบุกทำลายโลกมนุษย์ด้วยฝูงอสูรจากป่าและภูเขา.</p>
+            <p>หน้า Total War: WARHAMMER III ที่คุณให้มา ระบุ Beastmen อยู่ในรายชื่อ race ของเกมผ่าน Immortal Empires.</p>
+            <div class="callout"><strong>Keyword:</strong> Brayherds, Herdstones, Minotaurs</div>
+          </div>
+          <figure class="figure">
+            <img src="/assets/beastmen/beastmen_overview.png" alt="BEASTMEN overview placeholder" />
+            <figcaption>Overview placeholder — เปลี่ยนเป็นภาพจริงภายหลังได้ทันที</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch2" #chapterEl>
+        <div class="chapter-kicker">Chapter II • Homeland</div>
+        <h2>ดินแดนและอัตลักษณ์</h2>
+        <div class="spread">
+          <figure class="figure">
+            <img src="/assets/beastmen/beastmen_realm.png" alt="BEASTMEN realm placeholder" />
+            <figcaption>Realm / homeland placeholder</figcaption>
+          </figure>
+          <div>
+            <p class="lead">Beastmen ไม่ผูกกับอาณาจักรเดียว แต่ปรากฏตัวตามผืนป่า ถ้ำ และ wilderness ทั่วโลก Warhammer.</p>
+            <p>บทนี้ใช้สำหรับปูบรรยากาศของเผ่า พื้นที่ที่ผู้เล่นมักเชื่อมโยงกับ race นี้ และโทนเรื่องราวของ faction book ในเว็บคุณ.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch3" #chapterEl>
+        <div class="chapter-kicker">Chapter III • Leadership</div>
+        <h2>ผู้นำและบุคลิกของเผ่า</h2>
+        <div class="spread">
+          <div>
+            <p class="lead">ภาพจำของเผ่านี้มักโยงกับผู้นำฝูงแบบ Bray-Shamans และ Beastlords ซึ่งนำฝูงอสูรเข้าปล้นและเผาทำลาย.</p>
+            <div class="feature-grid">
+              <div class="feature-card"><h3>Identity</h3><p>นำเสนอผู้นำหรือตัวแทนสำคัญของ race ให้คนอ่านเข้าใจคาแรกเตอร์ของเผ่าได้เร็ว</p></div>
+              <div class="feature-card"><h3>Faction Tone</h3><p>กำหนดธีมของหน้าหนังสือ เช่น ความศักดิ์สิทธิ์ ความป่าเถื่อน ความชั่วร้าย หรือความเป็นจักรวรรดิ</p></div>
+            </div>
+          </div>
+          <figure class="figure">
+            <img src="/assets/beastmen/beastmen_leaders.png" alt="BEASTMEN leaders placeholder" />
+            <figcaption>Leaders placeholder</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch4" #chapterEl>
+        <div class="chapter-kicker">Chapter IV • Army Style</div>
+        <h2>รูปแบบกองทัพ</h2>
+        <p class="lead">กองทัพ Beastmen เน้นการบุกฉับพลัน แรงปะทะสูง สัตว์ประหลาด และแนวคิดฝูงสัตว์ป่าที่รุมบดขยี้ศัตรู.</p>
+        <div class="theme-grid">
+          <div class="theme-card"><strong>Battle Style</strong><p>ภาพรวมว่ากองทัพนี้ชนะด้วยอะไร เช่น charge, monsters, attrition, ranged firepower หรือ magic.</p></div>
+          <div class="theme-card"><strong>Player Feel</strong><p>อารมณ์การเล่นของเผ่านี้ในแคมเปญและ battle มักชัดเจนและต่างจากเผ่าอื่นมาก.</p></div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch5" #chapterEl>
+        <div class="chapter-kicker">Chapter V • Signature Themes</div>
+        <h2>แนวคิดและกลไกสำคัญ</h2>
+        <div class="spread">
+          <figure class="figure">
+            <img src="/assets/beastmen/beastmen_signature.png" alt="BEASTMEN signature placeholder" />
+            <figcaption>Signature mechanics placeholder</figcaption>
+          </figure>
+          <div>
+            <p class="lead">ธีมสำคัญของ Beastmen คือความเป็นฝูงป่าเถื่อน การทำลายตั้งถิ่นฐาน และการขยายอิทธิพลของฝูงผ่าน Herdstones/Brayherds.</p>
+            <div class="callout"><strong>Highlights:</strong> Brayherds, Herdstones, Minotaurs</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch6" #chapterEl>
+        <div class="chapter-kicker">Chapter VI • Units</div>
+        <h2>หน่วยเด่นและภาพจำ</h2>
+        <div class="spread">
+          <div>
+            <p class="lead">หน่วยเด่นมักเป็น Gors, Bestigors, Minotaurs, Centigors, Chaos Spawn และมอนสเตอร์สาย brute force.</p>
+            <div class="unit-grid">
+              <div class="unit-card"><h3>Visual identity</h3><p>ใช้หัวข้อนี้เป็นที่ใส่รูปกองทัพ หน่วย elite หรือมอนสเตอร์เด่นของเผ่า</p></div>
+              <div class="unit-card"><h3>Roster hook</h3><p>สรุปสั้น ๆ ว่าคนเล่นจดจำ race นี้จากหน่วยหรือสไตล์การเล่นแบบไหน</p></div>
+            </div>
+          </div>
+          <figure class="figure">
+            <img src="/assets/beastmen/beastmen_army.png" alt="BEASTMEN army placeholder" />
+            <figcaption>Army placeholder</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch7" #chapterEl>
+        <div class="chapter-kicker">Chapter VII • WARHAMMER III</div>
+        <h2>บทบาทใน Total War: WARHAMMER III</h2>
+        <p class="lead">หน้า Total War: WARHAMMER III ที่คุณให้มา ระบุ Beastmen อยู่ในรายชื่อ race ของเกมผ่าน Immortal Empires.</p>
+        <div class="callout"><strong>Source note:</strong> สำหรับ bundle นี้ ผมยึดรายชื่อ race จากหน้า <i>Total War: WARHAMMER III</i> ที่คุณส่งมาเป็นหลัก และจัดหน้า/โครงสร้างให้พร้อมนำไปใส่ lore เพิ่มในรอบถัดไปได้ง่าย</div>
+        <p><span class="tag">Brayherds</span><span class="tag">Herdstones</span><span class="tag">Minotaurs</span></p>
+      </section>
+
+      <section class="chapter" id="sources" #chapterEl>
+        <div class="chapter-kicker">Chapter VIII • Sources</div>
+        <h2>สรุปและแหล่งอ้างอิง</h2>
+        <ul>
+          <li>Total War: WARHAMMER Wiki — Total War: Warhammer III</li>
+          <li>หน้าที่ใช้งานนี้ยึดรายชื่อ race จาก section “Races” และ “Playable races” ของหน้าดังกล่าว</li>
+          <li>เนื้อหาในหน้านี้เรียบเรียงใหม่เพื่อเป็นหนังสืออ่านง่ายและเว้น placeholder ไว้ให้เติมรูปจริงภายหลัง</li>
+        </ul>
+        <p class="fineprint">หมายเหตุ: ผมไม่ได้คัดลอกข้อความตรงจากเว็บยาว ๆ แต่สรุปใหม่ให้เข้ากับเลย์เอาต์หนังสือของโปรเจกต์คุณ</p>
+      </section>
+
+      <nav class="chapter-nav">
+        <button type="button" (click)="onPrevChapter()">← บทก่อนหน้า</button>
+        <button type="button" (click)="onNextChapter()">บทถัดไป →</button>
+      </nav>
+    </article>
+  </main>
+</div>

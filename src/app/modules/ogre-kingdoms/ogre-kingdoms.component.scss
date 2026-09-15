@@ -1,0 +1,55 @@
+.ogre-kingdoms-chronicle {
+  --accent: #b88755;
+  --accent-strong: #78542f;
+  --accent-soft: #efe4d8;
+  --ink: #263846;
+  --cover-1: #efe4d8;
+  --cover-2: #f7f4ef;
+}
+
+.ogre-kingdoms-chronicle .cover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.25), rgba(20,30,40,.42)),
+    url('/assets/ogre-kingdoms/ogre-kingdoms_cover.png') center/cover no-repeat;
+}
+
+.ogre-kingdoms-chronicle .seal {
+  background: rgba(255,255,255,.88);
+  color: #78542f;
+  border-color: rgba(0, 0, 0, .08);
+}
+
+.ogre-kingdoms-chronicle .theme-grid,
+.ogre-kingdoms-chronicle .feature-grid,
+.ogre-kingdoms-chronicle .unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.ogre-kingdoms-chronicle .theme-card,
+.ogre-kingdoms-chronicle .feature-card,
+.ogre-kingdoms-chronicle .unit-card {
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,.45);
+}
+
+.ogre-kingdoms-chronicle .tag {
+  display: inline-block;
+  margin: .2rem .35rem 0 0;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.6);
+  font-size: .8em;
+}
+
+@media (max-width: 760px) {
+  .ogre-kingdoms-chronicle .theme-grid,
+  .ogre-kingdoms-chronicle .feature-grid,
+  .ogre-kingdoms-chronicle .unit-grid {
+    grid-template-columns: 1fr;
+  }
+}

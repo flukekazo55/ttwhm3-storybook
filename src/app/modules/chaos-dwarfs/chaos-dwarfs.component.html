@@ -1,0 +1,156 @@
+<div class="chronicle chaos-dwarfs-chronicle" [class.night]="theme === 'night'" [style.--reader-size]="fontSize + 'px'">
+  <section class="cover" id="chaos-dwarfs-cover">
+    <div class="cover-inner">
+      <div class="cover-kicker">Zharr-Naggrund • Forge of Hashut Archive</div>
+      <div class="seal">🔥</div>
+      <h1>CHAOS DWARFS<span>The Chronicle of Industry and Ash</span></h1>
+      <div class="thai-title">พงศาวดารคนแคระแห่งเถ้าถ่าน</div>
+      <p class="subtitle">Chaos Dwarfs คือคนแคระผู้หันหลังให้เส้นทางเดิมและสร้างอาณาจักรอุตสาหกรรมแห่งไฟ เหล็ก ทาส และพลังของ Hashut.</p>
+      <div class="cover-actions">
+        <button type="button" class="open-book" (click)="onOpenBook()">เปิดหนังสือ</button>
+        <a class="faction-switch" routerLink="/">เลือก faction อื่น</a>
+        <a class="faction-switch" routerLink="/kislev">อ่าน Kislev</a>
+        <a class="faction-switch" routerLink="/grand-cathay">อ่าน Grand Cathay</a>
+      </div>
+      <div class="cover-note">ไฟล์ภาพใน /assets/chaos-dwarfs/ เป็น placeholder สำหรับนำรูปจริงมาแทนภายหลังได้ทันที</div>
+    </div>
+  </section>
+
+  <main class="book-shell" #book>
+    <aside class="toc">
+      <h2 class="toc-title">สารบัญ</h2>
+      <div class="toc-sub">CHAOS DWARFS • ฉบับอ่านง่าย</div>
+      <nav class="toc-nav">
+        <a *ngFor="let ch of chapters" class="toc-link" [class.active]="ch.id === activeChapterId" (click)="goToChapter(ch.id)">
+          <span class="num">{{ ch.numeral }}</span> {{ ch.title }}
+        </a>
+      </nav>
+      <div class="reader-tools">
+        <button type="button" title="ลดขนาดตัวอักษร" (click)="onFontSmaller()">A−</button>
+        <button type="button" title="เพิ่มขนาดตัวอักษร" (click)="onFontLarger()">A+</button>
+        <button type="button" title="สลับโหมดกลางคืน" (click)="onToggleTheme()">{{ theme === 'night' ? '☀' : '☾' }}</button>
+      </div>
+      <div class="version"><b>Source focus:</b> Forge of the Chaos Dwarfs DLC on the Total War: WARHAMMER III page<br />ยึด race roster จากหน้า Total War: WARHAMMER III ที่ผู้ใช้ส่งมา</div>
+    </aside>
+
+    <article class="reader">
+      <div class="progress"><span [style.width.%]="progress"></span></div>
+
+      <section class="chapter" id="ch1" #chapterEl>
+        <div class="chapter-kicker">Chapter I • Overview</div>
+        <h2>Chaos Dwarfs คือใคร?<small>ภาพรวมแบบอ่านง่าย</small></h2>
+        <div class="spread">
+          <div>
+            <p class="lead dropcap">Chaos Dwarfs คือคนแคระผู้หันหลังให้เส้นทางเดิมและสร้างอาณาจักรอุตสาหกรรมแห่งไฟ เหล็ก ทาส และพลังของ Hashut.</p>
+            <p>Chaos Dwarfs ถูกแสดงชัดบนหน้าเกมว่าเป็น race playable ผ่าน DLC Forge of the Chaos Dwarfs.</p>
+            <div class="callout"><strong>Keyword:</strong> Hashut, Infernal Industry, War Machines</div>
+          </div>
+          <figure class="figure">
+            <img src="/assets/chaos-dwarfs/chaos-dwarfs_overview.png" alt="CHAOS DWARFS overview placeholder" />
+            <figcaption>Overview placeholder — เปลี่ยนเป็นภาพจริงภายหลังได้ทันที</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch2" #chapterEl>
+        <div class="chapter-kicker">Chapter II • Homeland</div>
+        <h2>ดินแดนและอัตลักษณ์</h2>
+        <div class="spread">
+          <figure class="figure">
+            <img src="/assets/chaos-dwarfs/chaos-dwarfs_realm.png" alt="CHAOS DWARFS realm placeholder" />
+            <figcaption>Realm / homeland placeholder</figcaption>
+          </figure>
+          <div>
+            <p class="lead">หัวใจของเผ่านี้คือ Zharr-Naggrund และดินแดนทรหดทางตะวันออกที่เต็มไปด้วยเตาหลอม ป้อม และถนนแห่งแรงงานทาส.</p>
+            <p>บทนี้ใช้สำหรับปูบรรยากาศของเผ่า พื้นที่ที่ผู้เล่นมักเชื่อมโยงกับ race นี้ และโทนเรื่องราวของ faction book ในเว็บคุณ.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch3" #chapterEl>
+        <div class="chapter-kicker">Chapter III • Leadership</div>
+        <h2>ผู้นำและบุคลิกของเผ่า</h2>
+        <div class="spread">
+          <div>
+            <p class="lead">ในหน้า Total War: WARHAMMER III ที่คุณให้มา Playable lords ของ Chaos Dwarfs คือ Astragoth Ironhand, Drazhoath the Ashen และ Zhatan the Black.</p>
+            <div class="feature-grid">
+              <div class="feature-card"><h3>Identity</h3><p>นำเสนอผู้นำหรือตัวแทนสำคัญของ race ให้คนอ่านเข้าใจคาแรกเตอร์ของเผ่าได้เร็ว</p></div>
+              <div class="feature-card"><h3>Faction Tone</h3><p>กำหนดธีมของหน้าหนังสือ เช่น ความศักดิ์สิทธิ์ ความป่าเถื่อน ความชั่วร้าย หรือความเป็นจักรวรรดิ</p></div>
+            </div>
+          </div>
+          <figure class="figure">
+            <img src="/assets/chaos-dwarfs/chaos-dwarfs_leaders.png" alt="CHAOS DWARFS leaders placeholder" />
+            <figcaption>Leaders placeholder</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch4" #chapterEl>
+        <div class="chapter-kicker">Chapter IV • Army Style</div>
+        <h2>รูปแบบกองทัพ</h2>
+        <p class="lead">กองทัพ Chaos Dwarfs ผสมทหารเกราะหนัก พลซุ่มยิงปีศาจ อาวุธปืนใหญ่ Infernal war machines และแรงงานทาสสาย Hobgoblins หรือ labourers.</p>
+        <div class="theme-grid">
+          <div class="theme-card"><strong>Battle Style</strong><p>ภาพรวมว่ากองทัพนี้ชนะด้วยอะไร เช่น charge, monsters, attrition, ranged firepower หรือ magic.</p></div>
+          <div class="theme-card"><strong>Player Feel</strong><p>อารมณ์การเล่นของเผ่านี้ในแคมเปญและ battle มักชัดเจนและต่างจากเผ่าอื่นมาก.</p></div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch5" #chapterEl>
+        <div class="chapter-kicker">Chapter V • Signature Themes</div>
+        <h2>แนวคิดและกลไกสำคัญ</h2>
+        <div class="spread">
+          <figure class="figure">
+            <img src="/assets/chaos-dwarfs/chaos-dwarfs_signature.png" alt="CHAOS DWARFS signature placeholder" />
+            <figcaption>Signature mechanics placeholder</figcaption>
+          </figure>
+          <div>
+            <p class="lead">ธีมสำคัญคือ Hashut, การผลิตอาวุธ, industry, convoy, towers และความโหดเหี้ยมแบบรัฐอุตสาหกรรมทหาร.</p>
+            <div class="callout"><strong>Highlights:</strong> Hashut, Infernal Industry, War Machines</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch6" #chapterEl>
+        <div class="chapter-kicker">Chapter VI • Units</div>
+        <h2>หน่วยเด่นและภาพจำ</h2>
+        <div class="spread">
+          <div>
+            <p class="lead">ภาพจำของ roster ได้แก่ Infernal Guard, Bull Centaurs, K’daai, war machines, artillery และหน่วยทาสที่ใช้ค้ำระบบเศรษฐกิจ.</p>
+            <div class="unit-grid">
+              <div class="unit-card"><h3>Visual identity</h3><p>ใช้หัวข้อนี้เป็นที่ใส่รูปกองทัพ หน่วย elite หรือมอนสเตอร์เด่นของเผ่า</p></div>
+              <div class="unit-card"><h3>Roster hook</h3><p>สรุปสั้น ๆ ว่าคนเล่นจดจำ race นี้จากหน่วยหรือสไตล์การเล่นแบบไหน</p></div>
+            </div>
+          </div>
+          <figure class="figure">
+            <img src="/assets/chaos-dwarfs/chaos-dwarfs_army.png" alt="CHAOS DWARFS army placeholder" />
+            <figcaption>Army placeholder</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch7" #chapterEl>
+        <div class="chapter-kicker">Chapter VII • WARHAMMER III</div>
+        <h2>บทบาทใน Total War: WARHAMMER III</h2>
+        <p class="lead">Chaos Dwarfs ถูกแสดงชัดบนหน้าเกมว่าเป็น race playable ผ่าน DLC Forge of the Chaos Dwarfs.</p>
+        <div class="callout"><strong>Source note:</strong> สำหรับ bundle นี้ ผมยึดรายชื่อ race จากหน้า <i>Total War: WARHAMMER III</i> ที่คุณส่งมาเป็นหลัก และจัดหน้า/โครงสร้างให้พร้อมนำไปใส่ lore เพิ่มในรอบถัดไปได้ง่าย</div>
+        <p><span class="tag">Hashut</span><span class="tag">Infernal Industry</span><span class="tag">War Machines</span></p>
+      </section>
+
+      <section class="chapter" id="sources" #chapterEl>
+        <div class="chapter-kicker">Chapter VIII • Sources</div>
+        <h2>สรุปและแหล่งอ้างอิง</h2>
+        <ul>
+          <li>Total War: WARHAMMER Wiki — Total War: Warhammer III</li>
+          <li>หน้าที่ใช้งานนี้ยึดรายชื่อ race จาก section “Races” และ “Playable races” ของหน้าดังกล่าว</li>
+          <li>เนื้อหาในหน้านี้เรียบเรียงใหม่เพื่อเป็นหนังสืออ่านง่ายและเว้น placeholder ไว้ให้เติมรูปจริงภายหลัง</li>
+        </ul>
+        <p class="fineprint">หมายเหตุ: ผมไม่ได้คัดลอกข้อความตรงจากเว็บยาว ๆ แต่สรุปใหม่ให้เข้ากับเลย์เอาต์หนังสือของโปรเจกต์คุณ</p>
+      </section>
+
+      <nav class="chapter-nav">
+        <button type="button" (click)="onPrevChapter()">← บทก่อนหน้า</button>
+        <button type="button" (click)="onNextChapter()">บทถัดไป →</button>
+      </nav>
+    </article>
+  </main>
+</div>

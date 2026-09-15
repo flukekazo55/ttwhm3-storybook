@@ -3,7 +3,7 @@
 เว็บอ่านแบบหนังสือสำหรับทำความเข้าใจ factions ใน **Total War: WARHAMMER III** แบบ lore + gameplay guide ภาษาไทย
 โดยคง visual language แบบพงศาวดารแฟนตาซีเดียวกันทั้งชุด
 
-ตอนนี้มี 5 เล่ม เข้าถึงผ่านหน้า landing:
+ตอนนี้มี 24 เล่ม เข้าถึงผ่านหน้า landing:
 
 - **Landing (เลือก faction)** — route `/`
 - **Dawi** — route `/dawi`
@@ -11,6 +11,25 @@
 - **Khorne** — route `/khorne`
 - **High Elves** — route `/high-elves`
 - **Skaven** — route `/skaven`
+- **Grand Cathay** — route `/grand-cathay`
+- **Kislev** — route `/kislev`
+- **Beastmen** — route `/beastmen`
+- **Bretonnia** — route `/bretonnia`
+- **Chaos Dwarfs** — route `/chaos-dwarfs`
+- **Daemons of Chaos** — route `/daemons-of-chaos`
+- **Dark Elves** — route `/dark-elves`
+- **Greenskins** — route `/greenskins`
+- **Lizardmen** — route `/lizardmen`
+- **Norsca** — route `/norsca`
+- **Nurgle** — route `/nurgle`
+- **Ogre Kingdoms** — route `/ogre-kingdoms`
+- **Slaanesh** — route `/slaanesh`
+- **Tomb Kings** — route `/tomb-kings`
+- **Tzeentch** — route `/tzeentch`
+- **Vampire Coast** — route `/vampire-coast`
+- **Vampire Counts** — route `/vampire-counts`
+- **Warriors of Chaos** — route `/warriors-of-chaos`
+- **Wood Elves** — route `/wood-elves`
 
 ## รันโปรเจกต์
 
@@ -52,7 +71,8 @@ src/app/
     │   ├── khorne.module.ts
     │   └── khorne-cover/
     ├── high-elves/
-    └── skaven/
+    ├── skaven/
+    └── ...                         # faction modules เพิ่มเติม
 
 public/assets/
 ├── shared/shared_cover-background.png
@@ -60,7 +80,8 @@ public/assets/
 ├── empire/empire_*.png
 ├── khorne/khorne_*.png
 ├── high-elves/high-elves_*.png
-└── skaven/skaven_*.png
+├── skaven/skaven_*.png
+└── ...                             # asset folders ตาม faction
 ```
 
 ## Reader UX

@@ -1,0 +1,59 @@
+.kislev-chronicle {
+  --accent: #4f86b7;
+  --accent-strong: #285b88;
+  --accent-soft: #dcecf7;
+  --ink: #263846;
+  --cover-1: #d9ebf7;
+  --cover-2: #eef6fb;
+}
+
+.kislev-chronicle .cover {
+  background:
+    linear-gradient(180deg, rgba(225, 242, 251, .28), rgba(28, 67, 97, .48)),
+    url('/assets/kislev/kislev_cover.png') center/cover no-repeat;
+}
+
+.kislev-chronicle .cover-inner {
+  backdrop-filter: blur(1px);
+}
+
+.kislev-chronicle .seal {
+  background: #e9f6ff;
+  color: #285b88;
+  border-color: rgba(40, 91, 136, .34);
+}
+
+.kislev-chronicle .faction-grid,
+.kislev-chronicle .lord-grid,
+.kislev-chronicle .unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.kislev-chronicle .faction,
+.kislev-chronicle .lord,
+.kislev-chronicle .unit-card {
+  padding: 1rem;
+  border: 1px solid rgba(79, 134, 183, .28);
+  border-radius: 16px;
+  background: rgba(220, 236, 247, .28);
+}
+
+.kislev-chronicle .tag {
+  display: inline-block;
+  margin: .25rem .3rem 0 0;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: rgba(79, 134, 183, .15);
+  font-size: .8em;
+}
+
+@media (max-width: 760px) {
+  .kislev-chronicle .faction-grid,
+  .kislev-chronicle .lord-grid,
+  .kislev-chronicle .unit-grid {
+    grid-template-columns: 1fr;
+  }
+}

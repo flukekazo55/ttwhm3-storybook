@@ -1,0 +1,154 @@
+<div class="chronicle kislev-chronicle" [class.night]="theme === 'night'" [style.--reader-size]="fontSize + 'px'">
+  <section class="cover" id="kislev-cover">
+    <div class="cover-inner">
+      <div class="cover-kicker">The Motherland • Northern Bulwark Archive</div>
+      <div class="seal">❄</div>
+      <h1>KISLEV<span>The Chronicle of the Motherland</span></h1>
+      <div class="thai-title">พงศาวดารแห่งดินแดนหิมะ Kislev</div>
+      <p class="subtitle">
+        เรื่องราวของดินแดนมนุษย์ทางเหนือ ผู้ยืนเป็นกำแพงด่านแรกต่อ Chaos — ตั้งแต่
+        <b>Tzarina Katarin</b>, <b>Ursun</b>, Ice Court และ Great Orthodoxy
+        ไปจนถึง War Bears, Kossars และ Mother Ostankya ใน Total War: WARHAMMER III
+      </p>
+      <div class="cover-actions">
+        <button type="button" class="open-book" (click)="onOpenBook()">เปิดหนังสือ</button>
+        <a class="faction-switch" routerLink="/grand-cathay">อ่าน Grand Cathay</a>
+        <a class="faction-switch" routerLink="/empire">อ่าน Empire</a>
+        <a class="faction-switch" routerLink="/">เลือก faction อื่น</a>
+      </div>
+      <div class="cover-note">รูปใน assets เป็น placeholder ชั่วคราว พร้อม source URL สำหรับเปลี่ยนภาพจริงภายหลัง</div>
+    </div>
+  </section>
+
+  <main class="book-shell" #book>
+    <aside class="toc">
+      <h2 class="toc-title">สารบัญ</h2>
+      <div class="toc-sub">THE KISLEV CHRONICLE • ฉบับอ่านง่าย</div>
+      <nav class="toc-nav">
+        <a *ngFor="let ch of chapters" class="toc-link" [class.active]="ch.id === activeChapterId" (click)="goToChapter(ch.id)">
+          <span class="num">{{ ch.numeral }}</span> {{ ch.title }}
+        </a>
+      </nav>
+      <div class="reader-tools">
+        <button type="button" title="ลดขนาดตัวอักษร" (click)="onFontSmaller()">A−</button>
+        <button type="button" title="เพิ่มขนาดตัวอักษร" (click)="onFontLarger()">A+</button>
+        <button type="button" title="สลับโหมดกลางคืน" (click)="onToggleTheme()">{{ theme === 'night' ? '☀' : '☾' }}</button>
+      </div>
+      <div class="version"><b>Era focus:</b> Immortal Empires / Total War: WARHAMMER III<br />อ้างอิง Total War: WARHAMMER Wiki ที่ตรวจในปี 2026</div>
+    </aside>
+
+    <article class="reader">
+      <div class="progress"><span [style.width.%]="progress"></span></div>
+
+      <section class="chapter" id="ch1" #chapterEl>
+        <div class="chapter-kicker">Chapter I • The Northern Bulwark</div>
+        <h2>Kislev คือใคร?<small>อาณาจักรมนุษย์แห่งน้ำแข็งที่รับศึก Chaos ก่อนดินแดนทางใต้</small></h2>
+        <div class="spread">
+          <div>
+            <p class="lead dropcap">Kislev คืออารยธรรมมนุษย์ทางเหนือของ Old World และเป็นหนึ่งใน race หลักของ <b>Total War: WARHAMMER III</b>. ในเกมผู้นำที่เป็นภาพแทนของเผ่าคือ <b>Tzarina Katarin</b> แห่ง The Ice Court.</p>
+            <p>เอกลักษณ์ของ Kislev คือความทรหดในอากาศหนาว กองทัพแบบ hybrid ที่ยิงได้และยืน melee ได้จริง รวมถึงเวท Ice/Tempest, cavalry และหมีสงคราม.</p>
+            <div class="callout"><strong>จำง่าย:</strong> Kislev = “แนวหน้าทน + ยิงก่อนชน + เวทน้ำแข็ง + War Bears”</div>
+          </div>
+          <figure class="figure"><img src="/assets/kislev/kislev_overview.png" alt="Kislev overview placeholder" /><figcaption>ภาพรวมกองทัพ Kislev — placeholder สำหรับเปลี่ยนภายหลัง</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch2" #chapterEl>
+        <div class="chapter-kicker">Chapter II • The Motherland</div>
+        <h2>Motherland และสามนครใหญ่</h2>
+        <div class="spread">
+          <figure class="figure"><img src="/assets/kislev/kislev_cities.png" alt="Kislev cities placeholder" /><figcaption>Kislev, Praag และ Erengrad คือชื่อเมืองสำคัญที่ผู้เล่นพบในภูมิภาคนี้</figcaption></figure>
+          <div><p class="lead">คำว่า <b>Motherland</b> สื่อถึงทั้งแผ่นดิน ผู้คน และอัตลักษณ์ของ Kislev. เมืองชื่อดังได้แก่ <b>Kislev</b> เมืองหลวง, <b>Praag</b> เมืองชายแดนที่มีประวัติปะทะ Chaos อย่างหนัก และ <b>Erengrad</b> เมืองท่าสำคัญ.</p><p>ในเชิงภูมิศาสตร์ Kislev อยู่เหนือ Empire จึงมักรับแรงปะทะจาก Chaos และเผ่าทางเหนือก่อนประเทศมนุษย์อื่น ๆ.</p></div>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch3" #chapterEl>
+        <div class="chapter-kicker">Chapter III • Faith and Crown</div>
+        <h2>Ursun, Ice Court และ Great Orthodoxy</h2>
+        <div class="spread">
+          <div><p class="lead"><b>Ursun</b> คือ Bear-God ที่มีความสำคัญมากต่อ Kislev. เนื้อเรื่อง Realm of Chaos เริ่มจากการที่เสียงคำรามของ Ursun หายไปและฤดูหนาวยืดเยื้อ.</p><p>อำนาจภายในประเทศแบ่งแรงดึงหลักระหว่าง <b>Ice Court</b> ของ Katarin ซึ่งผูกกับราชบัลลังก์และ Ice Witches กับ <b>Great Orthodoxy</b> ของ Kostaltyn ซึ่งเน้นศรัทธาและอำนาจทางศาสนา.</p></div>
+          <figure class="figure"><img src="/assets/kislev/kislev_faith.png" alt="Ursun and Kislev faith placeholder" /><figcaption>ศรัทธาใน Ursun และความขัดแย้งระหว่างราชสำนักกับ Great Orthodoxy</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch4" #chapterEl>
+        <div class="chapter-kicker">Chapter IV • Ice and Tempest</div>
+        <h2>Ice Magic และ Tempest Magic</h2>
+        <p class="lead">Kislev มีผู้ใช้เวทอย่าง Ice Witch และ Frost Maiden โดยเข้าถึง <b>Lore of Ice</b> และ <b>Lore of Tempest</b>. ภาพจำคือการควบคุมสนามรบด้วยความหนาว ลดความเร็ว กดดันศัตรู และสร้างจังหวะให้แนวยิงทำงาน.</p>
+        <div class="mechanics"><div class="mechanic"><div class="icon">❄</div><h3>Ice</h3><p>เวทน้ำแข็ง เน้น control และ damage พร้อมภาพลักษณ์ของ Ice Court</p></div><div class="mechanic"><div class="icon">🌨</div><h3>Tempest</h3><p>พายุและลมหนาว ใช้จัดการกองทัพและพื้นที่การรบ</p></div><div class="mechanic"><div class="icon">👑</div><h3>Ice Court</h3><p>ระบบการเมืองและการฝึกตัวละครสาย Ice Witch/Frost Maiden ในแคมเปญ</p></div></div>
+      </section>
+
+      <section class="chapter" id="ch5" #chapterEl>
+        <div class="chapter-kicker">Chapter V • Lords of Kislev</div>
+        <h2>Legendary Lords<small>รายชื่อหลักของ Kislev ใน Immortal Empires</small></h2>
+        <figure class="figure"><img src="/assets/kislev/kislev_lords.png" alt="Kislev legendary lords placeholder" /><figcaption>Katarin, Kostaltyn, Boris Ursus และ Mother Ostankya</figcaption></figure>
+        <div class="lord-grid">
+          <div class="lord"><h3>Tzarina Katarin</h3><div class="title">The Ice Court</div><p>Ice Queen และผู้ปกครอง Kislev ผู้เชี่ยวชาญเวทน้ำแข็ง เป็นหนึ่งในผู้นำหลักของเกมภาคสาม.</p><span class="tag">Magic</span><span class="tag">Ice Guard</span></div>
+          <div class="lord"><h3>Kostaltyn</h3><div class="title">The Great Orthodoxy</div><p>Supreme Patriarch แห่งศรัทธา Ursunite นักปลุกใจที่หนุนการรบระยะประชิดและ morale.</p><span class="tag">Support</span><span class="tag">Faith</span></div>
+          <div class="lord"><h3>Boris Ursus</h3><div class="title">Ursun Revivalists</div><p>อดีต Tzar และบิดาของ Katarin ผู้มีภาพจำคู่กับ War Bear และพลังทางทหารที่หนักแน่น.</p><span class="tag">War Bear</span><span class="tag">Melee</span></div>
+          <div class="lord"><h3>Mother Ostankya</h3><div class="title">Daughters of the Forest</div><p>Hag Mother ผู้พิทักษ์ Motherland ในแบบมืดมน ใช้ hexes, spirits และสิ่งมีชีวิตจากป่า.</p><span class="tag">Hex</span><span class="tag">Shadows of Change</span></div>
+        </div>
+        <div class="callout"><strong>หมายเหตุ:</strong> Wiki ยังระบุ Yuri Barkov เป็น Unique Lord เฉพาะ The Lost God campaign ไม่ใช่หนึ่งใน 4 Legendary Lords หลักของ Immortal Empires.</div>
+      </section>
+
+      <section class="chapter" id="ch6" #chapterEl>
+        <div class="chapter-kicker">Chapter VI • Playable Factions</div>
+        <h2>Playable Factions และการเมืองภายใน</h2>
+        <div class="faction-grid">
+          <div class="faction"><strong>The Ice Court</strong><p>นำโดย Tzarina Katarin</p></div>
+          <div class="faction"><strong>The Great Orthodoxy</strong><p>นำโดย Kostaltyn</p></div>
+          <div class="faction"><strong>Ursun Revivalists</strong><p>นำโดย Boris Ursus</p></div>
+          <div class="faction"><strong>Daughters of the Forest</strong><p>นำโดย Mother Ostankya</p></div>
+        </div>
+        <p>แต่ละ faction ใช้ roster Kislev ร่วมกันเป็นฐาน แต่ campaign identity และโบนัสจะผลักให้ผู้เล่นเน้นคนละส่วน เช่น Ice Court, ศรัทธา, War Bears หรือพลังแห่งป่า.</p>
+      </section>
+
+      <section class="chapter" id="ch7" #chapterEl>
+        <div class="chapter-kicker">Chapter VII • By Our Blood</div>
+        <h2>กองทัพ Hybrid และ By Our Blood</h2>
+        <div class="spread">
+          <div><p class="lead">จุดเด่นสำคัญของ roster คือหน่วยจำนวนมากเป็น <b>hybrid</b>: ยิงระยะไกลได้แต่ยังสามารถรับ melee ได้นานกว่ากองยิงทั่วไป เช่น Kossars, Armoured Kossars และ Streltsi.</p><p>หน่วย Kislev จำนวนมากมี <b>By Our Blood</b> ซึ่งช่วยให้พวกเขายังยืนหยัดช่วงวิกฤตเมื่อพลังชีวิตต่ำ ทำให้แนวรบมีเวลาให้ cavalry หรือเวทเข้าช่วย.</p></div>
+          <figure class="figure"><img src="/assets/kislev/kislev_army.png" alt="Kislev army placeholder" /><figcaption>กองทัพ Kislev มี infantry, missile infantry, cavalry, sleds, monsters และ artillery</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="ch8" #chapterEl>
+        <div class="chapter-kicker">Chapter VIII • Bears and Gunpowder</div>
+        <h2>War Bears, Sleds และ Little Grom</h2>
+        <div class="unit-grid">
+          <div class="unit-card"><h3>War Bear Riders</h3><p>shock cavalry หนักบนหมี เหมาะกับการชนเป้าหมายแข็งและล้อมด้านข้าง.</p></div>
+          <div class="unit-card"><h3>War Sleds</h3><p>Light/Heavy War Sleds ผสม mobility, missile fire และแรงชน.</p></div>
+          <div class="unit-card"><h3>Little Grom</h3><p>artillery หลักของ roster เดิม ยิงไกลและถูกลากโดยหมี.</p></div>
+          <div class="unit-card"><h3>Elemental Bear</h3><p>monster ขนาดใหญ่ที่เป็นสัญลักษณ์ของพลัง Motherland และ Ursun.</p></div>
+        </div>
+        <figure class="figure"><img src="/assets/kislev/kislev_bears.png" alt="Kislev bears placeholder" /><figcaption>War Bears คือหนึ่งใน visual identity ที่เด่นที่สุดของ Kislev</figcaption></figure>
+      </section>
+
+      <section class="chapter" id="ch9" #chapterEl>
+        <div class="chapter-kicker">Chapter IX • The Hag in the Woods</div>
+        <h2>Mother Ostankya และ Shadows of Change</h2>
+        <div class="spread">
+          <figure class="figure"><img src="/assets/kislev/kislev_ostankya.png" alt="Mother Ostankya placeholder" /><figcaption>Mother Ostankya นำ Daughters of the Forest และเพิ่มสาย Hag/forest creatures ให้ Kislev</figcaption></figure>
+          <div><p class="lead"><b>Mother Ostankya</b> เพิ่มเข้ามาผ่าน DLC <b>Shadows of Change</b>. เธอถูกมองทั้งเป็นสิ่งน่ากลัวจากนิทานและผู้พิทักษ์แผ่นดินจากผู้ที่คิดร้ายต่อ Kislev.</p><p>DLC นี้เพิ่มตัวละครและหน่วยสาย Hag/forest เช่น Hag Witch, Akshina Ambushers, Things in the Woods, Incarnate Elemental of Beasts และ Frost Wyrm ทำให้ roster Kislev มีมุมธรรมชาติและเวทมนตร์มืดเพิ่มขึ้น.</p></div>
+        </div>
+      </section>
+
+      <section class="chapter" id="sources" #chapterEl>
+        <div class="chapter-kicker">Chapter X • 2026 Reference</div>
+        <h2>Kislev ใน WARHAMMER III ปี 2026</h2>
+        <p class="lead">ตาม Total War: WARHAMMER Wiki ที่ตรวจในปี 2026, Kislev มี 4 playable factions หลักใน Immortal Empires และ Legendary Lords หลัก 4 คน: Katarin, Kostaltyn, Boris Ursus และ Mother Ostankya.</p>
+        <div class="callout"><strong>ข้อมูล roster ที่อัปเดต:</strong> Wiki ระบุ Ulrika Magdova เป็น Legendary Hero ฟรี, Golden Knight (Naryska Leysa) มากับ Shadows of Change, และ Ataman ถูกเพิ่มเป็น Lord แบบฟรีใน Patch 6.1.</div>
+        <h3>แหล่งอ้างอิงหลัก</h3>
+        <ul>
+          <li>Total War: WARHAMMER Wiki — Total War: Warhammer III</li>
+          <li>Total War: WARHAMMER Wiki — Kislev</li>
+          <li>Total War: WARHAMMER Wiki — Kislev unit roster</li>
+          <li>หน้าตัวละคร Tzarina Katarin, Kostaltyn, Boris Ursus และ Mother Ostankya</li>
+        </ul>
+        <p class="fineprint">หมายเหตุ: เนื้อหาในหน้านี้เรียบเรียงใหม่เพื่ออ่านง่าย ไม่ได้คัดลอกข้อความจาก Wiki แบบคำต่อคำ.</p>
+      </section>
+
+      <nav class="chapter-nav"><button type="button" (click)="onPrevChapter()">← บทก่อนหน้า</button><button type="button" (click)="onNextChapter()">บทถัดไป →</button></nav>
+    </article>
+  </main>
+</div>

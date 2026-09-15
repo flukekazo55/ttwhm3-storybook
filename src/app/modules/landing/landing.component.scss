@@ -104,6 +104,126 @@ h1 span {
   background: linear-gradient(145deg, rgba(21, 72, 61, 0.95), rgba(18, 29, 25, 0.97));
 }
 
+.faction-card.high-elves {
+  --accent: #78a9d6;
+  --accent2: #f2df9b;
+  background: linear-gradient(145deg, rgba(28, 67, 95, 0.94), rgba(13, 18, 29, 0.97));
+}
+
+.faction-card.skaven {
+  --accent: #78a845;
+  --accent2: #d7df75;
+  background: linear-gradient(145deg, rgba(44, 59, 24, 0.94), rgba(15, 18, 11, 0.97));
+}
+
+.faction-card.kislev {
+  --accent: #9cc8df;
+  --accent2: #f1f6ff;
+  background: linear-gradient(145deg, rgba(39, 79, 96, 0.94), rgba(14, 25, 34, 0.97));
+}
+
+.faction-card.beastmen {
+  --accent: #9a6b38;
+  --accent2: #d3a965;
+  background: linear-gradient(145deg, rgba(55, 37, 21, 0.94), rgba(20, 13, 9, 0.97));
+}
+
+.faction-card.bretonnia {
+  --accent: #2f6eb6;
+  --accent2: #f1d36b;
+  background: linear-gradient(145deg, rgba(24, 57, 106, 0.94), rgba(14, 17, 34, 0.97));
+}
+
+.faction-card.chaos-dwarfs {
+  --accent: #b05a2a;
+  --accent2: #e5a75a;
+  background: linear-gradient(145deg, rgba(67, 31, 19, 0.94), rgba(20, 10, 8, 0.97));
+}
+
+.faction-card.daemons-of-chaos {
+  --accent: #9e477a;
+  --accent2: #e0a4c9;
+  background: linear-gradient(145deg, rgba(56, 24, 58, 0.94), rgba(19, 11, 23, 0.97));
+}
+
+.faction-card.dark-elves {
+  --accent: #8f5aae;
+  --accent2: #d49bdc;
+  background: linear-gradient(145deg, rgba(42, 24, 72, 0.94), rgba(16, 10, 25, 0.97));
+}
+
+.faction-card.greenskins {
+  --accent: #609744;
+  --accent2: #c4d86a;
+  background: linear-gradient(145deg, rgba(40, 68, 27, 0.94), rgba(14, 21, 10, 0.97));
+}
+
+.faction-card.lizardmen {
+  --accent: #2f9d9f;
+  --accent2: #d5c663;
+  background: linear-gradient(145deg, rgba(18, 70, 78, 0.94), rgba(12, 23, 26, 0.97));
+}
+
+.faction-card.norsca {
+  --accent: #7490a0;
+  --accent2: #d8c99b;
+  background: linear-gradient(145deg, rgba(39, 54, 63, 0.94), rgba(13, 16, 20, 0.97));
+}
+
+.faction-card.nurgle {
+  --accent: #7c8f3e;
+  --accent2: #c7c06e;
+  background: linear-gradient(145deg, rgba(47, 61, 25, 0.94), rgba(18, 22, 12, 0.97));
+}
+
+.faction-card.ogre-kingdoms {
+  --accent: #a86c42;
+  --accent2: #ddbe86;
+  background: linear-gradient(145deg, rgba(67, 46, 32, 0.94), rgba(22, 15, 12, 0.97));
+}
+
+.faction-card.slaanesh {
+  --accent: #bc5f9d;
+  --accent2: #f0b5d8;
+  background: linear-gradient(145deg, rgba(71, 28, 66, 0.94), rgba(24, 11, 24, 0.97));
+}
+
+.faction-card.tomb-kings {
+  --accent: #c7a457;
+  --accent2: #f1d992;
+  background: linear-gradient(145deg, rgba(79, 55, 24, 0.94), rgba(23, 17, 10, 0.97));
+}
+
+.faction-card.tzeentch {
+  --accent: #3d83c2;
+  --accent2: #bda3ee;
+  background: linear-gradient(145deg, rgba(25, 50, 93, 0.94), rgba(13, 15, 33, 0.97));
+}
+
+.faction-card.vampire-coast {
+  --accent: #3e8d88;
+  --accent2: #d1c07b;
+  background: linear-gradient(145deg, rgba(20, 64, 67, 0.94), rgba(10, 19, 22, 0.97));
+}
+
+.faction-card.vampire-counts {
+  --accent: #8c293a;
+  --accent2: #d997a6;
+  background: linear-gradient(145deg, rgba(58, 17, 27, 0.94), rgba(19, 8, 11, 0.97));
+}
+
+.faction-card.warriors-of-chaos {
+  --accent: #82716a;
+  --accent2: #c7afa4;
+  background: linear-gradient(145deg, rgba(48, 43, 42, 0.94), rgba(16, 13, 14, 0.97));
+}
+
+.faction-card.wood-elves {
+  --accent: #6d9a58;
+  --accent2: #d4c173;
+  background: linear-gradient(145deg, rgba(34, 68, 43, 0.94), rgba(12, 22, 15, 0.97));
+}
+
 .faction-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 32px 74px rgba(0, 0, 0, 0.7), inset 0 0 60px rgba(232, 198, 117, 0.12);
