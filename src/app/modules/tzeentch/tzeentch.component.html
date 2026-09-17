@@ -1,25 +1,25 @@
 <div class="chronicle tzeentch-chronicle" [class.night]="theme === 'night'" [style.--reader-size]="fontSize + 'px'">
   <section class="cover" id="tzeentch-cover">
     <div class="cover-inner">
-      <div class="cover-kicker">The Crystal Labyrinth • Scheme Archive</div>
-      <div class="seal">🌀</div>
-      <h1>TZEENTCH<span>The Chronicle of Change</span></h1>
-      <div class="thai-title">พงศาวดารเทพแห่งแผนการและการเปลี่ยนแปลง</div>
-      <p class="subtitle">Tzeentch คือมหาเทพแห่งการเปลี่ยนแปลง แผนซ้อนแผน เวทมนตร์ และความจริงที่บิดเบี้ยวอย่างสวยงาม.</p>
+      <div class="cover-kicker">Crystal Labyrinth • Change Chronicle</div>
+      <div class="seal">◈</div>
+      <h1>TZEENTCH<span>The Complete Faction Chronicle</span></h1>
+      <div class="thai-title">พงศาวดาร Changer of Ways</div>
+      <p class="subtitle">เทพแห่งเวทมนตร์ แผนซ้อนแผน และการเปลี่ยนแปลง—ในเกมแปลออกมาเป็น Barrier, ranged magic, campaign manipulation และการชนะก่อน battle ด้วยข้อมูลและตำแหน่ง</p>
       <div class="cover-actions">
         <button type="button" class="open-book" (click)="onOpenBook()">เปิดหนังสือ</button>
         <a class="faction-switch" routerLink="/">เลือก faction อื่น</a>
-        <a class="faction-switch" routerLink="/kislev">อ่าน Kislev</a>
-        <a class="faction-switch" routerLink="/grand-cathay">อ่าน Grand Cathay</a>
+        <a class="faction-switch" routerLink="/dawi">อ่าน Dawi</a>
+        <a class="faction-switch" routerLink="/empire">อ่าน The Empire</a>
       </div>
-      <div class="cover-note">ไฟล์ภาพใน /assets/tzeentch/ เป็น placeholder สำหรับนำรูปจริงมาแทนภายหลังได้ทันที</div>
+      <div class="cover-note">ฉบับเนื้อหาเต็ม: lore + campaign loop + battle doctrine + unit roles สำหรับอ่านและใช้เล่นจริง</div>
     </div>
   </section>
 
   <main class="book-shell" #book>
     <aside class="toc">
       <h2 class="toc-title">สารบัญ</h2>
-      <div class="toc-sub">TZEENTCH • ฉบับอ่านง่าย</div>
+      <div class="toc-sub">TZEENTCH • COMPLETE CHRONICLE</div>
       <nav class="toc-nav">
         <a *ngFor="let ch of chapters" class="toc-link" [class.active]="ch.id === activeChapterId" (click)="goToChapter(ch.id)">
           <span class="num">{{ ch.numeral }}</span> {{ ch.title }}
@@ -30,127 +30,105 @@
         <button type="button" title="เพิ่มขนาดตัวอักษร" (click)="onFontLarger()">A+</button>
         <button type="button" title="สลับโหมดกลางคืน" (click)="onToggleTheme()">{{ theme === 'night' ? '☀' : '☾' }}</button>
       </div>
-      <div class="version"><b>Source focus:</b> Base game race on the Total War: WARHAMMER III page<br />ยึด race roster จากหน้า Total War: WARHAMMER III ที่ผู้ใช้ส่งมา</div>
+      <div class="version"><b>Content focus:</b> Immortal Empires / faction identity / practical gameplay<br />Balance ตัวเลขอาจเปลี่ยนตาม patch แต่โครง lore และแนวเล่นหลักตั้งใจให้ใช้เป็น reference ระยะยาว</div>
     </aside>
 
     <article class="reader">
       <div class="progress"><span [style.width.%]="progress"></span></div>
 
       <section class="chapter" id="ch1" #chapterEl>
-        <div class="chapter-kicker">Chapter I • Overview</div>
-        <h2>Tzeentch คือใคร?<small>ภาพรวมแบบอ่านง่าย</small></h2>
+        <div class="chapter-kicker">Chapter I • Identity</div>
+        <h2>Tzeentch คือใคร?<small>อ่าน 5 นาทีแล้วต้องรู้ว่าเผ่านี้ “คืออะไร” และชนะด้วยอะไร</small></h2>
         <div class="spread">
           <div>
-            <p class="lead dropcap">Tzeentch คือมหาเทพแห่งการเปลี่ยนแปลง แผนซ้อนแผน เวทมนตร์ และความจริงที่บิดเบี้ยวอย่างสวยงาม.</p>
-            <p>หน้า Total War: WARHAMMER III ที่คุณให้มา แสดง Tzeentch เป็นหนึ่งใน race base game ของภาคสาม.</p>
-            <div class="callout"><strong>Keyword:</strong> Schemes, Sorcery, Barrier</div>
+            <p class="lead dropcap">เทพแห่งเวทมนตร์ แผนซ้อนแผน และการเปลี่ยนแปลง—ในเกมแปลออกมาเป็น Barrier, ranged magic, campaign manipulation และการชนะก่อน battle ด้วยข้อมูลและตำแหน่ง</p>
+            <p>Tzeentch เป็น Chaos God ของ change, ambition, magic และ schemes ความขัดแย้งคือทุกแผนอาจเป็นส่วนหนึ่งของแผนที่ใหญ่กว่า ทำให้ไม่มี “ชัยชนะสุดท้าย” เพราะการเปลี่ยนแปลงต้องดำเนินต่อไป</p>
+            <div class="callout"><strong>จำง่าย:</strong> Barrier • Changing of the Ways • teleport/ambush tools • magic + ranged firepower</div>
           </div>
-          <figure class="figure">
-            <img src="/assets/tzeentch/tzeentch_overview.svg" alt="TZEENTCH overview placeholder" />
-            <figcaption>Overview placeholder — เปลี่ยนเป็นภาพจริงภายหลังได้ทันที</figcaption>
-          </figure>
+          <figure class="figure"><img src="/assets/tzeentch/tzeentch_overview.svg" alt="TZEENTCH overview" /><figcaption>ภาพรวมตัวตนของ Tzeentch</figcaption></figure>
         </div>
+        <div class="divider"><span>✦</span></div>
+        <div class="mechanics"><div class="mechanic"><div class="icon">◆</div><h3>Barrier</h3><p>Barrier</p></div><div class="mechanic"><div class="icon">◆</div><h3>Changing</h3><p>Changing of the Ways</p></div><div class="mechanic"><div class="icon">◆</div><h3>teleport/ambush</h3><p>teleport/ambush tools</p></div></div>
       </section>
 
       <section class="chapter" id="ch2" #chapterEl>
-        <div class="chapter-kicker">Chapter II • Homeland</div>
-        <h2>ดินแดนและอัตลักษณ์</h2>
+        <div class="chapter-kicker">Chapter II • Homeland & Society</div>
+        <h2>ดินแดน สังคม และรากของความขัดแย้ง</h2>
         <div class="spread">
-          <figure class="figure">
-            <img src="/assets/tzeentch/tzeentch_realm.svg" alt="TZEENTCH realm placeholder" />
-            <figcaption>Realm / homeland placeholder</figcaption>
-          </figure>
+          <figure class="figure"><img src="/assets/tzeentch/tzeentch_realm.svg" alt="TZEENTCH realm" /><figcaption>Homeland / sphere of influence</figcaption></figure>
           <div>
-            <p class="lead">ภาพจำของ Tzeentch อยู่ใน labyrinth แห่งเวท สีสันเปลี่ยนแปลง และโดเมนแห่งแผนการใน Realms of Chaos.</p>
-            <p>บทนี้ใช้สำหรับปูบรรยากาศของเผ่า พื้นที่ที่ผู้เล่นมักเชื่อมโยงกับ race นี้ และโทนเรื่องราวของ faction book ในเว็บคุณ.</p>
+            <p class="lead">Realm ของ Tzeentch มักถูกเรียกผ่านภาพ Crystal Labyrinth สถานที่ที่กฎเหตุผลและทิศทางเปลี่ยนตลอดเวลา Cults และ mortal followers ในโลกจริงมักแฝงในกลุ่มนักเวท นักการเมือง หรือผู้แสวงหาความรู้ต้องห้าม</p>
+            <p>Tzeentch เป็น Chaos God ของ change, ambition, magic และ schemes ความขัดแย้งคือทุกแผนอาจเป็นส่วนหนึ่งของแผนที่ใหญ่กว่า ทำให้ไม่มี “ชัยชนะสุดท้าย” เพราะการเปลี่ยนแปลงต้องดำเนินต่อไป</p>
+            <div class="quote">ถ้าจะเข้าใจ faction นี้ อย่าดูแต่ roster — ภูมิศาสตร์และสังคมอธิบายว่าทำไม campaign mechanics ถึงถูกออกแบบมาแบบนี้</div>
           </div>
         </div>
       </section>
 
       <section class="chapter" id="ch3" #chapterEl>
-        <div class="chapter-kicker">Chapter III • Leadership</div>
-        <h2>ผู้นำและบุคลิกของเผ่า</h2>
+        <div class="chapter-kicker">Chapter III • Legendary Characters</div>
+        <h2>ผู้นำที่ควรรู้<small>ไม่ใช่แค่รายชื่อ แต่แต่ละคนเปลี่ยนอารมณ์การเล่นอย่างไร</small></h2>
         <div class="spread">
-          <div>
-            <p class="lead">เผ่านี้สะท้อนอำนาจของจอมวางแผน มหาเวท และอสูรผู้มองเห็นชะตากรรมหลายเส้นพร้อมกัน.</p>
-            <div class="feature-grid">
-              <div class="feature-card"><h3>Identity</h3><p>นำเสนอผู้นำหรือตัวแทนสำคัญของ race ให้คนอ่านเข้าใจคาแรกเตอร์ของเผ่าได้เร็ว</p></div>
-              <div class="feature-card"><h3>Faction Tone</h3><p>กำหนดธีมของหน้าหนังสือ เช่น ความศักดิ์สิทธิ์ ความป่าเถื่อน ความชั่วร้าย หรือความเป็นจักรวรรดิ</p></div>
-            </div>
-          </div>
-          <figure class="figure">
-            <img src="/assets/tzeentch/tzeentch_leaders.svg" alt="TZEENTCH leaders placeholder" />
-            <figcaption>Leaders placeholder</figcaption>
-          </figure>
+          <div><p class="lead">ตัวละครสำคัญของเผ่านี้สะท้อนคนละด้านของ faction และควรใช้เป็น “ทางเข้า” สำหรับเลือก campaign มากกว่าดูแค่โบนัสตัวเลข.</p><div class="feature-grid"><div class="feature-card"><h3>Kairos Fateweaver</h3><p>Oracle ที่เห็นอดีตและอนาคตแต่มีข้อจำกัดต่อปัจจุบัน เป็น caster ระดับสูงและศูนย์กลางของ faction ดั้งเดิม.</p></div>
+<div class="feature-card"><h3>The Changeling</h3><p>daemon นักปลอมตัวที่เล่น campaign แบบ trickster แตกต่างจากการยึดครองปกติ ใช้ schemes และการแทรกแซง.</p></div>
+<div class="feature-card"><h3>Exalted Lords of Change</h3><p>generic daemon lords ที่ขยายเพดานเวทและ flying pressure ให้กองทัพ.</p></div></div></div>
+          <figure class="figure"><img src="/assets/tzeentch/tzeentch_leaders.svg" alt="TZEENTCH leaders" /><figcaption>ผู้นำและตัวละครที่เป็นภาพจำของ faction</figcaption></figure>
         </div>
       </section>
 
       <section class="chapter" id="ch4" #chapterEl>
-        <div class="chapter-kicker">Chapter IV • Army Style</div>
-        <h2>รูปแบบกองทัพ</h2>
-        <p class="lead">กองทัพ Tzeentch มักเล่นด้วย barrier, ranged magic damage, mobility แบบบินได้ และเวทที่คุมจังหวะเกม.</p>
-        <div class="theme-grid">
-          <div class="theme-card"><strong>Battle Style</strong><p>ภาพรวมว่ากองทัพนี้ชนะด้วยอะไร เช่น charge, monsters, attrition, ranged firepower หรือ magic.</p></div>
-          <div class="theme-card"><strong>Player Feel</strong><p>อารมณ์การเล่นของเผ่านี้ในแคมเปญและ battle มักชัดเจนและต่างจากเผ่าอื่นมาก.</p></div>
-        </div>
+        <div class="chapter-kicker">Chapter IV • Battle Doctrine</div>
+        <h2>กองทัพต้องเล่นอย่างไร?<small>จาก deployment ไปจนถึงจังหวะปิดเกม</small></h2>
+        <p class="lead">อย่าจำแค่ว่า unit ไหน “เก่ง” ให้คิดเป็นหน้าที่: ใครยื้อ, ใครเปิดช่อง, ใครทำ damage, ใครล้วง และใครปิดเกม.</p>
+        <div class="theme-grid"><div class="theme-card"><strong>1. Battle rule</strong><p>Barrier รีชาร์จเมื่อหลุดจากการโดนตี ทำให้ cycle frontline/ranged มีประสิทธิภาพกว่าการยืนแลกจนเลือดหมด</p></div><div class="theme-card"><strong>2. Battle rule</strong><p>Pink/Blue Horrors และ Flamers ให้ magical ranged damage แต่ต้องรักษามุมยิง</p></div><div class="theme-card"><strong>3. Battle rule</strong><p>Screamers/Knights ทำหน้าที่ไล่ cavalry/large หรือป้องกัน flank</p></div><div class="theme-card"><strong>4. Battle rule</strong><p>magic คือส่วนหนึ่งของ damage budget จริง ไม่ใช่ของเสริม—ควรวาง Winds/ability timing ตั้งแต่ก่อนปะทะ</p></div></div>
+        <div class="callout"><strong>จุดแข็ง:</strong> เวทแรง ranged magical pressure ดี และมี campaign tools ที่โกงกฎปกติหลายอย่าง<br/><strong>จุดอ่อน:</strong> ถ้าถูก rush จน ranged/caster ไม่มีพื้นที่ หรือ Barrier ถูกบังคับให้แตกต่อเนื่องโดยไม่ได้พัก จะเสียประสิทธิภาพเร็ว</div>
       </section>
 
       <section class="chapter" id="ch5" #chapterEl>
-        <div class="chapter-kicker">Chapter V • Signature Themes</div>
-        <h2>แนวคิดและกลไกสำคัญ</h2>
+        <div class="chapter-kicker">Chapter V • Campaign Loop</div>
+        <h2>กลไกสำคัญและ loop ที่ควรเล่นให้ถูก</h2>
         <div class="spread">
-          <figure class="figure">
-            <img src="/assets/tzeentch/tzeentch_signature.svg" alt="TZEENTCH signature placeholder" />
-            <figcaption>Signature mechanics placeholder</figcaption>
-          </figure>
-          <div>
-            <p class="lead">คีย์สำคัญคือ sorcery, schemes, manipulation, barrier และความสามารถในการเปลี่ยนเงื่อนไขของสงคราม.</p>
-            <div class="callout"><strong>Highlights:</strong> Schemes, Sorcery, Barrier</div>
-          </div>
+          <figure class="figure"><img src="/assets/tzeentch/tzeentch_signature.svg" alt="TZEENTCH signature mechanics" /><figcaption>กลไกที่ทำให้ campaign ของ faction นี้ไม่เหมือนคนอื่น</figcaption></figure>
+          <div><p class="lead">สิ่งที่ควรเข้าใจคือ “ทำอะไรซ้ำแล้ว faction โต” เพราะถ้าเล่นเหมือน Empire ทุกเผ่า mechanics พิเศษจะกลายเป็นของประดับ.</p><div class="feature-grid"><div class="feature-card"><h3>ระบบ 1</h3><p>Changing of the Ways ใช้ resource แทรกแซง diplomacy, settlements และสถานการณ์เชิงกลยุทธ์โดยตรง</p></div><div class="feature-card"><h3>ระบบ 2</h3><p>Teleport stance/เครื่องมือเคลื่อนที่ทำให้ Tzeentch สร้าง ambush-like battles และข้าม terrain ได้ในเงื่อนไขที่เหมาะสม</p></div><div class="feature-card"><h3>ระบบ 3</h3><p>Grimoires เป็นทรัพยากรสำคัญของการใช้ campaign manipulation</p></div><div class="feature-card"><h3>ระบบ 4</h3><p>Changeling มี scheme-based progression เฉพาะ จึงควรมองเป็น campaign ประเภท infiltrator มากกว่า Kairos แบบ empire-builder</p></div></div></div>
         </div>
       </section>
 
       <section class="chapter" id="ch6" #chapterEl>
-        <div class="chapter-kicker">Chapter VI • Units</div>
-        <h2>หน่วยเด่นและภาพจำ</h2>
+        <div class="chapter-kicker">Chapter VI • Roster Map</div>
+        <h2>หน่วยเด่นและหน้าที่ของ roster<small>เลือกกองทัพจาก role ไม่ใช่แค่ชื่อเท่</small></h2>
         <div class="spread">
-          <div>
-            <p class="lead">ภาพจำของ roster ได้แก่ Blue/Pink Horrors, Flamers, Screamers, Lords of Change และหน่วยเวทสายเคลื่อนไหวสูง.</p>
-            <div class="unit-grid">
-              <div class="unit-card"><h3>Visual identity</h3><p>ใช้หัวข้อนี้เป็นที่ใส่รูปกองทัพ หน่วย elite หรือมอนสเตอร์เด่นของเผ่า</p></div>
-              <div class="unit-card"><h3>Roster hook</h3><p>สรุปสั้น ๆ ว่าคนเล่นจดจำ race นี้จากหน่วยหรือสไตล์การเล่นแบบไหน</p></div>
-            </div>
-          </div>
-          <figure class="figure">
-            <img src="/assets/tzeentch/tzeentch_army.svg" alt="TZEENTCH army placeholder" />
-            <figcaption>Army placeholder</figcaption>
-          </figure>
+          <div><div class="unit-grid"><div class="unit-card"><h3>Missile</h3><p>Blue/Pink Horrors, Flamers</p></div>
+<div class="unit-card"><h3>Line</h3><p>Forsaken/Chaos Warriors/Chosen of Tzeentch</p></div>
+<div class="unit-card"><h3>Mobile</h3><p>Screamers, Doom Knights</p></div>
+<div class="unit-card"><h3>Magic/Monsters</h3><p>Lords of Change, Soul Grinder</p></div></div><p class="lead">หลักจัดกอง: มี frontline ที่พอซื้อเวลา + แหล่ง damage หลัก 1–2 แบบ + คำตอบต่อ cavalry/large + อย่างน้อยหนึ่งเครื่องมือจัดการ ranged/artillery.</p></div>
+          <figure class="figure"><img src="/assets/tzeentch/tzeentch_army.svg" alt="TZEENTCH army" /><figcaption>Roster overview — อ่านคู่กับบทบาทด้านซ้าย</figcaption></figure>
         </div>
       </section>
 
       <section class="chapter" id="ch7" #chapterEl>
-        <div class="chapter-kicker">Chapter VII • WARHAMMER III</div>
-        <h2>บทบาทใน Total War: WARHAMMER III</h2>
-        <p class="lead">หน้า Total War: WARHAMMER III ที่คุณให้มา แสดง Tzeentch เป็นหนึ่งใน race base game ของภาคสาม.</p>
-        <div class="callout"><strong>Source note:</strong> สำหรับ bundle นี้ ผมยึดรายชื่อ race จากหน้า <i>Total War: WARHAMMER III</i> ที่คุณส่งมาเป็นหลัก และจัดหน้า/โครงสร้างให้พร้อมนำไปใส่ lore เพิ่มในรอบถัดไปได้ง่าย</div>
-        <p><span class="tag">Schemes</span><span class="tag">Sorcery</span><span class="tag">Barrier</span></p>
+        <div class="chapter-kicker">Chapter VII • Immortal Empires</div>
+        <h2>เอาไปใช้ในแคมเปญจริงอย่างไร?</h2>
+        <p class="lead">Cathay และ Kislev เป็นคู่สงครามสำคัญของเนื้อหา WARHAMMER III ขณะที่ Nurgle เป็นคู่ตรงข้ามเชิงปรัชญาระหว่าง change กับ stagnation/cycle.</p>
+        <div class="theme-grid">
+          <div class="theme-card"><strong>Early game</strong><p>สร้างกองที่มีบทบาทชัดก่อน อย่ารีบซื้อ elite ทุกชนิดพร้อมกัน และใช้ mechanics เฉพาะเผ่าเพื่อสร้าง economy/momentum.</p></div>
+          <div class="theme-card"><strong>Mid game</strong><p>เริ่มแยก army roles: กองหลักสำหรับชนศัตรูแข็ง กองรองสำหรับป้องกัน/เก็บเมือง และจัด infrastructure ให้ support unit tier ที่ต้องการจริง.</p></div>
+          <div class="theme-card"><strong>Late game</strong><p>อย่ากอง doomstack แบบเดียวทุกกองถ้าไม่จำเป็น—ใช้จุดแข็ง faction สร้าง armies หลายแบบสำหรับ terrain และคู่ต่อสู้ต่างกัน.</p></div>
+          <div class="theme-card"><strong>Rule of thumb</strong><p>เวทแรง ranged magical pressure ดี และมี campaign tools ที่โกงกฎปกติหลายอย่าง แต่ต้องระวังว่า ถ้าถูก rush จน ranged/caster ไม่มีพื้นที่ หรือ Barrier ถูกบังคับให้แตกต่อเนื่องโดยไม่ได้พัก จะเสียประสิทธิภาพเร็ว</p></div>
+        </div>
       </section>
 
       <section class="chapter" id="sources" #chapterEl>
-        <div class="chapter-kicker">Chapter VIII • Sources</div>
-        <h2>สรุปและแหล่งอ้างอิง</h2>
+        <div class="chapter-kicker">Chapter VIII • Reading Notes</div>
+        <h2>สรุปและแหล่งอ่านต่อ</h2>
         <ul>
-          <li>Total War: WARHAMMER Wiki — Total War: Warhammer III</li>
-          <li>หน้าที่ใช้งานนี้ยึดรายชื่อ race จาก section “Races” และ “Playable races” ของหน้าดังกล่าว</li>
-          <li>เนื้อหาในหน้านี้เรียบเรียงใหม่เพื่อเป็นหนังสืออ่านง่ายและเว้น placeholder ไว้ให้เติมรูปจริงภายหลัง</li>
+          <li>Creative Assembly / Total War — faction pages, DLC pages และ patch notes ของ Total War: WARHAMMER III</li>
+          <li>Total War: WARHAMMER Wiki — ใช้ตรวจชื่อ faction, characters, units และบริบท mechanics</li>
+          <li>Warhammer lore references — ใช้สำหรับภูมิหลังโลก ตัวละคร และความสัมพันธ์ระหว่างเผ่า</li>
+          <li>ข้อความทั้งหมดในหน้านี้เรียบเรียงใหม่เพื่ออธิบายภาพรวม ไม่คัดลอกบทความต้นฉบับแบบยาว</li>
         </ul>
-        <p class="fineprint">หมายเหตุ: ผมไม่ได้คัดลอกข้อความตรงจากเว็บยาว ๆ แต่สรุปใหม่ให้เข้ากับเลย์เอาต์หนังสือของโปรเจกต์คุณ</p>
+        <div class="callout"><strong>สำหรับผู้เล่น:</strong> ถ้า patch เปลี่ยนตัวเลข, skill หรือ economy ให้ยึด tooltip ในเกมและ patch notes ล่าสุดก่อน ส่วนบทนี้ตั้งใจอธิบาย “แนวคิด” ที่ทำให้ faction เล่นไม่เหมือนกัน.</div>
       </section>
 
-      <nav class="chapter-nav">
-        <button type="button" (click)="onPrevChapter()">← บทก่อนหน้า</button>
-        <button type="button" (click)="onNextChapter()">บทถัดไป →</button>
-      </nav>
+      <nav class="chapter-nav"><button type="button" (click)="onPrevChapter()">← บทก่อนหน้า</button><button type="button" (click)="onNextChapter()">บทถัดไป →</button></nav>
     </article>
   </main>
 </div>

@@ -1,25 +1,25 @@
 <div class="chronicle wood-elves-chronicle" [class.night]="theme === 'night'" [style.--reader-size]="fontSize + 'px'">
   <section class="cover" id="wood-elves-cover">
     <div class="cover-inner">
-      <div class="cover-kicker">Athel Loren • Forest Spirit Archive</div>
-      <div class="seal">🌿</div>
-      <h1>WOOD ELVES<span>The Chronicle of Athel Loren</span></h1>
-      <div class="thai-title">พงศาวดารเอลฟ์แห่งป่า Athel Loren</div>
-      <p class="subtitle">Wood Elves คือผู้พิทักษ์แห่ง Athel Loren ที่ผสานเอลฟ์ นักล่า และวิญญาณป่าเข้าด้วยกันเพื่อรักษาสมดุลของผืนป่า.</p>
+      <div class="cover-kicker">Athel Loren • Worldroots Chronicle</div>
+      <div class="seal">❧</div>
+      <h1>WOOD ELVES<span>The Complete Faction Chronicle</span></h1>
+      <div class="thai-title">พงศาวดารผู้พิทักษ์ Athel Loren</div>
+      <p class="subtitle">เผ่าที่ผสม Asrai กับ forest spirits ชนะด้วย mobility, archery และการเลือกสนามรบ ขณะ campaign หมุนรอบ Magical Forests และ Worldroots มากกว่าการวาดแผนที่เป็นสีตัวเองทั้งหมด</p>
       <div class="cover-actions">
         <button type="button" class="open-book" (click)="onOpenBook()">เปิดหนังสือ</button>
         <a class="faction-switch" routerLink="/">เลือก faction อื่น</a>
-        <a class="faction-switch" routerLink="/kislev">อ่าน Kislev</a>
-        <a class="faction-switch" routerLink="/grand-cathay">อ่าน Grand Cathay</a>
+        <a class="faction-switch" routerLink="/dawi">อ่าน Dawi</a>
+        <a class="faction-switch" routerLink="/empire">อ่าน The Empire</a>
       </div>
-      <div class="cover-note">ไฟล์ภาพใน /assets/wood-elves/ เป็น placeholder สำหรับนำรูปจริงมาแทนภายหลังได้ทันที</div>
+      <div class="cover-note">ฉบับเนื้อหาเต็ม: lore + campaign loop + battle doctrine + unit roles สำหรับอ่านและใช้เล่นจริง</div>
     </div>
   </section>
 
   <main class="book-shell" #book>
     <aside class="toc">
       <h2 class="toc-title">สารบัญ</h2>
-      <div class="toc-sub">WOOD ELVES • ฉบับอ่านง่าย</div>
+      <div class="toc-sub">WOOD ELVES • COMPLETE CHRONICLE</div>
       <nav class="toc-nav">
         <a *ngFor="let ch of chapters" class="toc-link" [class.active]="ch.id === activeChapterId" (click)="goToChapter(ch.id)">
           <span class="num">{{ ch.numeral }}</span> {{ ch.title }}
@@ -30,127 +30,106 @@
         <button type="button" title="เพิ่มขนาดตัวอักษร" (click)="onFontLarger()">A+</button>
         <button type="button" title="สลับโหมดกลางคืน" (click)="onToggleTheme()">{{ theme === 'night' ? '☀' : '☾' }}</button>
       </div>
-      <div class="version"><b>Source focus:</b> Immortal Empires / Race listed on Total War: WARHAMMER III wiki page<br />ยึด race roster จากหน้า Total War: WARHAMMER III ที่ผู้ใช้ส่งมา</div>
+      <div class="version"><b>Content focus:</b> Immortal Empires / faction identity / practical gameplay<br />Balance ตัวเลขอาจเปลี่ยนตาม patch แต่โครง lore และแนวเล่นหลักตั้งใจให้ใช้เป็น reference ระยะยาว</div>
     </aside>
 
     <article class="reader">
       <div class="progress"><span [style.width.%]="progress"></span></div>
 
       <section class="chapter" id="ch1" #chapterEl>
-        <div class="chapter-kicker">Chapter I • Overview</div>
-        <h2>Wood Elves คือใคร?<small>ภาพรวมแบบอ่านง่าย</small></h2>
+        <div class="chapter-kicker">Chapter I • Identity</div>
+        <h2>Wood Elves คือใคร?<small>อ่าน 5 นาทีแล้วต้องรู้ว่าเผ่านี้ “คืออะไร” และชนะด้วยอะไร</small></h2>
         <div class="spread">
           <div>
-            <p class="lead dropcap">Wood Elves คือผู้พิทักษ์แห่ง Athel Loren ที่ผสานเอลฟ์ นักล่า และวิญญาณป่าเข้าด้วยกันเพื่อรักษาสมดุลของผืนป่า.</p>
-            <p>หน้า Total War: WARHAMMER III ที่คุณให้มา แสดง Wood Elves อยู่ใน race list ผ่าน Immortal Empires.</p>
-            <div class="callout"><strong>Keyword:</strong> Athel Loren, Archery, Forest Spirits</div>
+            <p class="lead dropcap">เผ่าที่ผสม Asrai กับ forest spirits ชนะด้วย mobility, archery และการเลือกสนามรบ ขณะ campaign หมุนรอบ Magical Forests และ Worldroots มากกว่าการวาดแผนที่เป็นสีตัวเองทั้งหมด</p>
+            <p>Wood Elves เกิดจาก Elves ที่แยกตัวและผูกชะตากับ Athel Loren Orion และ Ariel เป็นสัญลักษณ์ของวงจรธรรมชาติ ขณะที่ Durthu/Drycha สะท้อนฝ่าย forest spirits ที่ไม่เชื่อใจ Elves เท่ากัน</p>
+            <div class="callout"><strong>จำง่าย:</strong> Magical Forests • Worldroots travel • elite archery • forest spirits + mobility</div>
           </div>
-          <figure class="figure">
-            <img src="/assets/wood-elves/wood-elves_overview.svg" alt="WOOD ELVES overview placeholder" />
-            <figcaption>Overview placeholder — เปลี่ยนเป็นภาพจริงภายหลังได้ทันที</figcaption>
-          </figure>
+          <figure class="figure"><img src="/assets/wood-elves/wood-elves_overview.svg" alt="WOOD ELVES overview" /><figcaption>ภาพรวมตัวตนของ Wood Elves</figcaption></figure>
         </div>
+        <div class="divider"><span>✦</span></div>
+        <div class="mechanics"><div class="mechanic"><div class="icon">◆</div><h3>Magical</h3><p>Magical Forests</p></div><div class="mechanic"><div class="icon">◆</div><h3>Worldroots</h3><p>Worldroots travel</p></div><div class="mechanic"><div class="icon">◆</div><h3>elite</h3><p>elite archery</p></div></div>
       </section>
 
       <section class="chapter" id="ch2" #chapterEl>
-        <div class="chapter-kicker">Chapter II • Homeland</div>
-        <h2>ดินแดนและอัตลักษณ์</h2>
+        <div class="chapter-kicker">Chapter II • Homeland & Society</div>
+        <h2>ดินแดน สังคม และรากของความขัดแย้ง</h2>
         <div class="spread">
-          <figure class="figure">
-            <img src="/assets/wood-elves/wood-elves_realm.svg" alt="WOOD ELVES realm placeholder" />
-            <figcaption>Realm / homeland placeholder</figcaption>
-          </figure>
+          <figure class="figure"><img src="/assets/wood-elves/wood-elves_realm.svg" alt="WOOD ELVES realm" /><figcaption>Homeland / sphere of influence</figcaption></figure>
           <div>
-            <p class="lead">Athel Loren คือหัวใจของเผ่านี้ เป็นป่าศักดิ์สิทธิ์ที่มีชีวิต มีวิญญาณ และมีกฎเกณฑ์ของตนเอง.</p>
-            <p>บทนี้ใช้สำหรับปูบรรยากาศของเผ่า พื้นที่ที่ผู้เล่นมักเชื่อมโยงกับ race นี้ และโทนเรื่องราวของ faction book ในเว็บคุณ.</p>
+            <p class="lead">Athel Loren เป็นป่าที่มีเจตจำนงและกฎของตัวเอง Wood Elves ไม่ได้ “ครอง” ป่าแบบรัฐมนุษย์ แต่รักษาสมดุลกับ spirits ที่อันตรายพอ ๆ กับศัตรูภายนอก สังคม Asrai จึงมีทั้งราชสำนัก การล่า และพันธะกับวัฏจักรฤดูกาล</p>
+            <p>Wood Elves เกิดจาก Elves ที่แยกตัวและผูกชะตากับ Athel Loren Orion และ Ariel เป็นสัญลักษณ์ของวงจรธรรมชาติ ขณะที่ Durthu/Drycha สะท้อนฝ่าย forest spirits ที่ไม่เชื่อใจ Elves เท่ากัน</p>
+            <div class="quote">ถ้าจะเข้าใจ faction นี้ อย่าดูแต่ roster — ภูมิศาสตร์และสังคมอธิบายว่าทำไม campaign mechanics ถึงถูกออกแบบมาแบบนี้</div>
           </div>
         </div>
       </section>
 
       <section class="chapter" id="ch3" #chapterEl>
-        <div class="chapter-kicker">Chapter III • Leadership</div>
-        <h2>ผู้นำและบุคลิกของเผ่า</h2>
+        <div class="chapter-kicker">Chapter III • Legendary Characters</div>
+        <h2>ผู้นำที่ควรรู้<small>ไม่ใช่แค่รายชื่อ แต่แต่ละคนเปลี่ยนอารมณ์การเล่นอย่างไร</small></h2>
         <div class="spread">
-          <div>
-            <p class="lead">วัฒนธรรมของ Wood Elves ถูกขับเคลื่อนโดยกษัตริย์ป่า ผู้ล่าเวทมนตร์ และ forest spirits อันเก่าแก่.</p>
-            <div class="feature-grid">
-              <div class="feature-card"><h3>Identity</h3><p>นำเสนอผู้นำหรือตัวแทนสำคัญของ race ให้คนอ่านเข้าใจคาแรกเตอร์ของเผ่าได้เร็ว</p></div>
-              <div class="feature-card"><h3>Faction Tone</h3><p>กำหนดธีมของหน้าหนังสือ เช่น ความศักดิ์สิทธิ์ ความป่าเถื่อน ความชั่วร้าย หรือความเป็นจักรวรรดิ</p></div>
-            </div>
-          </div>
-          <figure class="figure">
-            <img src="/assets/wood-elves/wood-elves_leaders.svg" alt="WOOD ELVES leaders placeholder" />
-            <figcaption>Leaders placeholder</figcaption>
-          </figure>
+          <div><p class="lead">ตัวละครสำคัญของเผ่านี้สะท้อนคนละด้านของ faction และควรใช้เป็น “ทางเข้า” สำหรับเลือก campaign มากกว่าดูแค่โบนัสตัวเลข.</p><div class="feature-grid"><div class="feature-card"><h3>Orion</h3><p>avatar of Kurnous และ Wild Hunt เน้นการรบเชิงรุก ความเร็ว และธีมฤดูกาล/การล่า.</p></div>
+<div class="feature-card"><h3>Durthu</h3><p>Treeman โบราณที่เน้น forest spirits และพลัง melee/magic มากกว่า archer-centric build.</p></div>
+<div class="feature-card"><h3>Sisters of Twilight</h3><p>Naestra &amp; Arahan เป็นคู่ Legendary Lord บน mount ระยะไกล เน้น ranged precision และ Forge of Daith.</p></div>
+<div class="feature-card"><h3>Drycha</h3><p>Branchwraith ที่เกลียด intruders รวมถึง Elves บางกลุ่ม เน้น spirits, beasts และ campaign tone ที่ดุเดือดกว่า Asrai ปกติ.</p></div></div></div>
+          <figure class="figure"><img src="/assets/wood-elves/wood-elves_leaders.svg" alt="WOOD ELVES leaders" /><figcaption>ผู้นำและตัวละครที่เป็นภาพจำของ faction</figcaption></figure>
         </div>
       </section>
 
       <section class="chapter" id="ch4" #chapterEl>
-        <div class="chapter-kicker">Chapter IV • Army Style</div>
-        <h2>รูปแบบกองทัพ</h2>
-        <p class="lead">กองทัพ Wood Elves เด่นเรื่อง archery ระดับสูง mobility การซุ่มโจมตี และหน่วย forest spirit ที่ค้ำ frontline.</p>
-        <div class="theme-grid">
-          <div class="theme-card"><strong>Battle Style</strong><p>ภาพรวมว่ากองทัพนี้ชนะด้วยอะไร เช่น charge, monsters, attrition, ranged firepower หรือ magic.</p></div>
-          <div class="theme-card"><strong>Player Feel</strong><p>อารมณ์การเล่นของเผ่านี้ในแคมเปญและ battle มักชัดเจนและต่างจากเผ่าอื่นมาก.</p></div>
-        </div>
+        <div class="chapter-kicker">Chapter IV • Battle Doctrine</div>
+        <h2>กองทัพต้องเล่นอย่างไร?<small>จาก deployment ไปจนถึงจังหวะปิดเกม</small></h2>
+        <p class="lead">อย่าจำแค่ว่า unit ไหน “เก่ง” ให้คิดเป็นหน้าที่: ใครยื้อ, ใครเปิดช่อง, ใครทำ damage, ใครล้วง และใครปิดเกม.</p>
+        <div class="theme-grid"><div class="theme-card"><strong>1. Battle rule</strong><p>Glade Guard/Waywatchers ต้องใช้ระยะและมุมยิง—kite แทนยืนแลก</p></div><div class="theme-card"><strong>2. Battle rule</strong><p>Eternal Guard/Treekin ช่วยยื้อให้ archers มีเวลา; อย่าคาดหวัง elf infantry บางสายเป็น Dwarf wall</p></div><div class="theme-card"><strong>3. Battle rule</strong><p>Wild Riders/Great Stag Knights และ flying units ล้วง artillery/ranged ได้เร็ว</p></div><div class="theme-card"><strong>4. Battle rule</strong><p>forest terrain เป็นข้อได้เปรียบจริง ควรใช้ stalk/vanguard/speed สร้าง ambush ภายใน battle</p></div></div>
+        <div class="callout"><strong>จุดแข็ง:</strong> ranged accuracy สูง mobility ยอดเยี่ยมและสามารถเลือก engagement ได้ดีมาก<br/><strong>จุดอ่อน:</strong> หลาย unit เปราะ/ราคาแพง เมืองนอก forest ไม่แข็งแบบจักรวรรดิทั่วไป และต้อง micro มากใน battle เปิด</div>
       </section>
 
       <section class="chapter" id="ch5" #chapterEl>
-        <div class="chapter-kicker">Chapter V • Signature Themes</div>
-        <h2>แนวคิดและกลไกสำคัญ</h2>
+        <div class="chapter-kicker">Chapter V • Campaign Loop</div>
+        <h2>กลไกสำคัญและ loop ที่ควรเล่นให้ถูก</h2>
         <div class="spread">
-          <figure class="figure">
-            <img src="/assets/wood-elves/wood-elves_signature.svg" alt="WOOD ELVES signature placeholder" />
-            <figcaption>Signature mechanics placeholder</figcaption>
-          </figure>
-          <div>
-            <p class="lead">ธีมหลักคือ worldroots, forest healing, guardianship, hit-and-run และความสัมพันธ์ระหว่างเอลฟ์กับวิญญาณป่า.</p>
-            <div class="callout"><strong>Highlights:</strong> Athel Loren, Archery, Forest Spirits</div>
-          </div>
+          <figure class="figure"><img src="/assets/wood-elves/wood-elves_signature.svg" alt="WOOD ELVES signature mechanics" /><figcaption>กลไกที่ทำให้ campaign ของ faction นี้ไม่เหมือนคนอื่น</figcaption></figure>
+          <div><p class="lead">สิ่งที่ควรเข้าใจคือ “ทำอะไรซ้ำแล้ว faction โต” เพราะถ้าเล่นเหมือน Empire ทุกเผ่า mechanics พิเศษจะกลายเป็นของประดับ.</p><div class="feature-grid"><div class="feature-card"><h3>ระบบ 1</h3><p>Magical Forest health คือเป้าหมายหลัก: ทำภารกิจรอบ forest, จัดการ threats และทำ ritual เพื่อฟื้นฟู</p></div><div class="feature-card"><h3>ระบบ 2</h3><p>Worldroots/Deeproots เปิดการเดินทางข้ามโลก ทำให้ campaign ไม่ต้องยึดพื้นที่ต่อเนื่อง</p></div><div class="feature-card"><h3>ระบบ 3</h3><p>Outposts นอกป่ามีบทบาทสนับสนุนมากกว่าเป็นเมืองแกน ทำให้ map-painting ไม่ใช่เป้าหมายหลัก</p></div><div class="feature-card"><h3>ระบบ 4</h3><p>Amber/forest-specific systems และ mechanics ของ LL เช่น Forge of Daith เพิ่ม specialization</p></div></div></div>
         </div>
       </section>
 
       <section class="chapter" id="ch6" #chapterEl>
-        <div class="chapter-kicker">Chapter VI • Units</div>
-        <h2>หน่วยเด่นและภาพจำ</h2>
+        <div class="chapter-kicker">Chapter VI • Roster Map</div>
+        <h2>หน่วยเด่นและหน้าที่ของ roster<small>เลือกกองทัพจาก role ไม่ใช่แค่ชื่อเท่</small></h2>
         <div class="spread">
-          <div>
-            <p class="lead">ภาพจำของ roster ได้แก่ Glade Guard, Waywatchers, Wild Riders, Treekin, Treemen, Dryads และ eagle riders.</p>
-            <div class="unit-grid">
-              <div class="unit-card"><h3>Visual identity</h3><p>ใช้หัวข้อนี้เป็นที่ใส่รูปกองทัพ หน่วย elite หรือมอนสเตอร์เด่นของเผ่า</p></div>
-              <div class="unit-card"><h3>Roster hook</h3><p>สรุปสั้น ๆ ว่าคนเล่นจดจำ race นี้จากหน่วยหรือสไตล์การเล่นแบบไหน</p></div>
-            </div>
-          </div>
-          <figure class="figure">
-            <img src="/assets/wood-elves/wood-elves_army.svg" alt="WOOD ELVES army placeholder" />
-            <figcaption>Army placeholder</figcaption>
-          </figure>
+          <div><div class="unit-grid"><div class="unit-card"><h3>Archers</h3><p>Glade Guard, Deepwood Scouts, Waywatchers</p></div>
+<div class="unit-card"><h3>Line</h3><p>Eternal Guard, Wardancers</p></div>
+<div class="unit-card"><h3>Mobile</h3><p>Wild Riders, Great Stag Knights, Hawk Riders</p></div>
+<div class="unit-card"><h3>Spirits</h3><p>Dryads, Treekin, Treemen</p></div></div><p class="lead">หลักจัดกอง: มี frontline ที่พอซื้อเวลา + แหล่ง damage หลัก 1–2 แบบ + คำตอบต่อ cavalry/large + อย่างน้อยหนึ่งเครื่องมือจัดการ ranged/artillery.</p></div>
+          <figure class="figure"><img src="/assets/wood-elves/wood-elves_army.svg" alt="WOOD ELVES army" /><figcaption>Roster overview — อ่านคู่กับบทบาทด้านซ้าย</figcaption></figure>
         </div>
       </section>
 
       <section class="chapter" id="ch7" #chapterEl>
-        <div class="chapter-kicker">Chapter VII • WARHAMMER III</div>
-        <h2>บทบาทใน Total War: WARHAMMER III</h2>
-        <p class="lead">หน้า Total War: WARHAMMER III ที่คุณให้มา แสดง Wood Elves อยู่ใน race list ผ่าน Immortal Empires.</p>
-        <div class="callout"><strong>Source note:</strong> สำหรับ bundle นี้ ผมยึดรายชื่อ race จากหน้า <i>Total War: WARHAMMER III</i> ที่คุณส่งมาเป็นหลัก และจัดหน้า/โครงสร้างให้พร้อมนำไปใส่ lore เพิ่มในรอบถัดไปได้ง่าย</div>
-        <p><span class="tag">Athel Loren</span><span class="tag">Archery</span><span class="tag">Forest Spirits</span></p>
+        <div class="chapter-kicker">Chapter VII • Immortal Empires</div>
+        <h2>เอาไปใช้ในแคมเปญจริงอย่างไร?</h2>
+        <p class="lead">Beastmen เป็นศัตรูตามธีมของป่าชัดเจน ขณะที่ Greenskins, Skaven และผู้บุกรุก Magical Forests กลายเป็นภัยตามภูมิศาสตร์มากกว่าความเป็นศัตรูถาวรระดับโลก.</p>
+        <div class="theme-grid">
+          <div class="theme-card"><strong>Early game</strong><p>สร้างกองที่มีบทบาทชัดก่อน อย่ารีบซื้อ elite ทุกชนิดพร้อมกัน และใช้ mechanics เฉพาะเผ่าเพื่อสร้าง economy/momentum.</p></div>
+          <div class="theme-card"><strong>Mid game</strong><p>เริ่มแยก army roles: กองหลักสำหรับชนศัตรูแข็ง กองรองสำหรับป้องกัน/เก็บเมือง และจัด infrastructure ให้ support unit tier ที่ต้องการจริง.</p></div>
+          <div class="theme-card"><strong>Late game</strong><p>อย่ากอง doomstack แบบเดียวทุกกองถ้าไม่จำเป็น—ใช้จุดแข็ง faction สร้าง armies หลายแบบสำหรับ terrain และคู่ต่อสู้ต่างกัน.</p></div>
+          <div class="theme-card"><strong>Rule of thumb</strong><p>ranged accuracy สูง mobility ยอดเยี่ยมและสามารถเลือก engagement ได้ดีมาก แต่ต้องระวังว่า หลาย unit เปราะ/ราคาแพง เมืองนอก forest ไม่แข็งแบบจักรวรรดิทั่วไป และต้อง micro มากใน battle เปิด</p></div>
+        </div>
       </section>
 
       <section class="chapter" id="sources" #chapterEl>
-        <div class="chapter-kicker">Chapter VIII • Sources</div>
-        <h2>สรุปและแหล่งอ้างอิง</h2>
+        <div class="chapter-kicker">Chapter VIII • Reading Notes</div>
+        <h2>สรุปและแหล่งอ่านต่อ</h2>
         <ul>
-          <li>Total War: WARHAMMER Wiki — Total War: Warhammer III</li>
-          <li>หน้าที่ใช้งานนี้ยึดรายชื่อ race จาก section “Races” และ “Playable races” ของหน้าดังกล่าว</li>
-          <li>เนื้อหาในหน้านี้เรียบเรียงใหม่เพื่อเป็นหนังสืออ่านง่ายและเว้น placeholder ไว้ให้เติมรูปจริงภายหลัง</li>
+          <li>Creative Assembly / Total War — faction pages, DLC pages และ patch notes ของ Total War: WARHAMMER III</li>
+          <li>Total War: WARHAMMER Wiki — ใช้ตรวจชื่อ faction, characters, units และบริบท mechanics</li>
+          <li>Warhammer lore references — ใช้สำหรับภูมิหลังโลก ตัวละคร และความสัมพันธ์ระหว่างเผ่า</li>
+          <li>ข้อความทั้งหมดในหน้านี้เรียบเรียงใหม่เพื่ออธิบายภาพรวม ไม่คัดลอกบทความต้นฉบับแบบยาว</li>
         </ul>
-        <p class="fineprint">หมายเหตุ: ผมไม่ได้คัดลอกข้อความตรงจากเว็บยาว ๆ แต่สรุปใหม่ให้เข้ากับเลย์เอาต์หนังสือของโปรเจกต์คุณ</p>
+        <div class="callout"><strong>สำหรับผู้เล่น:</strong> ถ้า patch เปลี่ยนตัวเลข, skill หรือ economy ให้ยึด tooltip ในเกมและ patch notes ล่าสุดก่อน ส่วนบทนี้ตั้งใจอธิบาย “แนวคิด” ที่ทำให้ faction เล่นไม่เหมือนกัน.</div>
       </section>
 
-      <nav class="chapter-nav">
-        <button type="button" (click)="onPrevChapter()">← บทก่อนหน้า</button>
-        <button type="button" (click)="onNextChapter()">บทถัดไป →</button>
-      </nav>
+      <nav class="chapter-nav"><button type="button" (click)="onPrevChapter()">← บทก่อนหน้า</button><button type="button" (click)="onNextChapter()">บทถัดไป →</button></nav>
     </article>
   </main>
 </div>
